@@ -1,0 +1,24 @@
+{
+  "os": "Windows-11-10.0.26300-SP0",
+  "architecture": "AMD64",
+  "python": "3.12.10",
+  "is_jetson": false,
+  "disk_free_bytes": 576990769152,
+  "packages": {
+    "torch": "not found in Python package metadata; system packages may differ",
+    "tensorrt": "not found in Python package metadata; system packages may differ",
+    "onnxruntime": "1.32.0",
+    "numpy": "2.5.5",
+    "opencv-python": "5.1.0.95"
+  },
+  "executables": {
+    "trtexec": null,
+    "tegrastats": null,
+    "nvcc": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.6\\bin\\nvcc.EXE",
+    "nvpmodel": null,
+    "jetson_clocks": null
+  },
+  "device_changes": "none",
+  "nvcc_version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2024 NVIDIA Corporation\nBuilt on Thu_Sep_12_02:55:00_Pacific_Daylight_Time_2024\nCuda compilation tools, release 12.6, V12.6.77\nBuild cuda_12.6.r12.6/compiler.34841621_0\n",
+  "gate": "BLOCKED_NOT_ON_JETSON"
+}

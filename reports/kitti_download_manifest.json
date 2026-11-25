@@ -1,0 +1,32 @@
+{
+  "dataset": "KITTI raw",
+  "sequence": "2011_09_26_drive_0005_sync",
+  "date": "2011_09_26",
+  "license": "CC-BY-NC-SA-3.0",
+  "files": [
+    {
+      "url": "https://s3.eu-central-1.amazonaws.com/avg-kitti/raw_data/2011_09_26_calib.zip",
+      "bytes": 4068,
+      "etag": "\"5d6cfb6bd7ec7c5f5231d16ead7ce9f1\"",
+      "last_modified": "Fri, 11 May 2018 17:39:59 GMT",
+      "sha256": "e0108cfd000cf802c14ed94fba38601185c792e5640abba015a34b7a85b812e0"
+    },
+    {
+      "url": "https://s3.eu-central-1.amazonaws.com/avg-kitti/raw_data/2011_09_26_drive_0005/2011_09_26_drive_0005_sync.zip",
+      "bytes": 645940900,
+      "etag": "\"6a880679a3e3eda8a0ef83abc5354eb1-78\"",
+      "last_modified": "Fri, 11 May 2018 17:44:41 GMT",
+      "sha256": "eaa3635b6ad6a707a8bab53ca38567ada8c78eb743e96d558497872fa436c136"
+    },
+    {
+      "url": "https://s3.eu-central-1.amazonaws.com/avg-kitti/raw_data/2011_09_26_drive_0005/2011_09_26_drive_0005_tracklets.zip",
+      "bytes": 354450,
+      "etag": "\"b5e2ca1af1e9de892ea5cdaaa5be3dd8\"",
+      "last_modified": "Fri, 11 May 2018 17:46:20 GMT",
+      "sha256": "ae896496bcc762c4b0a489730b7d1b2a24513806f5e5bd4e2eeafffc86d486a4"
+    }
+  ],
+  "source": "https://www.cvlibs.net/datasets/kitti/raw_data.php",
+  "download_source": "https://s3.eu-central-1.amazonaws.com/avg-kitti/raw_data_downloader.zip",
+  "total_download_bytes": 646299418
+}

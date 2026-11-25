@@ -1,0 +1,15 @@
+1/154 | frame 0 | 6 detections | 49.0 ms
+26/154 | frame 25 | 5 detections | 45.9 ms
+51/154 | frame 50 | 5 detections | 48.6 ms
+76/154 | frame 75 | 3 detections | 44.2 ms
+101/154 | frame 100 | 8 detections | 43.8 ms
+126/154 | frame 125 | 6 detections | 42.1 ms
+151/154 | frame 150 | 14 detections | 47.2 ms
+{
+  "frames": 154,
+  "fps": 12.28533501075293,
+  "processing_p95_ms": 53.10420000041631,
+  "detections": 992,
+  "positions": 976,
+  "dropped": 0
+}

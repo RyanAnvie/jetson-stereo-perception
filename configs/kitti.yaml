@@ -1,0 +1,28 @@
+dataset_root: data/kitti
+date: '2011_09_26'
+sequence: 2011_09_26_drive_0005_sync
+model: models/weights/yolox_nano.onnx
+score_threshold: 0.30
+nms_iou: 0.45
+onnx_threads: 4
+opencv_threads: 4
+warmup_frames: 5
+min_depth_points: 20
+# Explicit algorithm parameters, not sensor range specifications.
+stereo:
+  min_disparity: 0
+  num_disparities: 128
+  block_size: 5
+  uniqueness_ratio: 10
+  speckle_window_size: 100
+  speckle_range: 2
+  disp12_max_diff: 1
+# Local diagnostic association threshold; not an official KITTI benchmark.
+evaluation_iou: 0.50
+evaluation_classes:
+  Car: car
+  Van: car
+  Pedestrian: person
+display_depth_max_m: 40.0
+# Selection tolerance relative to image_02; audit all offsets before filtering.
+max_stereo_time_error_s: 0.005

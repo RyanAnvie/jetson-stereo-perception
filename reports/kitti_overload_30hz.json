@@ -1,0 +1,214 @@
+{
+  "timed_frames": 83,
+  "elapsed_wall_s": 5.16944379999768,
+  "pipeline_fps": 16.05588593496988,
+  "stages": {
+    "preprocess_ms": {
+      "p50": 0.5302999998093583,
+      "p95": 0.6230799983313773
+    },
+    "inference_ms": {
+      "p50": 4.522400002315408,
+      "p95": 6.172760000845301
+    },
+    "postprocess_ms": {
+      "p50": 1.0465999985171948,
+      "p95": 1.3642400001117494
+    },
+    "stereo_ms": {
+      "p50": 36.37680000247201,
+      "p95": 41.8779799972981
+    },
+    "geometry_ms": {
+      "p50": 5.895900001632981,
+      "p95": 10.991650000141808
+    },
+    "processing_ms": {
+      "p50": 48.91250000218861,
+      "p95": 59.97397999890381
+    },
+    "io_decode_ms": {
+      "p50": 11.348400003043935,
+      "p95": 13.217329999315547
+    },
+    "output_ready_ms": {
+      "p50": 60.72370000038063,
+      "p95": 72.6094900011958
+    },
+    "replay_completion_latency_ms": {
+      "p50": 76.90119999970202,
+      "p95": 95.3084133329439
+    },
+    "start_lateness_ms": {
+      "p50": 12.812499999563437,
+      "p95": 31.651713332369944
+    }
+  },
+  "mode": "benchmark",
+  "environment": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "python": "3.12.10",
+    "machine": "AMD64",
+    "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "logical_cpus": 32,
+    "packages": {
+      "numpy": "2.5.5",
+      "opencv-python": "5.1.0.95",
+      "PyYAML": "6.0.4",
+      "onnxruntime": "1.32.0",
+      "pytest": "9.2.0",
+      "huggingface_hub": "2.4.0"
+    },
+    "free_disk_bytes": 569260830720,
+    "compute_device": "CPU",
+    "available_gpu_not_used": "NVIDIA GeForce RTX 4080 SUPER, 610.88, 16376 MiB"
+  },
+  "config": {
+    "dataset_root": "data/kitti",
+    "date": "2011_09_26",
+    "sequence": "2011_09_26_drive_0005_sync",
+    "model": "models/weights/yolox_nano.onnx",
+    "score_threshold": 0.3,
+    "nms_iou": 0.45,
+    "onnx_threads": 4,
+    "opencv_threads": 4,
+    "warmup_frames": 5,
+    "min_depth_points": 20,
+    "stereo": {
+      "min_disparity": 0,
+      "num_disparities": 128,
+      "block_size": 5,
+      "uniqueness_ratio": 10,
+      "speckle_window_size": 100,
+      "speckle_range": 2,
+      "disp12_max_diff": 1
+    },
+    "evaluation_iou": 0.5,
+    "evaluation_classes": {
+      "Car": "car",
+      "Van": "car",
+      "Pedestrian": "person"
+    },
+    "display_depth_max_m": 40.0,
+    "max_stereo_time_error_s": 0.005
+  },
+  "model": {
+    "name": "YOLOX Nano",
+    "release": "0.1.1rc0",
+    "input_shape": [
+      1,
+      3,
+      416,
+      416
+    ],
+    "sha256": "c789161ed43c8269fcd4e67c67eeeb4e80c622da2eb296a20bc6007bd18a0b7d",
+    "precision": "float32",
+    "runtime": "1.32.0",
+    "provider": "CPUExecutionProvider",
+    "threads": 4,
+    "source": "https://github.com/Megvii-BaseDetection/YOLOX/releases/tag/0.1.1rc0",
+    "license": "Apache-2.0 (upstream project)",
+    "classes": "COCO 80; person=0",
+    "preprocessing": "BGR 0..255 float32 NCHW; aspect-preserving resize; top-left pad=114"
+  },
+  "dataset_manifest_sha256": "cac5c9bce7b718eda5fa06601bb5e4a25a5b95532fb4198a83352f4eec9cae84",
+  "sequence": "2011_09_26_drive_0005_sync",
+  "warmup_frames": 5,
+  "warmup_policy": "first groups before timing, then rerun in measured sequence",
+  "frame_queue_capacity": 1,
+  "dropped_valid_frames": 71,
+  "dropped_indices": [
+    2,
+    4,
+    6,
+    9,
+    11,
+    13,
+    15,
+    17,
+    19,
+    21,
+    23,
+    26,
+    28,
+    30,
+    32,
+    35,
+    37,
+    39,
+    42,
+    44,
+    46,
+    48,
+    50,
+    53,
+    55,
+    57,
+    60,
+    62,
+    64,
+    66,
+    69,
+    71,
+    73,
+    75,
+    78,
+    80,
+    82,
+    84,
+    87,
+    89,
+    91,
+    93,
+    96,
+    98,
+    99,
+    102,
+    104,
+    106,
+    108,
+    110,
+    112,
+    114,
+    116,
+    118,
+    120,
+    123,
+    125,
+    127,
+    129,
+    131,
+    133,
+    135,
+    136,
+    138,
+    140,
+    142,
+    144,
+    146,
+    149,
+    150,
+    152
+  ],
+  "invalid_stereo_groups": 0,
+  "replay_paced": true,
+  "schedule": "fixed-rate replay",
+  "requested_rate_hz": 30.0,
+  "source_timestamps_preserved": true,
+  "drop_late": true,
+  "missed_100ms_deadlines": 3,
+  "detections": 523,
+  "valid_positions": 514,
+  "outputs_sha256": "64d22515f03af49a4b6af586f370fb1aa4b8c8deb60a659d153d40dfa4771cab",
+  "includes_reference_work": false,
+  "includes_video": false,
+  "definitions": {
+    "processing": "RGB frame loaded -> YOLO + stereo + surface positions ready; excludes reference evaluation and rendering",
+    "pipeline_fps": "processed frames / measured wall time, including I/O, selected offline work and pacing",
+    "replay_latency": "scheduled replay input -> output ready; not physical sensor latency"
+  },
+  "independent_object_center_accuracy": "not measured",
+  "jetson": "not measured",
+  "peak_process_memory_bytes": 164216832,
+  "meets_10fps_unpaced_target": null
+}

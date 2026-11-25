@@ -1,0 +1,13 @@
+dataset_root: data/tartan
+model: models/weights/yolox_nano.onnx
+score_threshold: 0.30
+nms_iou: 0.45
+onnx_threads: 4
+# Selection policy, not a sensor specification; also report the unfiltered skew.
+max_time_error_s: 0.032
+min_depth_points: 20
+point_stride: 6
+warmup_frames: 5
+# Display clipping only: numerical depth is never clipped to this range.
+display_depth_max_m: 30.0
+thermal_mapping: blocked_unverified_image_processed_projection

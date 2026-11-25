@@ -1,0 +1,18 @@
+{
+  "os": "Windows-11-10.0.26300-SP0",
+  "python": "3.12.10",
+  "machine": "AMD64",
+  "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "logical_cpus": 32,
+  "packages": {
+    "numpy": "2.5.5",
+    "opencv-python": "5.1.0.95",
+    "PyYAML": "6.0.4",
+    "onnxruntime": "1.32.0",
+    "pytest": "9.2.0",
+    "huggingface_hub": "2.4.0"
+  },
+  "free_disk_bytes": 576990760960,
+  "compute_device": "CPU",
+  "available_gpu_not_used": "NVIDIA GeForce RTX 4080 SUPER, 610.88, 16376 MiB"
+}

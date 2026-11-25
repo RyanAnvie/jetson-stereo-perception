@@ -1,0 +1,84 @@
+{
+  "repository": "theairlabcmu/TartanRGBT",
+  "revision": "23475c0fa9190154e6f1fd78f6b82b29f9d508a0",
+  "sequence": "day2/undistorted_images_all_cameras_20250824_094534",
+  "license": "bsd-3-clause-clear",
+  "files": [
+    {
+      "path": "day2/undistorted_images_all_cameras_20250824_094534/stereo_depth.zip",
+      "size": 626303930
+    },
+    {
+      "path": "day2/undistorted_images_all_cameras_20250824_094534/target_timestamps.txt",
+      "size": 7550
+    },
+    {
+      "path": "day2/undistorted_images_all_cameras_20250824_094534/thermal_left_rect_8.zip",
+      "size": 33841452
+    },
+    {
+      "path": "day2/undistorted_images_all_cameras_20250824_094534/zed_left_rect.zip",
+      "size": 228890442
+    },
+    {
+      "path": "README.md",
+      "size": 12551
+    },
+    {
+      "path": "calibration/cross_camera_extrinsics.yaml",
+      "size": 693
+    },
+    {
+      "path": "calibration/released_zed_rectified_960x540.yaml",
+      "size": 1187
+    },
+    {
+      "path": "calibration/tf_static.json",
+      "size": 1786
+    },
+    {
+      "path": "calibration/thermal_left.yaml",
+      "size": 618
+    },
+    {
+      "path": "calibration/thermal_right.yaml",
+      "size": 615
+    },
+    {
+      "path": "calibration/zed.yaml",
+      "size": 1043
+    },
+    {
+      "path": "calibration/zed_imu_extrinsics.json",
+      "size": 2900
+    },
+    {
+      "path": "configs/handheld.yaml",
+      "size": 2229
+    },
+    {
+      "path": "configs/tartan_rgbt.yaml",
+      "size": 2350
+    }
+  ],
+  "total_bytes": 889069346
+}
+Downloading day2/undistorted_images_all_cameras_20250824_094534/stereo_depth.zip
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Extracting stereo_depth.zip
+Downloading day2/undistorted_images_all_cameras_20250824_094534/target_timestamps.txt
+Downloading day2/undistorted_images_all_cameras_20250824_094534/thermal_left_rect_8.zip
+Extracting thermal_left_rect_8.zip
+Downloading day2/undistorted_images_all_cameras_20250824_094534/zed_left_rect.zip
+Extracting zed_left_rect.zip
+Downloading README.md
+Downloading calibration/cross_camera_extrinsics.yaml
+Downloading calibration/released_zed_rectified_960x540.yaml
+Downloading calibration/tf_static.json
+Downloading calibration/thermal_left.yaml
+Downloading calibration/thermal_right.yaml
+Downloading calibration/zed.yaml
+Downloading calibration/zed_imu_extrinsics.json
+Downloading configs/handheld.yaml
+Downloading configs/tartan_rgbt.yaml
+Ready: data\tartan\day2\undistorted_images_all_cameras_20250824_094534

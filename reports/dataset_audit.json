@@ -1,0 +1,91 @@
+{
+  "revision": "23475c0fa9190154e6f1fd78f6b82b29f9d508a0",
+  "sequence": "day2/undistorted_images_all_cameras_20250824_094534",
+  "target_frames": 302,
+  "decoded_groups": 302,
+  "valid_matched_groups": 296,
+  "ffc_count": 6,
+  "max_time_error_s": 0.032,
+  "nominal_release_hz": 10,
+  "actual_target_interval_ms_p50_p95": [
+    133.2688331604004,
+    133.58497619628906
+  ],
+  "actual_target_span_s": 36.66646099090576,
+  "actual_target_rate_hz": 8.209136956922455,
+  "thermal_target_offset_ms_p50_p95": [
+    1.7390251159667969,
+    2.1240711212158203
+  ],
+  "rgb_thermal_offset_ms_p50_p95": [
+    1.7390251159667969,
+    2.1240711212158203
+  ],
+  "depth_dtype": "float32",
+  "depth_units": "m",
+  "depth_source": "FoundationStereo estimate, not independent ground truth",
+  "depth_finite_range_m": [
+    -3886493696.0,
+    2710863872.0
+  ],
+  "positive_depth_sample_percentiles_1_50_99_m": [
+    0.1553596693277359,
+    3.8752191066741943,
+    10941.939882812505
+  ],
+  "mean_valid_depth_fraction": 0.9980073877340363,
+  "mean_nan_fraction": 0.0,
+  "shapes": {
+    "rgb": [
+      540,
+      960,
+      3
+    ],
+    "thermal": [
+      512,
+      640
+    ],
+    "depth": [
+      540,
+      960
+    ]
+  },
+  "rejected": [
+    {
+      "index": 296,
+      "reasons": [
+        "ffc_or_ffc_timestamp_invalid"
+      ]
+    },
+    {
+      "index": 297,
+      "reasons": [
+        "ffc_or_ffc_timestamp_invalid"
+      ]
+    },
+    {
+      "index": 298,
+      "reasons": [
+        "ffc_or_ffc_timestamp_invalid"
+      ]
+    },
+    {
+      "index": 299,
+      "reasons": [
+        "ffc_or_ffc_timestamp_invalid"
+      ]
+    },
+    {
+      "index": 300,
+      "reasons": [
+        "ffc_or_ffc_timestamp_invalid"
+      ]
+    },
+    {
+      "index": 301,
+      "reasons": [
+        "ffc_or_ffc_timestamp_invalid"
+      ]
+    }
+  ]
+}

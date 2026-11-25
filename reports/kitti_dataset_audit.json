@@ -1,0 +1,76 @@
+{
+  "source_frames": 154,
+  "checked_frames_this_run": 154,
+  "sequence": "2011_09_26_drive_0005_sync",
+  "valid_stereo_groups": 154,
+  "tracklets": 15,
+  "shape": [
+    375,
+    1242,
+    3
+  ],
+  "baseline_x_m": 0.5327119287764802,
+  "K_cam2": [
+    [
+      721.5377,
+      0.0,
+      609.5593
+    ],
+    [
+      0.0,
+      721.5377,
+      172.854
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "frame": "kitti_cam2_rect",
+  "units": "m",
+  "T_cam2_from_velo": {
+    "R": [
+      [
+        0.00023477369814709992,
+        -0.9999441545437641,
+        -0.0105634778110522
+      ],
+      [
+        0.010449407416592825,
+        0.010565353641379319,
+        -0.9998895741176487
+      ],
+      [
+        0.9999453885620024,
+        0.00012436537838650679,
+        0.010451302995668946
+      ]
+    ],
+    "t": [
+      0.0570524478595304,
+      -0.07546671853346001,
+      -0.2693869124058732
+    ]
+  },
+  "source_rate_hz": 9.683763338266251,
+  "image_interval_ms_p50_p95": [
+    103.257088,
+    103.49696
+  ],
+  "absolute_stereo_skew_ms_p50_p95": [
+    0.597888,
+    0.6148352
+  ],
+  "absolute_lidar_camera_stamp_skew_ms_p50_p95": [
+    10.508292,
+    10.5817153
+  ],
+  "scan_duration_ms_p50_p95": [
+    103.2581375,
+    103.4629601
+  ],
+  "timestamp_timezone": "not specified; original nanosecond timestamp strings interpreted only for relative differences",
+  "projection": "P_rect_02 @ R_rect_00 @ T_cam0_from_velo; cam2 translation retains x/y/z",
+  "stereo": "horizontal disparity from already-rectified images; exact horizontal P equations; no second distortion correction"
+}

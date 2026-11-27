@@ -10,12 +10,10 @@ from urllib.parse import unquote
 
 
 ROOT = Path(__file__).resolve().parents[1]
-ROOT_FILES = {"README.md", "README.zh-CN.md", "LICENSE", "THIRD_PARTY.md", "JETSON_AGX_HANDOFF.md", "pyproject.toml", ".gitignore", ".gitattributes"}
+ROOT_FILES = {"README.md", "README.zh-CN.md", "LICENSE", "THIRD_PARTY.md", "pyproject.toml", ".gitignore", ".gitattributes"}
 PUBLIC_DIRS = {"src", "scripts", "tests", "configs", "docs", "requirements", "reports"}
 MEDIA = {"docs/media/tartan-rgbt-balanced.mp4", "docs/media/tartan-rgbt-responsive.mp4"}
-REPORT_FILES = {"reports/README.md", "reports/model_provenance.json",
-                "reports/jetson/tartan_fixed/fixed_corrected.json",
-                "reports/jetson/tartan_fixed/fixed_corrected.outputs.json"}
+REPORT_FILES = {"reports/README.md", "reports/model_provenance.json"}
 
 
 def digest(path):
@@ -49,6 +47,8 @@ def percentile(values, q):
 def check_measurements(root):
     folder = root/"reports/published/tartan_latency"
     summary = json.loads((folder/"benchmark_summary.json").read_text())
+    assert set(summary["profiles"]) == {"balanced", "responsive"}
+    assert len(summary["runs"]) == 6
     total = 0
     for profile, expected in summary["profiles"].items():
         selected = [r for r in summary["runs"] if r["profile"] == profile]
@@ -73,22 +73,30 @@ def check_measurements(root):
                 actual = percentile([s[key] for s in samples], int(label[1:]))
                 assert math.isclose(actual, value, abs_tol=1e-8), (profile, key, label)
         total += len(samples)
-    assert total == summary["total_valid_frames"] == 2664
+    assert total == summary["total_valid_frames"] == 1776
     proof = json.loads((folder/"output_equivalence.json").read_text())
     assert digest(root/proof["reference"]) == proof["reference_sha256"]
-    assert len(proof["runs"]) == 9 and all(r["semantic_equal_to_reference"] for r in proof["runs"])
+    assert len(proof["runs"]) == 6 and all(r["semantic_equal_to_reference"] for r in proof["runs"])
     provenance = json.loads((root/"reports/published/provenance.json").read_text())
     for row in provenance["files"]:
         assert digest(root/row["path"]) == row["sha256"], row["path"]
         if row["path"].endswith(".csv"):
             assert row["source_sha256"] == row["sha256"]
-    videos = json.loads((folder/"deployment_validation.json").read_text())["videos"]
+    videos = json.loads((folder/"media_validation.json").read_text())["videos"]
     for name, record in videos.items():
         video = root/f"docs/media/tartan-rgbt-{name}.mp4"
         assert video.stat().st_size == record["bytes"] < 10_000_000
         assert digest(video) == record["sha256"]
         stream = next(s for s in json.loads((folder/f"{name}_video.json").read_text())["streams"] if s["codec_type"] == "video")
         assert stream["codec_name"] == "h264" and int(stream["nb_frames"]) == 296
+    previews = json.loads((root/"reports/published/readme_previews.json").read_text())["previews"]
+    assert len(previews) == 2
+    for preview in previews:
+        path = root/preview["path"]
+        assert digest(path) == preview["sha256"] and path.stat().st_size == preview["bytes"] < 10_000_000
+        assert digest(root/preview["source"]) == preview["source_sha256"]
+        assert path.read_bytes().startswith(b"GIF89a")
+        assert b"NETSCAPE2.0\x03\x01\x00\x00\x00" in path.read_bytes()
     return total
 
 
@@ -96,6 +104,14 @@ def check(root=ROOT):
     paths = public_files(root)
     candidates = {str(p) for p in paths}
     assert MEDIA <= candidates, "Published MP4 files must not be ignored"
+    allowed_reports = REPORT_FILES | {"reports/published/provenance.json", "reports/published/reference_outputs.json",
+                                     "reports/published/readme_previews.json"}
+    latency = "reports/published/tartan_latency/"
+    allowed_reports |= {latency+name for name in ["benchmark_summary.json", "output_equivalence.json", "media_validation.json",
+                                                 "balanced_video.json", "responsive_video.json"]}
+    allowed_reports |= {f"{latency}{profile}_{repeat}.{extension}" for profile in ["balanced", "responsive"]
+                        for repeat in range(1, 4) for extension in ["json", "csv"]}
+    assert not {p for p in candidates if p.startswith("reports/")} - allowed_reports, "Only released results belong in public reports"
     patterns = [
         re.compile(r"/(?:Users|home)/[A-Za-z0-9_.-]+/"),
         re.compile(r"\b(?:192\.168\.\d{1,3}\.\d{1,3}|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3})\b"),
@@ -111,7 +127,7 @@ def check(root=ROOT):
             errors.append(f"Local artifact in public files: {name}")
         if path.stat().st_size >= 25_000_000:
             errors.append(f"Oversized release file: {name}")
-        if path.suffix in {".mp4", ".jpg", ".png"}:
+        if path.suffix in {".mp4", ".jpg", ".png", ".gif"}:
             continue
         content = path.read_text(encoding="utf-8")
         for pattern in patterns:
@@ -133,8 +149,8 @@ def check(root=ROOT):
         raise RuntimeError("\n".join(errors))
     frames = check_measurements(root)
     result = {"public_files": len(paths), "bytes": sum((root/p).stat().st_size for p in paths),
-              "timing_samples_verified": frames, "videos_verified": len(MEDIA),
-              "checks": "candidate files, host/credential patterns, relative Markdown links, evidence hashes, pooled percentiles, video hashes"}
+              "timing_samples_verified": frames, "videos_verified": len(MEDIA), "animated_previews_verified": 2,
+              "checks": "candidate files, host/credential patterns, relative Markdown links, evidence hashes, pooled percentiles, video hashes, GIF hashes and loop metadata"}
     print(json.dumps(result, indent=2))
     return paths
 

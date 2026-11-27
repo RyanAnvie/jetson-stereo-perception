@@ -10,7 +10,7 @@ import cv2
 def verify():
     root = Path("reports/jetson/tartan_latency")
     summary = json.loads((root/"benchmark_summary.json").read_text())
-    baseline = json.loads(Path("reports/jetson/tartan_fixed/fixed_corrected.outputs.json").read_text())
+    baseline = json.loads(Path("reports/published/reference_outputs.json").read_text())
     for row in summary["runs"]:
         report_path = Path(row["report"])
         assert json.loads(report_path.with_suffix(".outputs.json").read_text()) == baseline
@@ -43,7 +43,7 @@ def verify():
                          "sha256": hashlib.sha256(video.read_bytes()).hexdigest(), "decode_errors": "",
                          "consecutive_identical_rgb_panels": repeated}
     result = {"all_repeated_outputs_exact": True, "repeated_valid_frames": summary["total_valid_frames"], "videos": results}
-    (root/"deployment_validation.json").write_text(json.dumps(result, indent=2)+"\n")
+    (root/"media_validation.json").write_text(json.dumps(result, indent=2)+"\n")
     print(json.dumps(result, indent=2))
 
 

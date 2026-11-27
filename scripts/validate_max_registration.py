@@ -39,7 +39,9 @@ def validate():
     report = {"frames": len(records), "failed_frames": failures, "all_images_points_and_masks_exact": not failures,
               "geometry": "FP64; GPU stable compaction and radius-2 fill; mapped host outputs",
               "records": records}
-    Path("reports/jetson/tartan_max/registration_equivalence.json").write_text(json.dumps(report, indent=2)+"\n")
+    output = Path("reports/local/cuda_mapped_registration.json")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(report, indent=2)+"\n")
     assert len(records) == len(indices) and not failures
     print(json.dumps({k: v for k, v in report.items() if k != "records"}, indent=2))
 

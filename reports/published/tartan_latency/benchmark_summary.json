@@ -1,20 +1,6 @@
 {
   "runs": [
     {
-      "profile": "previous",
-      "repeat": 1,
-      "report": "reports/published/tartan_latency/previous_1.json",
-      "frames": 296,
-      "fps": 32.96038820374209,
-      "elapsed_wall_s": 8.980476751981769,
-      "output_exact": true,
-      "latency": {
-        "p50": 202.78845602297224,
-        "p95": 239.14784198859707
-      },
-      "peak_rss_kib": 1442956
-    },
-    {
       "profile": "balanced",
       "repeat": 1,
       "report": "reports/published/tartan_latency/balanced_1.json",
@@ -43,20 +29,6 @@
       "peak_rss_kib": 1528484
     },
     {
-      "profile": "previous",
-      "repeat": 2,
-      "report": "reports/published/tartan_latency/previous_2.json",
-      "frames": 296,
-      "fps": 32.962788806058526,
-      "elapsed_wall_s": 8.979822724999394,
-      "output_exact": true,
-      "latency": {
-        "p50": 203.6316365120001,
-        "p95": 232.4063502746867
-      },
-      "peak_rss_kib": 1595472
-    },
-    {
       "profile": "balanced",
       "repeat": 2,
       "report": "reports/published/tartan_latency/balanced_2.json",
@@ -81,20 +53,6 @@
       "latency": {
         "p50": 95.55184302735142,
         "p95": 107.21197197563015
-      },
-      "peak_rss_kib": 1595472
-    },
-    {
-      "profile": "previous",
-      "repeat": 3,
-      "report": "reports/published/tartan_latency/previous_3.json",
-      "frames": 296,
-      "fps": 34.03672565387756,
-      "elapsed_wall_s": 8.696488699002657,
-      "output_exact": true,
-      "latency": {
-        "p50": 194.22910298453644,
-        "p95": 224.68014222977217
       },
       "peak_rss_kib": 1595472
     },
@@ -128,75 +86,6 @@
     }
   ],
   "profiles": {
-    "previous": {
-      "fps": 33.312340336636474,
-      "fps_range": [
-        32.96038820374209,
-        34.03672565387756
-      ],
-      "per_run_p95_range_ms": [
-        224.68014222977217,
-        239.14784198859707
-      ],
-      "frames": 888,
-      "latency": {
-        "input_to_output_ms": {
-          "p50": 201.31970450165682,
-          "p95": 231.90644772257653,
-          "p99": 299.2061073682271
-        },
-        "input_to_encoder_ms": {
-          "p50": 201.23665349092335,
-          "p95": 231.89740997913756,
-          "p99": 299.1970954427961
-        },
-        "admission_to_encoder_ms": {
-          "p50": 201.8795684853103,
-          "p95": 233.97920345305462,
-          "p99": 315.46034098719247
-        },
-        "input_to_detection_ms": {
-          "p50": 173.39707849896513,
-          "p95": 182.02967972029,
-          "p99": 232.88253590115346
-        },
-        "input_to_delivery_ms": {
-          "p50": 174.67606149148196,
-          "p95": 186.50231351493858,
-          "p99": 248.56557755556423
-        },
-        "preparation_active_ms": {
-          "p50": 61.08498151297681,
-          "p95": 88.90448274614755,
-          "p99": 117.61464879207776
-        },
-        "preparation_queue_ms": {
-          "p50": 0.18483499297872186,
-          "p95": 10.38702157384248,
-          "p99": 28.647266523912535
-        },
-        "prepared_wait_ms": {
-          "p50": 52.70964597002603,
-          "p95": 76.3004810141865,
-          "p99": 123.17100310872775
-        },
-        "inference_active_ms": {
-          "p50": 56.861267978092656,
-          "p95": 60.1857337547699,
-          "p99": 63.1413054454606
-        },
-        "completed_wait_ms": {
-          "p50": 0.2531019854359329,
-          "p95": 3.2622667524265085,
-          "p99": 48.960374696180196
-        },
-        "render_queue_wait_ms": {
-          "p50": 0.76813850319013,
-          "p95": 24.711324233794585,
-          "p99": 28.941881718928922
-        }
-      }
-    },
     "balanced": {
       "fps": 34.71059737521642,
       "fps_range": [
@@ -336,7 +225,8 @@
       }
     }
   },
-  "total_valid_frames": 2664,
+  "total_valid_frames": 1776,
   "all_outputs_exact": true,
-  "scope": "All frames retained in source order. Same FP32 engine, motion, depth, calibration and original preparation-start latency clock; full render + H264 drain in throughput. Physical capture/future-frame wait, online depth, encoder completion and display latency are not measured."
+  "scope": "All frames retained in source order. Same FP32 engine, motion, depth, calibration and original preparation-start latency clock; full render + H264 drain in throughput. Physical capture/future-frame wait, online depth, encoder completion and display latency are not measured.",
+  "sampling": "Three recorded repeats per released profile; 296 valid groups per repeat. Per-frame timing samples are unchanged."
 }

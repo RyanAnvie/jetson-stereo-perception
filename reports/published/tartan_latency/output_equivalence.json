@@ -1,13 +1,7 @@
 {
-  "reference": "reports/jetson/tartan_fixed/fixed_corrected.outputs.json",
+  "reference": "reports/published/reference_outputs.json",
   "reference_sha256": "47754383b1cac68de2b016ed1b19a0b005a2ea3d8be2d51b3d897494a9cb8ecf",
   "runs": [
-    {
-      "run": "previous_1",
-      "frames": 296,
-      "semantic_equal_to_reference": true,
-      "source_output_sha256": "47754383b1cac68de2b016ed1b19a0b005a2ea3d8be2d51b3d897494a9cb8ecf"
-    },
     {
       "run": "balanced_1",
       "frames": 296,
@@ -16,12 +10,6 @@
     },
     {
       "run": "responsive_1",
-      "frames": 296,
-      "semantic_equal_to_reference": true,
-      "source_output_sha256": "47754383b1cac68de2b016ed1b19a0b005a2ea3d8be2d51b3d897494a9cb8ecf"
-    },
-    {
-      "run": "previous_2",
       "frames": 296,
       "semantic_equal_to_reference": true,
       "source_output_sha256": "47754383b1cac68de2b016ed1b19a0b005a2ea3d8be2d51b3d897494a9cb8ecf"
@@ -39,12 +27,6 @@
       "source_output_sha256": "47754383b1cac68de2b016ed1b19a0b005a2ea3d8be2d51b3d897494a9cb8ecf"
     },
     {
-      "run": "previous_3",
-      "frames": 296,
-      "semantic_equal_to_reference": true,
-      "source_output_sha256": "47754383b1cac68de2b016ed1b19a0b005a2ea3d8be2d51b3d897494a9cb8ecf"
-    },
-    {
       "run": "balanced_3",
       "frames": 296,
       "semantic_equal_to_reference": true,
@@ -57,5 +39,5 @@
       "source_output_sha256": "47754383b1cac68de2b016ed1b19a0b005a2ea3d8be2d51b3d897494a9cb8ecf"
     }
   ],
-  "method": "Parsed every original per-frame output and compared with the reference; repeated output files omitted from publication."
+  "method": "Each published run matches the included per-frame FP32 reference."
 }

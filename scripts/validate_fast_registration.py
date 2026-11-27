@@ -1,4 +1,4 @@
-"""Exhaustive CUDA / original CPU geometry and registered-image equivalence."""
+"""Validate CUDA geometry and registered images against a CPU reference."""
 import json
 from pathlib import Path
 import time
@@ -14,7 +14,7 @@ from multimodal_perception.thermal_fusion import load_fusion_calibration, fuse_t
 
 
 def original_raster(sample, fusion):
-    # Frozen pre-optimization raster/fill algorithm, including OpenCV tie rules.
+    # CPU reference raster/fill algorithm, including OpenCV tie rules.
     uv, pixels = fusion["thermal_pixels"], fusion["rgb_pixels"]
     image = np.full((512, 640, 3), 114, dtype=np.uint8)
     observed = np.zeros((512, 640), dtype=np.uint8)
@@ -71,9 +71,11 @@ def validate():
     report = {"frames": len(records), "failed_frames": failures,
               "registered_images_bit_exact": not any(r["registered_image_changed_values"] for r in records),
               "xyz_max_abs_error_m": max(r["xyz_max_abs_error_m"] or 0 for r in records),
-              "scope": "Every valid frame, unchanged fixed extrinsics and RGB motion. FP64 geometry and exact raster/mask comparison to pre-optimization algorithm, not detection ground truth.",
+              "scope": "Every valid frame with fixed extrinsics and RGB motion. FP64 geometry and exact raster/mask comparison to the CPU reference; not detection ground truth.",
               "records": records}
-    Path("reports/jetson/tartan_fast/registration_equivalence.json").write_text(json.dumps(report, indent=2)+"\n")
+    output = Path("reports/local/cuda_registration.json")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(report, indent=2)+"\n")
     print(json.dumps({k: v for k, v in report.items() if k != "records"}, indent=2), flush=True)
     assert len(records) == len(indices) and not failures
 

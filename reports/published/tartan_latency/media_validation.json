@@ -1,9 +1,9 @@
 {
   "all_repeated_outputs_exact": true,
-  "repeated_valid_frames": 2664,
+  "repeated_valid_frames": 1776,
   "videos": {
     "balanced": {
-      "video": "results/jetson/tartan_latency/balanced.mp4",
+      "video": "docs/media/tartan-rgbt-balanced.mp4",
       "frames": 296,
       "bytes": 6950637,
       "sha256": "d04d6930a7f2802201e26bd5ff8c98479d72d43adc69b301b17bab01eb43cc8d",
@@ -11,7 +11,7 @@
       "consecutive_identical_rgb_panels": []
     },
     "responsive": {
-      "video": "results/jetson/tartan_latency/responsive.mp4",
+      "video": "docs/media/tartan-rgbt-responsive.mp4",
       "frames": 296,
       "bytes": 6969239,
       "sha256": "91f661a3611fb8e50b897efac69fb83eaf0714cbc20b083c8f34ced4ca1ef472",

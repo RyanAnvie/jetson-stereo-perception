@@ -1,8 +1,8 @@
-# 开发与公开发布
+# 开发与发布
 
-## CPU 开发
+## 本地开发
 
-建议 Python 3.10；其他版本需确认依赖支持。CPU 测试不需要下载视频数据、模型或 CUDA，GPU 测试会明确跳过：
+建议使用 Python 3.10。CPU 测试不依赖原始数据、模型或 CUDA；GPU 集成测试需要 Jetson、数据和对应模型。
 
 ```bash
 python3 -m venv .venv
@@ -12,29 +12,25 @@ python3 -m venv .venv
 python3 scripts/check_release.py
 ```
 
-CUDA/TensorRT 的真实测试需要 Jetson、数据和对应模型，见 [部署说明](JETSON.md)。CPU 测试通过不能证明 GPU 性能或相机精度。
+GPU 测试入口见 [Jetson 部署](JETSON.md)。测试覆盖数据有效性、几何变换、场景 BA、推理后端、缓冲区生命周期和并发队列行为。
 
-保持固定数据版本、模型输入约定、标定哈希和报告计时定义。性能更改需要同时比较逐帧预测、几何结果、丢帧/无效组数和完整视频 wall time，不能只给模型推理耗时。
+性能更改需要保持数据版本、模型输入约定和标定来源可追溯，同时比较逐帧预测、几何结果、无效组/丢帧数和完整视频 wall time。具体指标定义见 [性能说明](BENCHMARKS.md)。
 
-本次发布整理已在目标 Jetson 的新建运行 venv 中验证：CPU 53 通过 / 9 跳过，GPU 62 通过；完整 296 帧 H.264 回放与原 FP32 参考逐帧一致。模型从新的上游 Git 检出重新导出，ONNX 哈希与原模型相同。数据和目标 engine 复用已有文件，未重新安装 JetPack 或重建 engine。记录见 [发布验证](../reports/published/release_validation.json)。
+## 仓库内容
 
-## 文件边界
+公开仓库包含源代码、运行配置、通用测试、部署文档、完整演示/动态预览及两个发布配置的性能证据。
 
-源代码、配置、文档、两段演示和精选计时证据随仓库发布。数据、上游模型仓库、checkpoint/ONNX/engine、虚拟环境和生成视频保存在 `data/`、`models/weights/`、`results/`，由 Git 忽略。机器环境转储和新 runtime 报告同样默认忽略。
+原始数据、上游模型仓库、checkpoint/ONNX/engine、Python 环境和运行生成物保存在 `data/`、`models/weights/`、`results/` 等忽略目录。新的报告应保存到 `reports/local/`，只将经过审查的最终结果放进 `reports/published/`。
 
-本次整理前的原始文件保存在维护者本地 `results/local-history/pre-github-20261126/`，有 SHA-256 清单；历史交接包也保留。这些本地备份不影响新克隆部署，不包含在公开包。
-
-## 发布前检查和打包
+## 发布检查
 
 ```bash
 python3 scripts/check_release.py
 python3 scripts/package_release.py
 ```
 
-检查包括：候选文件白名单、凭据/私有地址/个人绝对路径模式、相对 Markdown 链接、视频大小和 SHA-256、公开证据来源哈希、9 份 CSV 的分位数和吞吐汇总。扫描是针对公开工作树的辅助检查，不是对过去 Git 历史的全面审计。
+检查包括公开文件集合、私有地址/绝对路径/凭据模式、相对文档链接、媒体哈希和循环元数据、6 份计时 CSV 的分位数与吞吐汇总。文件检查不替代完整 Git 历史审计。
 
-打包产生 `results/releases/jetson-stereo-perception-source.zip` 和旁边的 SHA-256/文件清单；不包含 `.git`、本地数据、模型和历史备份。解压后仍可直接执行发布检查。可把解压内容放进新仓库，或检查现有仓库的 `git diff` 后自行提交。如果继续使用旧 Git 历史，旧提交中的文件仍会保留；本工具不重写历史。
+打包输出 `results/releases/jetson-stereo-perception-source.zip` 及 SHA-256/文件清单，不含 Git 历史、数据、模型或本地生成物。解压后可直接执行发布检查。视频与 GIF 为普通仓库文件，无需 Git LFS。
 
-视频已经是普通仓库文件，不需要 Git LFS。若网页上传保留目录结构不方便，可用 Git 客户端提交。自动化工具没有替你创建远程仓库、commit 或 push。
-
-[MIT](../LICENSE) 仅适用于原创代码。公开视频必须连同 [第三方说明](../THIRD_PARTY.md) 和数据许可一起保留；LCAFNet 的源码/权重不包含在公开包。
+原创代码采用 [MIT](../LICENSE)。数据派生媒体需保留 [第三方声明](../THIRD_PARTY.md)；上游模型源码和权重不随公开包分发。

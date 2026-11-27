@@ -32,9 +32,3 @@ results/
 !/reports/README.md
 !/reports/model_provenance.json
 !/reports/published/
-!/reports/jetson/
-/reports/jetson/*
-!/reports/jetson/tartan_fixed/
-/reports/jetson/tartan_fixed/*
-!/reports/jetson/tartan_fixed/fixed_corrected.json
-!/reports/jetson/tartan_fixed/fixed_corrected.outputs.json

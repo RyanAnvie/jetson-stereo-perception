@@ -29,40 +29,41 @@ The cameras are fixed relative to each other, while the complete rig moves relat
 
 | Optimization | Implementation | Numerical and resource constraints |
 | --- | --- | --- |
-| TensorRT FP32 | Builds the engine on the target Jetson, disables TF32, reuses inference contexts, and uses CUDA Graph | FP32 remains the default; FP16 is an experimental comparison |
+| TensorRT FP32 | Builds the engine on the target Jetson, disables TF32, reuses inference contexts, and uses CUDA Graph | Uses FP32 to preserve numerical consistency |
 | Dense registration on GPU | CUDA handles dense projection, valid-point compaction, sampling, hole filling, and preprocessing for both inputs | Core geometry retains an FP64/no-FMA path, checked against the CPU reference |
 | Memory reuse | Reuses GPU buffers, mapped page-locked host memory, and fixed input/output buffers | Reduces allocations and bulk copies while using Orin's shared physical memory |
 | Candidate output compaction | Filters candidates above the threshold on GPU, then runs NMS and XYZ calculations on CPU | Does not change the candidate set through arbitrary top-K truncation |
 | Parallel processing | Uses bounded CPU preparation queues, two GPU inference contexts, asynchronous rendering, and Jetson H.264 hardware encoding | Preserves valid frames in source order; throughput does not rely on frame dropping |
-| Response latency reduction | Uses independent input dispatch, reduces preparation prefetch from 4 to 2 groups and the render queue from 2 to 1; response-priority mode reduces concurrency further | Default p95 drops from 231.91 to 146.15 ms; response-priority p95 is 108.91 ms |
+| Response latency reduction | Uses independent input dispatch, a two-group preparation prefetch and a one-frame render queue; response-priority mode uses one inference context and one prefetched group | Default p95 is 146.15 ms; response-priority p95 is 108.91 ms |
 | Separate deployment environments | Uses a CPU PyTorch environment only for ONNX export and system TensorRT/CUDA for runtime | Runtime does not require PyTorch; engines, models, and calibration have metadata checks |
 
 RGB optical flow/PnP, NMS, XYZ statistics, and some rendering remain on CPU. See the [benchmark report](docs/BENCHMARKS.md) and [latency guide](docs/TARTAN_LATENCY.md) for numerical equivalence checks, scheduling parameters, and remaining latency tails.
 
 ## Demo videos
 
-Two complete demonstrations are included in the repository, approximately 7 MB each. Click a preview to open the MP4 file page and download it for playback. Inline playback depends on GitHub's page support.
+The previews below are looping GIFs covering the full 29.6-second demonstration at **480×300 / 5 FPS**. They animate inline when GitHub allows animated images. Full-resolution MP4s are included separately, approximately 7 MB each. Preview playback speed is independent of processing throughput.
 
 | Default: balanced throughput and latency | Response priority |
 | --- | --- |
-| [![Balanced demo](docs/media/tartan-rgbt-balanced.jpg)](docs/media/tartan-rgbt-balanced.mp4) | [![Response-priority demo](docs/media/tartan-rgbt-responsive.jpg)](docs/media/tartan-rgbt-responsive.mp4) |
+| ![Balanced animated preview](docs/media/tartan-rgbt-balanced.gif) | ![Response-priority animated preview](docs/media/tartan-rgbt-responsive.gif) |
 | [Download balanced.mp4](docs/media/tartan-rgbt-balanced.mp4) | [Download responsive.mp4](docs/media/tartan-rgbt-responsive.mp4) |
 
-Both videos are **1280×800, H.264, 296 frames, 10 FPS, and 29.6 seconds long**. Playback FPS is independent of processing throughput. Of the 302 source groups, 6 invalid thermal FFC groups are explicitly excluded. All 296 valid groups are retained, without repeating the previous frame to fill time gaps. The videos therefore do not preserve the original acquisition duration. See [video provenance, checksums, and reproduction instructions](docs/VIDEO.md).
+If the previews remain still, check **Settings → Accessibility → Motion → Autoplay animated images** on GitHub. Animation follows your account/system motion preferences; see [GitHub accessibility settings](https://docs.github.com/en/account-and-profile/how-tos/account-settings/managing-accessibility-settings).
+
+Both full MP4 videos are **1280×800, H.264, 296 frames, 10 FPS, and 29.6 seconds long**. Playback FPS is independent of processing throughput. Of the 302 source groups, 6 invalid thermal FFC groups are explicitly excluded. All 296 valid groups are retained, without repeating the previous frame to fill time gaps. The videos therefore do not preserve the original acquisition duration. See [video provenance, checksums, and reproduction instructions](docs/VIDEO.md).
 
 ## Measured throughput and response latency
 
-Tests ran on AGX Orin 64GB with L4T 36.4.7, CUDA 12.6, TensorRT 10.3, and Python 3.10.12. Each of three profiles was run three times in an interleaved order, processing 296 valid groups per run and 2,664 groups overall. Percentiles pool 888 per-frame samples for each profile.
+Tests ran on AGX Orin 64GB with L4T 36.4.7, CUDA 12.6, TensorRT 10.3, and Python 3.10.12. The two released profiles each include three complete runs, processing 296 valid groups per run and 1,776 groups overall. Percentiles pool 888 per-frame samples for each profile.
 
 | Profile | Complete pipeline FPS | Per-run FPS range | Latency p50 | Latency p95 | Latency p99 |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Previous throughput profile | 33.31 | 32.96–34.04 | 201.32 ms | 231.91 ms | 299.21 ms |
 | **Default balanced** | **34.71** | **34.42–35.04** | **133.40 ms** | **146.15 ms** | **258.75 ms** |
 | **Response-priority responsive** | **24.11** | **23.69–24.52** | **95.13 ms** | **108.91 ms** | **141.58 ms** |
 
 FPS includes reading, decoding, motion estimation, GPU registration, joint inference, NMS/XYZ, rendering, encoding, and final encoder drain. Initialization and model warmup are excluded. Latency in the table is `input_to_output_ms`: from the start of preparation/disk reading for a group to completion of frame submission and associated output work, including snapshot saving on a few frames. The more precise p95 ending at encoder submission is **144.36 ms / 108.91 ms** for balanced / responsive. Camera-exposure-to-display latency has not been measured. Parallel execution means throughput and individual frame response time are different quantities.
 
-Measurements used MAXN, fixed CPU/GPU/EMC clocks, and maximum fan speed. The device was subsequently restored to **automatic fan control**; these figures have not been remeasured under that setting. Deployment instructions keep automatic fan control enabled by default. See the [benchmark report](docs/BENCHMARKS.md) for timing definitions, per-frame CSVs, validation limits, and reproduction instructions.
+See the [benchmark report](docs/BENCHMARKS.md) for hardware conditions, timing definitions, per-frame CSVs, and reproduction instructions.
 
 ## Deploy on Jetson AGX Orin
 
@@ -106,7 +107,7 @@ Each run produces a JSON summary, a per-frame CSV, and an `.outputs.json` file. 
 
 ## Validation scope and limitations
 
-All nine optimized runs match the saved FP32 reference frame by frame, with 21 detections and 8 valid positions per sequence pass. **Numerical equivalence does not establish detection accuracy**: this sequence has neither a measured detection mAP nor complete registration ground truth. Limited manual edge observations cannot certify alignment accuracy across the full video. Motion compensation is accepted for 279 frames; 17 fall back because support is insufficient, with status recorded in the reports.
+All six runs of the two released profiles match the saved FP32 reference frame by frame, with 21 detections and 8 valid positions per sequence pass. **Numerical equivalence does not establish detection accuracy**: this sequence has neither a measured detection mAP nor complete registration ground truth. Limited manual edge observations cannot certify alignment accuracy across the full video. Motion compensation is accepted for 279 frames; 17 fall back because support is insufficient, with status recorded in the reports.
 
 Depth is estimated. XYZ describes a representative visible surface position from valid points within a detection box, not an object center. Thermal images contain 8-bit grayscale intensity, not temperatures in degrees Celsius. The sequence-specific calibration correction has limited validation; new sequences require further checks.
 
@@ -115,7 +116,7 @@ Depth is estimated. XYZ describes a representative visible surface position from
 | Directory | Contents |
 | --- | --- |
 | `src/multimodal_perception/` | Registration, joint detection, scheduling, visualization, and the KITTI baseline |
-| `configs/` | Default, response-priority, and comparison configurations; fixed calibration |
+| `configs/` | Default, response-priority, and CPU reference configurations; fixed calibration |
 | `scripts/` | Download, export, build, run, validation, and packaging tools |
 | `tests/` | CPU unit tests and optional Jetson/GPU integration tests |
 | `docs/` | Deployment, architecture, development guides, and final demo videos |

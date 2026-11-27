@@ -30,7 +30,7 @@ export PYTHONPATH=src OPENBLAS_NUM_THREADS=1
 .venv-jetson-trt/bin/python -c "import cv2, numpy, tensorrt; from cuda import cuda, nvrtc; print(cv2.__version__, numpy.__version__, tensorrt.__version__)"
 ```
 
-Ubuntu 22.04 初始 venv 的旧版 pip/setuptools 在本次验证中无法完成 editable 安装；上面的环境内升级步骤已验证可以解决，不需要改系统 Python。
+使用 venv 内的 pip/setuptools 安装项目，保留系统 Python 与 JetPack 组件。
 
 运行依赖固定在 [jetson-runtime.txt](../requirements/jetson-runtime.txt)。这是直接依赖版本清单，不是包含系统包和所有传递依赖的完整锁文件。CUDA 配准运行时由 NVRTC 编译内核；模型预热与内核初始化不计入稳态基准。
 
@@ -97,7 +97,7 @@ checkpoint 预期 SHA-256：
 
 构建使用 `--noTF32`，生成 `lcafnet_m3fd_fp32.engine` 及同名 `.json`，记录模型/engine 哈希、TensorRT 和构建参数。脚本拒绝覆盖已有 engine。需要重建时先把旧 engine 和 JSON 移到自己的备份目录，或选择新输出目录并更新配置。
 
-engine 依赖目标硬件和 TensorRT 版本，不应直接跨设备拷贝。默认 FP32；FP16 虽然更快，但本序列出现相对 FP32 最大约 0.935 m 的位置差异，未选为默认。这是两种计算结果的差异，不是物理真值误差。
+engine 依赖目标硬件和 TensorRT 版本，不应直接跨设备拷贝。发布配置使用 FP32，保持与公开参考结果一致的数值计算路径。
 
 ## 5. 运行和检查结果
 
@@ -143,13 +143,13 @@ sudo nvpmodel -q
 sudo jetson_clocks --show
 ```
 
-如果此前手动覆盖了 PWM，恢复时重启 `nvfancontrol`。正常部署不手动写最大 PWM。历史性能数据是在最大风扇条件下测得，自动风扇状态尚未复测。
+风扇由 `nvfancontrol` 管理。根据散热条件选择功耗模式，并记录实际运行环境。
 
-需要性能对照时，先查本机 `/etc/nvpmodel.conf`，确认 MAXN 对应的模式编号，再选择模式；不要把其他型号的编号直接照搬。测试设备为 MAXN、CPU 2201.6 MHz、GPU 1300.5 MHz、EMC 3199 MHz。`sudo jetson_clocks` 可固定时钟，**不要添加 `--fan`** 以保持自动风扇策略。记录实际温度、功耗、时钟和风扇条件，与 [基准条件](BENCHMARKS.md) 分开报告。
+需要性能对照时，先查本机 `/etc/nvpmodel.conf`，确认 MAXN 对应的模式编号，再选择模式；不要把其他型号的编号直接照搬。公开性能的具体硬件设置见 [性能说明](BENCHMARKS.md)。`sudo jetson_clocks` 可固定时钟，**不要添加 `--fan`** 以保持自动风扇策略。记录实际温度、功耗、时钟和风扇条件，与 [基准条件](BENCHMARKS.md) 分开报告。
 
 ```bash
-# 交错运行三个配置各三次，含完整视频编码；结果写到忽略的 runtime 报告目录。
+# 交错运行两个发布配置各三次，含完整视频编码。
 .venv-jetson-trt/bin/python scripts/benchmark_tartan_latency.py --repeats 3
 ```
 
-这个脚本严格比较仓库保留的原 FP32 输出，并断言达到 15 FPS。新 engine 的微小差异或不同性能环境可能触发断言。先用上面的普通运行命令生成完整报告并检查差异；不要用新结果静默覆盖已发布参考。无需 Jetson 即可复核发布数字：`python3 scripts/check_release.py`。
+这个脚本比较公开 FP32 参考输出并记录性能。新构建 engine 的微小数值差异可能触发一致性检查。先用上面的普通运行命令生成完整报告并检查差异；不要用新结果静默覆盖已发布参考。无需 Jetson 即可复核发布数字：`python3 scripts/check_release.py`。

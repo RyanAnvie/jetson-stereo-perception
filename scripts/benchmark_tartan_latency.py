@@ -55,7 +55,7 @@ def benchmark(repeats):
                             "latency": {key: {f"p{q}": float(np.percentile([r[key] for r in timings[name]], q)) for q in [50, 95, 99]} for key in metrics}}
     summary = {"runs": rows, "profiles": aggregates, "total_valid_frames": sum(r["frames"] for r in rows),
                "all_outputs_exact": True,
-               "scope": "All frames retained in source order. Same FP32 engine, motion, depth, calibration and original preparation-start latency clock; full render + H264 drain in throughput. Physical capture/future-frame wait, online depth, encoder completion and display latency are not measured."}
+               "scope": "All valid frames retained in source order. FP32 inference with fixed calibration, motion compensation and published depth. Throughput includes rendering and H.264 finalization. Camera acquisition, waiting for future frames, online depth, per-frame encoder completion and display latency are excluded."}
     (root/"benchmark_summary.json").write_text(json.dumps(summary, indent=2)+"\n")
     print(json.dumps(aggregates, indent=2), flush=True)
 

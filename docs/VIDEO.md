@@ -1,4 +1,4 @@
-# 测试视频
+# 演示视频
 
 两段最终视频直接保存在仓库，均为 TartanRGBT 的 RGB + thermal 联合检测结果。
 
@@ -7,7 +7,7 @@
 | [balanced](media/tartan-rgbt-balanced.mp4) | 6,950,637 | 默认双上下文、独立调度、FP32 |
 | [responsive](media/tartan-rgbt-responsive.mp4) | 6,969,239 | 单上下文、最小预取、FP32 |
 
-两者都是 H.264、1280×800、无音频、296 帧、10 FPS、29.6 秒。保留的 JPG 封面来自第 148 帧。README 使用另行生成的全时长 GIF 动态预览。视频播放时间经过压缩有效组的时间轴处理，与原始序列采集时长和处理 FPS 不同。不存在保持上一帧填充源空隙的画面；全部有效帧保留，6 组 FFC 无效输入单独计数。画面中的单帧计算计时不能直接换算成并行完整流程 FPS。
+两者都是 H.264、1280×800、无音频、296 帧、10 FPS、29.6 秒。JPG 封面来自第 148 帧；GIF 为全时长动态预览。视频播放时间经过压缩有效组的时间轴处理，与原始序列采集时长和处理 FPS 不同。不存在保持上一帧填充源空隙的画面；全部有效帧保留，6 组 FFC 无效输入单独计数。画面中的单帧计算计时不能直接换算成并行完整流程 FPS。
 
 | 文件 | SHA-256 |
 | --- | --- |
@@ -18,7 +18,7 @@
 
 来源：CMU AirLab [TartanRGBT 固定版本](https://huggingface.co/datasets/theairlabcmu/TartanRGBT/tree/23475c0fa9190154e6f1fd78f6b82b29f9d508a0)。作者归属与 BSD-3-Clause-Clear 声明见 [THIRD_PARTY.md](../THIRD_PARTY.md) 及 [完整许可](licenses/AnyThermal-LICENSE.txt)。修改包括几何配准、检测框、估计深度/位置、拼接面板和文字叠加。视频、GIF 和缩略图不被项目 MIT 许可证重新授权。
 
-README 直接嵌入循环 GIF，完整 MP4 在下方单独链接。GIF 为 480×300、5 FPS、148 帧、29.6 秒，保持整段播放时长，降低分辨率和采样帧率以控制体积。原 MP4 未重新编码。GIF 是展示预览，不用于精度或性能评价；元数据与来源哈希见 [readme_previews.json](../reports/published/readme_previews.json)。
+README 直接嵌入循环 GIF，完整 MP4 在下方单独链接。GIF 为 480×300、5 FPS、148 帧、29.6 秒，保持整段播放时长，降低分辨率和采样帧率以控制体积。GIF 是展示预览，不用于精度或性能评价；元数据与来源哈希见 [readme_previews.json](../reports/published/readme_previews.json)。
 
 生成 GIF 需要安装系统 FFmpeg/ffprobe，然后在仓库根目录运行：
 
@@ -26,4 +26,4 @@ README 直接嵌入循环 GIF，完整 MP4 在下方单独链接。GIF 为 480×
 python3 scripts/render_readme_previews.py
 ```
 
-重新生成请按 [Jetson 指南](JETSON.md) 运行，输出到 `results/demo/`，不覆盖已经发布且有固定哈希的演示。
+完整视频生成方法见 [Jetson 指南](JETSON.md)，输出目录为 `results/demo/`。

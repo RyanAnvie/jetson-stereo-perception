@@ -244,7 +244,7 @@ def run_loaded_joint(dataset, calibration, detector, config, limit, video, repor
                   encoder_finalize_ms=encoder_finalize_ms,
                   encoder_command=getattr(writer, "command", None),
                   latency_definition="Decode start through detection output, or through rendered-frame submission to the encoder; includes bounded queue residence, excludes physical acquisition. Hardware encoder final drain is accounted in wall FPS.",
-                  detailed_latency_definition="input_to_output_ms preserves the original preparation-start clock and includes optional snapshot writes. input_to_encoder_ms stops at writer.write return before snapshots. admission_to_encoder_ms additionally includes waiting for a CPU preparation worker. None measures camera exposure or encoder completion.",
+                  detailed_latency_definition="input_to_output_ms starts at input preparation and includes optional snapshot writes. input_to_encoder_ms stops at writer.write return before snapshots. admission_to_encoder_ms also includes waiting for a CPU preparation worker. These intervals exclude camera exposure and encoder completion.",
                   source_gap_ticks_removed=max(0, round((outputs[-1]["timestamp_s"]-first_timestamp)*10)+1-len(rows)) if video else 0,
                   processing_definition="loaded sample -> optional RGB rig motion + dense registration + both-input model + decoded detections + estimated 3D",
                   fps_definition="completed valid groups / wall duration including I/O, selected rendering and video encoding, queue drain and encoder finalization; excludes warmup and title cards",

@@ -387,110 +387,23 @@
       "thermal_clock_correction_s": 0.07,
       "clock_convention": "effective thermal exposure = released thermal timestamp + correction; RGB timestamps unchanged",
       "clock_scope": "Sequence-specific image-motion alignment, not an independently measured hardware clock offset",
-      "heldout_observations": [
-        {
-          "index": 100,
-          "feature": "left steel column left edge",
-          "row_y": 80,
-          "projected_rgb_x": 132,
-          "thermal_x": 128,
-          "source_depth_m": 10.202556610107422,
-          "before_x": 132.1398326203681,
-          "after_x": 111.67291404316578,
-          "before_abs_horizontal_px": 4.139832620368111,
-          "after_abs_horizontal_px": 16.327085956834225,
-          "fixed_clock_x": 119.49308366590625,
-          "fixed_clock_abs_horizontal_px": 8.506916334093745
-        },
-        {
-          "index": 100,
-          "feature": "left steel column right edge",
-          "row_y": 80,
-          "projected_rgb_x": 166,
-          "thermal_x": 162,
-          "source_depth_m": 11.691953659057617,
-          "before_x": 166.25205059903942,
-          "after_x": 147.79206811310277,
-          "before_abs_horizontal_px": 4.252050599039421,
-          "after_abs_horizontal_px": 14.207931886897228,
-          "fixed_clock_x": 154.9766227659327,
-          "fixed_clock_abs_horizontal_px": 7.023377234067311
-        },
-        {
-          "index": 100,
-          "feature": "right steel column left edge",
-          "row_y": 80,
-          "projected_rgb_x": 415,
-          "thermal_x": 410,
-          "source_depth_m": 12.892854690551758,
-          "before_x": 415.4607541654436,
-          "after_x": 403.0354228171277,
-          "before_abs_horizontal_px": 5.460754165443575,
-          "after_abs_horizontal_px": 6.96457718287229,
-          "fixed_clock_x": 406.1969339955517,
-          "fixed_clock_abs_horizontal_px": 3.803066004448283
-        },
-        {
-          "index": 150,
-          "feature": "near steel column left edge",
-          "row_y": 180,
-          "projected_rgb_x": 254,
-          "thermal_x": 227,
-          "source_depth_m": 4.326064109802246,
-          "before_x": 254.37528037727358,
-          "after_x": 239.51090160968857,
-          "before_abs_horizontal_px": 27.375280377273583,
-          "after_abs_horizontal_px": 12.510901609688574,
-          "fixed_clock_x": 223.70509043902976,
-          "fixed_clock_abs_horizontal_px": 3.2949095609702397
-        },
-        {
-          "index": 150,
-          "feature": "near steel column right edge",
-          "row_y": 180,
-          "projected_rgb_x": 360,
-          "thermal_x": 334,
-          "source_depth_m": 2.6055681705474854,
-          "before_x": 360.5021807553621,
-          "after_x": 346.49546714612563,
-          "before_abs_horizontal_px": 26.502180755362076,
-          "after_abs_horizontal_px": 12.495467146125634,
-          "fixed_clock_x": 332.678552412453,
-          "fixed_clock_abs_horizontal_px": 1.321447587547027
-        },
-        {
-          "index": 250,
-          "feature": "near panel vertical seam",
-          "row_y": 200,
-          "projected_rgb_x": 134,
-          "thermal_x": 114,
-          "source_depth_m": 0.3360939621925354,
-          "before_x": 134.98251745192405,
-          "after_x": 108.54354843968304,
-          "before_abs_horizontal_px": 20.982517451924053,
-          "after_abs_horizontal_px": 5.456451560316964,
-          "fixed_clock_x": 109.19743751764383,
-          "fixed_clock_abs_horizontal_px": 4.802562482356166
-        }
-      ],
-      "heldout_horizontal_before_mean_max_px": [
-        11.327069223789152,
-        16.327085956834225
-      ],
-      "heldout_horizontal_after_mean_max_px": [
-        4.792046533913795,
-        8.506916334093745
-      ],
       "status": "fixed_extrinsics_clock_refined_approximate",
       "physical_accuracy_certified": false,
-      "validation_scope": "Six original manual horizontal edges, +/-4px annotation uncertainty. Full-sequence motion and image proxy diagnostics are reported separately; no per-frame ECC.",
       "timestamp_sha256": {
         "day2/undistorted_images_all_cameras_20250824_094534/target_timestamps.txt": "bb90babf4eccb1f3a82e3bf004735417c65b0862941c755982ac16e2d245f7cb",
         "day2/undistorted_images_all_cameras_20250824_094534/zed_left_rect/timestamps.txt": "bb90babf4eccb1f3a82e3bf004735417c65b0862941c755982ac16e2d245f7cb",
         "day2/undistorted_images_all_cameras_20250824_094534/thermal_left_rect_8/timestamps.txt": "8ca38715686dcdaa712981d01d176f0cb7d43d44cb88b07fc5f9c89df73c8dce"
+      },
+      "validation_summary": {
+        "frames": 3,
+        "horizontal_edges": 6,
+        "annotation_uncertainty_px": 4.0,
+        "mean_abs_horizontal_error_px": 4.792046533913795,
+        "max_abs_horizontal_error_px": 8.506916334093745,
+        "scope": "Sparse horizontal edge observations; not full-frame or cross-sequence accuracy."
       }
     },
-    "refinement_sha256": "513a9ceb81f4f71873f242d217f44028b0be24b9e471fb7a0a930afd7d705dbc"
+    "refinement_sha256": "489efc839b9e2ad3fb752f4654d5c010f40baa7092516b4b28d40bbf0109ca55"
   },
   "dataset_revision": "23475c0fa9190154e6f1fd78f6b82b29f9d508a0",
   "sequence": "day2/undistorted_images_all_cameras_20250824_094534",
@@ -604,7 +517,7 @@
     "location=results/jetson/tartan_latency/balanced.mp4"
   ],
   "latency_definition": "Decode start through detection output, or through rendered-frame submission to the encoder; includes bounded queue residence, excludes physical acquisition. Hardware encoder final drain is accounted in wall FPS.",
-  "detailed_latency_definition": "input_to_output_ms preserves the original preparation-start clock and includes optional snapshot writes. input_to_encoder_ms stops at writer.write return before snapshots. admission_to_encoder_ms additionally includes waiting for a CPU preparation worker. None measures camera exposure or encoder completion.",
+  "detailed_latency_definition": "input_to_output_ms starts at input preparation and includes optional snapshot writes. input_to_encoder_ms stops at writer.write return before snapshots. admission_to_encoder_ms also includes waiting for a CPU preparation worker. These intervals exclude camera exposure and encoder completion.",
   "source_gap_ticks_removed": 64,
   "processing_definition": "loaded sample -> optional RGB rig motion + dense registration + both-input model + decoded detections + estimated 3D",
   "fps_definition": "completed valid groups / wall duration including I/O, selected rendering and video encoding, queue drain and encoder finalization; excludes warmup and title cards",
@@ -673,6 +586,5 @@
   "render_queue_bound": 1,
   "decoded_frame_cache_bound": 6,
   "timing_note": "Preparation, independent inference streams and optional rendering overlap; do not add stage medians or invert per-worker latency for pipeline FPS. CUDA preprocessing time is CPU enqueue time; its device work is included in inference wall time. Wall FPS includes first preparation and final output drain. input_to_output_ms includes queue latency.",
-  "process_peak_rss_kib": 1595472,
-  "publication_note": "Original measured timings and configuration; host environment dump and upstream model architecture omitted."
+  "process_peak_rss_kib": 1595472
 }

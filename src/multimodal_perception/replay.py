@@ -67,8 +67,8 @@ def process_sample(sample, camera, detector, config):
 def run_replay(config_path="configs/default.yaml", limit=0, video=None, paced=False,
                report_path="reports/benchmark_pc.json", show=False):
     config = yaml.safe_load(Path(config_path).read_text())
-    if config["thermal_mapping"] != "blocked_unverified_image_processed_projection":
-        raise ValueError("Real thermal mapping requires new calibration evidence and validation")
+    if config["thermal_mapping"] != "disabled_rgb_only_baseline":
+        raise ValueError("RGB-only replay requires thermal_mapping=disabled_rgb_only_baseline; use run_tartan_joint.py for calibrated RGB + thermal detection")
     if limit < 0 or config["warmup_frames"] < 0 or config["display_depth_max_m"] <= 0:
         raise ValueError("Invalid frame count, warmup count, or display depth limit")
     dataset = open_dataset(config["dataset_root"], config["max_time_error_s"])
@@ -89,12 +89,11 @@ def run_replay(config_path="configs/default.yaml", limit=0, video=None, paced=Fa
         writer = cv2.VideoWriter(str(video), cv2.VideoWriter_fourcc(*"MJPG"), 10, (1280, 800))
         if not writer.isOpened():
             raise RuntimeError("OpenCV video writer could not open the output")
-        card = title_card("Seeing in three modalities", ["Real TartanRGBT footage. 10 Hz presentation timeline.",
+        card = title_card("RGB detection and multimodal replay", ["TartanRGBT footage. 10 Hz presentation timeline.",
                            "RGB detection + metric estimated depth + thermal replay.",
                            f"{len(indices)} selected valid groups; {int(dataset['ffc'].sum())} source FFC groups excluded.",
-                           "Thermal 3D registration is blocked pending calibration evidence.",
-                           "Unverified detector predictions include visible false positives.",
-                           "No independent depth accuracy or camera-latency claim."])
+                           "RGB-only detection; thermal image displayed without geometric fusion.",
+                           "YOLOX Nano predictions; estimated depth, not ground truth."])
         for _ in range(30):
             writer.write(card)
     rows = []
@@ -150,7 +149,7 @@ def run_replay(config_path="configs/default.yaml", limit=0, video=None, paced=Fa
             outputs.append({"index": index, "timestamp_s": sample["timestamp_s"],
                             "rgb_timestamp_s": sample["rgb_timestamp_s"], "thermal_timestamp_s": sample["thermal_timestamp_s"],
                             "detections": detections, "valid_cloud_points": len(points),
-                            "frame": camera["frame"], "units": "m", "thermal_status": "calibration_unverified"})
+                            "frame": camera["frame"], "units": "m", "thermal_status": "display_only"})
             if position % 50 == 0:
                 print(f"Processed {position+1}/{len(indices)} | frame {index} | {timing['processing_ms']:.1f} ms", flush=True)
             if stop_requested:
@@ -158,11 +157,10 @@ def run_replay(config_path="configs/default.yaml", limit=0, video=None, paced=Fa
         elapsed = time.perf_counter()-start
         if writer is not None:
             summary = summarize_timings(rows, elapsed)
-            card = title_card("Measured. Reproducible. Bounded.", [f"{len(rows)} real frames processed. YOLOX Nano / CPU / FP32.",
-                               f"Processing p50 {summary['stages']['processing_ms']['p50']:.1f} ms / p95 {summary['stages']['processing_ms']['p95']:.1f} ms in this render run.",
-                               "Full headless benchmark and per-frame samples: reports/",
-                               "Detector has visible false positives; no labeled accuracy score.",
-                               "Thermal mapping: unverified. Jetson: not measured.",
+            card = title_card("RGB baseline results", [f"{len(rows)} frames processed. YOLOX Nano / CPU / FP32.",
+                               f"Processing p50 {summary['stages']['processing_ms']['p50']:.1f} ms / p95 {summary['stages']['processing_ms']['p95']:.1f} ms.",
+                               "Outputs: predictions, estimated surface XYZ and per-frame timings.",
+                               "Thermal view: display only.",
                                "Data: CMU AirLab TartanRGBT / AnyThermal (ICRA 2026).",
                                "Model: Megvii YOLOX. Source attributions: THIRD_PARTY.md"])
             for _ in range(45):
@@ -183,7 +181,7 @@ def run_replay(config_path="configs/default.yaml", limit=0, video=None, paced=Fa
                   missed_100ms_deadlines=missed_deadlines if paced else None,
                   total_detections=sum(len(item["detections"]) for item in outputs),
                   person_detections=sum(d["class_id"] == 0 for item in outputs for d in item["detections"]),
-                  thermal_mapping="BLOCKED: image_processed projection unverified", accuracy="not measured",
+                  thermal_mapping="disabled_rgb_only_baseline", accuracy="not measured",
                   processing_definition="loaded frame -> detections + RGB-depth 3D ready; excludes I/O, rendering, encoding",
                   fps_definition="completed valid groups / timed wall duration, including I/O and selected render mode",
                   acquisition_latency="not measured; dataset replay only")

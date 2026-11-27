@@ -119,7 +119,7 @@ def render_dashboard(sample, detections, points, pixels, metrics, elapsed_s, max
     text(canvas, "04  RGB COLORED 3D / CAMERA FRAME", 656, 454, 0.51, ACCENT)
     point_colors = sample["rgb"][pixels[:, 1], pixels[:, 0]]
     canvas[465:751, 656:1256] = cloud_view(points, point_colors, detections)
-    text(canvas, f"CPU processing {metrics['processing_ms']:.1f} ms | thermal 3D mapping: BLOCKED", 656, 772, 0.41, MUTED)
+    text(canvas, f"CPU processing {metrics['processing_ms']:.1f} ms | thermal: display only", 656, 772, 0.41, MUTED)
     if not sample["valid"]:
         cv2.rectangle(canvas, (0, 300), (1280, 370), (25, 35, 90), -1)
         text(canvas, "INVALID THERMAL GROUP - DISPLAY ONLY / EXCLUDED FROM FUSION", 55, 345, 0.75, FOREGROUND, 2)
@@ -129,9 +129,9 @@ def render_dashboard(sample, detections, points, pixels, metrics, elapsed_s, max
 def title_card(title, lines):
     canvas = np.full((800, 1280, 3), BACKGROUND, dtype=np.uint8)
     cv2.rectangle(canvas, (70, 148), (78, 650), ACCENT, -1)
-    text(canvas, "AXG  /  MULTIMODAL PERCEPTION", 110, 180, 0.6, ACCENT)
+    text(canvas, "JETSON  /  MULTIMODAL PERCEPTION", 110, 180, 0.6, ACCENT)
     text(canvas, title, 110, 250, 1.05, FOREGROUND, 2)
     for i, line in enumerate(lines):
         text(canvas, line, 110, 318+i*48, 0.60, MUTED)
-    text(canvas, "Reproducible code + raw timing samples + explicit scientific limits", 110, 724, 0.50, MUTED)
+    text(canvas, "RGB, thermal and depth dataset replay", 110, 724, 0.50, MUTED)
     return canvas

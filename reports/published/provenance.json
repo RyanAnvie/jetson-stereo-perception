@@ -1,108 +1,99 @@
 {
-  "scope": "Final balanced/responsive measurements. CSV samples are byte-for-byte unchanged; hashes retain source traceability.",
+  "scope": "Checksums for published calibration, performance and media metadata. source_sha256 identifies the measurement source; sha256 identifies the published file.",
   "files": [
     {
       "path": "reports/published/tartan_latency/balanced_1.json",
-      "sha256": "3946dbb592ad638ec16caee27e68cb8610e8e2f55a6b58481dddd79664fab9b6",
-      "source_relative_path": "jetson/tartan_latency/balanced_1.json",
-      "source_sha256": "091cdae2ce9827447dfc193b289fe712ecdcfbdf2a45c7574af032ef7dca3896"
+      "sha256": "2c3f4e666832aab8aa6a3e77e429de647b0e150acffb8fb0178b917787237763",
+      "source_sha256": "091cdae2ce9827447dfc193b289fe712ecdcfbdf2a45c7574af032ef7dca3896",
+      "measurement_refinement_sha256": "513a9ceb81f4f71873f242d217f44028b0be24b9e471fb7a0a930afd7d705dbc"
     },
     {
       "path": "reports/published/tartan_latency/balanced_1.csv",
       "sha256": "78a0c7096ab133c3cee687659b3eb274198662ac3ca914a5d67f3d0080e49d38",
-      "source_relative_path": "jetson/tartan_latency/balanced_1.csv",
       "source_sha256": "78a0c7096ab133c3cee687659b3eb274198662ac3ca914a5d67f3d0080e49d38"
     },
     {
       "path": "reports/published/tartan_latency/responsive_1.json",
-      "sha256": "41d503bdfbf79c2d2703325403110370cbf04caf05bd4624bf1c3f0f328ab65c",
-      "source_relative_path": "jetson/tartan_latency/responsive_1.json",
-      "source_sha256": "c06658fe6b1708728a5c916d5436bdd889a5ad4194c5a181cf9edf2cea262540"
+      "sha256": "a8c31bbd0f9912a37709b2b9cfd53f7172f12ea82acef8243990b0946be10941",
+      "source_sha256": "c06658fe6b1708728a5c916d5436bdd889a5ad4194c5a181cf9edf2cea262540",
+      "measurement_refinement_sha256": "513a9ceb81f4f71873f242d217f44028b0be24b9e471fb7a0a930afd7d705dbc"
     },
     {
       "path": "reports/published/tartan_latency/responsive_1.csv",
       "sha256": "4e665a670e334ad56933a03b2d9708e8d7653664234f6155824231bb4eba2ac0",
-      "source_relative_path": "jetson/tartan_latency/responsive_1.csv",
       "source_sha256": "4e665a670e334ad56933a03b2d9708e8d7653664234f6155824231bb4eba2ac0"
     },
     {
       "path": "reports/published/tartan_latency/balanced_2.json",
-      "sha256": "7bd0aa18939fa0001b72d303f4d7233ae1e5e1efee9ea40dc15d9c0612835916",
-      "source_relative_path": "jetson/tartan_latency/balanced_2.json",
-      "source_sha256": "f1714ee2eec2d562f0a17935eb6088cb4066985354c43ebe141096fd5dabe2cc"
+      "sha256": "7921f2ec2020510b16b1d1281127fbb44e1771dea48b3f8110a5e284a0133af1",
+      "source_sha256": "f1714ee2eec2d562f0a17935eb6088cb4066985354c43ebe141096fd5dabe2cc",
+      "measurement_refinement_sha256": "513a9ceb81f4f71873f242d217f44028b0be24b9e471fb7a0a930afd7d705dbc"
     },
     {
       "path": "reports/published/tartan_latency/balanced_2.csv",
       "sha256": "78e3b87573049687bcaa3cd8eafdcbbb1a2340fa980b0ca42e179a00d586bebe",
-      "source_relative_path": "jetson/tartan_latency/balanced_2.csv",
       "source_sha256": "78e3b87573049687bcaa3cd8eafdcbbb1a2340fa980b0ca42e179a00d586bebe"
     },
     {
       "path": "reports/published/tartan_latency/responsive_2.json",
-      "sha256": "5c1cffae445e95b8d7fc9b49ac71910b2206e5573903fb3d6732db89c1444693",
-      "source_relative_path": "jetson/tartan_latency/responsive_2.json",
-      "source_sha256": "ff1a4d1ffe8e1829bcad36eeece14431d94dec5e3ec2fbe7b390eccf2888e5d9"
+      "sha256": "1f952c80883c0875e825389133c68bc1f0d5e7615fcd0d45b09655914a68217f",
+      "source_sha256": "ff1a4d1ffe8e1829bcad36eeece14431d94dec5e3ec2fbe7b390eccf2888e5d9",
+      "measurement_refinement_sha256": "513a9ceb81f4f71873f242d217f44028b0be24b9e471fb7a0a930afd7d705dbc"
     },
     {
       "path": "reports/published/tartan_latency/responsive_2.csv",
       "sha256": "8dbf8b5f45ee10abdb7d54bba2f1e9dabf314b8c3f533c5e16f0317e66ff90b0",
-      "source_relative_path": "jetson/tartan_latency/responsive_2.csv",
       "source_sha256": "8dbf8b5f45ee10abdb7d54bba2f1e9dabf314b8c3f533c5e16f0317e66ff90b0"
     },
     {
       "path": "reports/published/tartan_latency/balanced_3.json",
-      "sha256": "44adbe1cb0915f7cb88130fb9ae9af30897183365eea4b09097af1b548e8f4a9",
-      "source_relative_path": "jetson/tartan_latency/balanced_3.json",
-      "source_sha256": "fc8ec3c2335f9d8f99360ed154f665a1f617a80898ab2afdc985ac57cdf86085"
+      "sha256": "caa027b15f5a827894892dadffd5ed1183f7ceae5bc31f088ee48f704f2efaed",
+      "source_sha256": "fc8ec3c2335f9d8f99360ed154f665a1f617a80898ab2afdc985ac57cdf86085",
+      "measurement_refinement_sha256": "513a9ceb81f4f71873f242d217f44028b0be24b9e471fb7a0a930afd7d705dbc"
     },
     {
       "path": "reports/published/tartan_latency/balanced_3.csv",
       "sha256": "b5ffb0de362ac887e561b27615bae79e2fc00f84f154062f8906b76188e484d3",
-      "source_relative_path": "jetson/tartan_latency/balanced_3.csv",
       "source_sha256": "b5ffb0de362ac887e561b27615bae79e2fc00f84f154062f8906b76188e484d3"
     },
     {
       "path": "reports/published/tartan_latency/responsive_3.json",
-      "sha256": "cb36149d74c08ba51cb36d55ad1139e767faba5dd39df3e98742e1672eedae48",
-      "source_relative_path": "jetson/tartan_latency/responsive_3.json",
-      "source_sha256": "2935837081d9b579b875fe364b7d6734bc73b9fabd4f4126e95f6cfea8938169"
+      "sha256": "2e18eb1f04a33da47200571e607c85dac57c94d780c315bc129c8ab174b592c1",
+      "source_sha256": "2935837081d9b579b875fe364b7d6734bc73b9fabd4f4126e95f6cfea8938169",
+      "measurement_refinement_sha256": "513a9ceb81f4f71873f242d217f44028b0be24b9e471fb7a0a930afd7d705dbc"
     },
     {
       "path": "reports/published/tartan_latency/responsive_3.csv",
       "sha256": "55c3cfa13ba33454f35ee83e506a61db456981ef7b71144f280e09d7338816b2",
-      "source_relative_path": "jetson/tartan_latency/responsive_3.csv",
       "source_sha256": "55c3cfa13ba33454f35ee83e506a61db456981ef7b71144f280e09d7338816b2"
     },
     {
       "path": "reports/published/tartan_latency/benchmark_summary.json",
-      "sha256": "e19ede4ae7c4c2b4f87f9a179904c22ae08a22c09dbed10343909c7528b6e7ef",
-      "source_relative_path": "jetson/tartan_latency/benchmark_summary.json",
-      "source_sha256": "ff6374ed4f0c1569e1159426a1380260c2145e9fbbbe0238288bed854182bfa0",
-      "transformation": "Select released balanced/responsive profiles; recompute selected sample count; timings unchanged"
+      "sha256": "42c656e0b492349506056623b01442a3d8c3fbbfb07cd68f06e473ca88739937",
+      "source_sha256": "ff6374ed4f0c1569e1159426a1380260c2145e9fbbbe0238288bed854182bfa0"
     },
     {
       "path": "reports/published/tartan_latency/balanced_video.json",
       "sha256": "4af5ace6584bf94def3384a5718e996be588105c2bffd3359e946898e81a8168",
-      "source_relative_path": "jetson/tartan_latency/balanced_3_video.json",
-      "source_sha256": "376499bd67a176d4120c52084f9174b92955e798f87d4016bddaf2c41e6bbead",
-      "transformation": "Use published media path; encoded file unchanged"
+      "source_sha256": "376499bd67a176d4120c52084f9174b92955e798f87d4016bddaf2c41e6bbead"
     },
     {
       "path": "reports/published/tartan_latency/responsive_video.json",
       "sha256": "020959518d7183f8420526c2de6cae301aaff62ea650c123b04029f3af5dc6a6",
-      "source_relative_path": "jetson/tartan_latency/responsive_3_video.json",
-      "source_sha256": "283917f7147e9b2fa62702601b72965268919cb4ccd754181b13cdc530d4c1fa",
-      "transformation": "Use published media path; encoded file unchanged"
+      "source_sha256": "283917f7147e9b2fa62702601b72965268919cb4ccd754181b13cdc530d4c1fa"
     },
     {
       "path": "reports/published/tartan_latency/output_equivalence.json",
-      "sha256": "c039ac2f6912ada8a18d2e403ede08f87f3699741e71b7eaa056aa98cae08eb9",
-      "transformation": "Released-profile validation metadata; no timing samples modified"
+      "sha256": "c039ac2f6912ada8a18d2e403ede08f87f3699741e71b7eaa056aa98cae08eb9"
     },
     {
       "path": "reports/published/tartan_latency/media_validation.json",
-      "sha256": "7d9312edb55d887f66e811692af06303bccd6b7b772afb2395d9fc7c29b26376",
-      "transformation": "Released-profile validation metadata; no timing samples modified"
+      "sha256": "7d9312edb55d887f66e811692af06303bccd6b7b772afb2395d9fc7c29b26376"
+    },
+    {
+      "path": "configs/tartan_fixed_refinement.json",
+      "sha256": "489efc839b9e2ad3fb752f4654d5c010f40baa7092516b4b28d40bbf0109ca55",
+      "source_sha256": "513a9ceb81f4f71873f242d217f44028b0be24b9e471fb7a0a930afd7d705dbc"
     }
   ]
 }

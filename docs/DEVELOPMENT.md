@@ -29,8 +29,8 @@ python3 scripts/check_release.py
 python3 scripts/package_release.py
 ```
 
-检查包括公开文件集合、私有地址/绝对路径/凭据模式、相对文档链接、媒体哈希和循环元数据、6 份计时 CSV 的分位数与吞吐汇总。文件检查不替代完整 Git 历史审计。
+检查包括公开文件集合、私有地址/绝对路径/凭据模式、相对文档链接、媒体哈希和循环元数据、6 份计时 CSV 的分位数与吞吐汇总。
 
-打包输出 `results/releases/jetson-stereo-perception-source.zip` 及 SHA-256/文件清单，不含 Git 历史、数据、模型或本地生成物。解压后可直接执行发布检查。视频与 GIF 为普通仓库文件，无需 Git LFS。
+打包输出 `results/releases/jetson-stereo-perception-source.zip` 及 SHA-256/文件清单，包含公开源码、文档、演示媒体和性能证据。视频与 GIF 为普通仓库文件，无需 Git LFS。
 
 原创代码采用 [MIT](../LICENSE)。数据派生媒体需保留 [第三方声明](../THIRD_PARTY.md)；上游模型源码和权重不随公开包分发。

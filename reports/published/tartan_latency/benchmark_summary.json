@@ -227,6 +227,6 @@
   },
   "total_valid_frames": 1776,
   "all_outputs_exact": true,
-  "scope": "All frames retained in source order. Same FP32 engine, motion, depth, calibration and original preparation-start latency clock; full render + H264 drain in throughput. Physical capture/future-frame wait, online depth, encoder completion and display latency are not measured.",
+  "scope": "All valid frames retained in source order. FP32 inference with fixed calibration, motion compensation and published depth. Throughput includes rendering and H.264 finalization. Camera acquisition, waiting for future frames, online depth, per-frame encoder completion and display latency are excluded.",
   "sampling": "Three recorded repeats per released profile; 296 valid groups per repeat. Per-frame timing samples are unchanged."
 }

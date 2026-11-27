@@ -10,4 +10,4 @@ point_stride: 6
 warmup_frames: 5
 # Display clipping only: numerical depth is never clipped to this range.
 display_depth_max_m: 30.0
-thermal_mapping: blocked_unverified_image_processed_projection
+thermal_mapping: disabled_rgb_only_baseline

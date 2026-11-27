@@ -12,7 +12,7 @@
 export PYTHONPATH=src OPENBLAS_NUM_THREADS=1
 .venv-jetson-trt/bin/python scripts/download_kitti.py
 .venv-jetson-trt/bin/python scripts/download_model.py
-.venv-jetson-trt/bin/python scripts/run_kitti.py --frames 5 --report reports/local/kitti_smoke.json
+.venv-jetson-trt/bin/python scripts/run_kitti.py --frames 5 --report reports/local/kitti_sample.json
 .venv-jetson-trt/bin/python scripts/run_kitti.py --report reports/local/kitti_full.json
 
 # 控制到达速率的回放；drop-late 会明确记录跳过的源索引。

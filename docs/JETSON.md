@@ -1,10 +1,10 @@
 # 部署到 Jetson AGX Orin
 
-本指南对应 [README](../README.md) 的 TartanRGBT RGB + thermal 主线。所有命令在 Jetson 的仓库根目录执行。使用已有 JetPack 的 CUDA/TensorRT，不在 Python 环境中安装另一套 TensorRT。
+本指南部署 TartanRGBT RGB + thermal 联合检测。所有命令在 Jetson 的仓库根目录执行，CUDA/TensorRT 使用 JetPack 提供的系统组件。
 
 ## 1. 硬件和系统检查
 
-已验证：AGX Orin 64GB、Ubuntu 22.04.5、L4T 36.4.7、Python 3.10.12、CUDA 12.6、TensorRT 10.3。该组合是测试条件，不是所有 JetPack 版本的兼容承诺。需要网络下载数据和上游模型，以及足够空间容纳解压数据、两个 Python 环境和模型构建临时文件；建议预留至少 15 GB。
+部署环境：AGX Orin 64GB、Ubuntu 22.04.5、L4T 36.4.7、Python 3.10.12、CUDA 12.6、TensorRT 10.3。数据和模型通过网络下载；建议预留至少 15 GB 可用空间，用于解压数据、两个 Python 环境及模型构建。
 
 ```bash
 cat /proc/device-tree/model
@@ -17,7 +17,7 @@ gst-inspect-1.0 nvvidconv
 ffprobe -version
 ```
 
-缺少基础工具时安装 `git python3-venv python3-dev ffmpeg gstreamer1.0-tools`。TensorRT Python 绑定、`trtexec`、CUDA/NVRTC 和 NVIDIA GStreamer 插件应来自匹配的 JetPack 安装。如果插件不可用，先修复系统环境；不能用软件编码的速度冒充本文硬件编码结果。
+系统依赖包括 `git python3-venv python3-dev ffmpeg gstreamer1.0-tools`。TensorRT Python 绑定、`trtexec`、CUDA/NVRTC 和 NVIDIA GStreamer 插件由匹配的 JetPack 提供。视频输出使用 `nvv4l2h264enc` 硬件编码器。
 
 ```bash
 git clone https://github.com/RyanAnvie/jetson-stereo-perception.git
@@ -47,9 +47,9 @@ export PYTHONPATH=src OPENBLAS_NUM_THREADS=1
   --sequence day2/undistorted_images_all_cameras_20250824_094534
 ```
 
-默认保存到 `data/tartan/`，约 0.9 GB 压缩下载量，只选一个序列以及共享标定/配置。下载器记录文件 SHA-256，解压 RGB、8 位热像、热像 FFC 标志和已发布深度，生成 `sample_manifest.json`。不要只拷贝 PNG 而遗漏时间戳、FFC、manifest 和标定文件。
+默认保存到 `data/tartan/`，约 0.9 GB 压缩下载量，只选一个序列以及共享标定/配置。下载器记录文件 SHA-256，解压 RGB、8 位热像、热像 FFC 标志和已发布深度，生成 `sample_manifest.json`。运行输入包括图像、时间戳、FFC、manifest 和标定文件。
 
-当前固定修正严格绑定此数据版本、序列和标定哈希。更换序列要重新验证，不能关闭校验来强行复用。
+固定修正绑定上述数据版本、序列和标定哈希。其他序列需要相应的标定和时间修正。
 
 ## 3. 获取并导出双模态模型
 
@@ -83,7 +83,7 @@ checkpoint 预期 SHA-256：
   --output models/weights/lcafnet_m3fd.onnx
 ```
 
-导出器在反序列化 checkpoint 前检查上游源代码版本和 checkpoint 哈希；仅使用上述可信上游文件。输出包含 ONNX 和同名 `.json` 元数据，输入为两个 `[1,3,640,640]` 张量，预测为 `[1,102000,11]`。不要遗漏 JSON。官方链接不可用时从上游 README 获取同一文件，保持哈希检查。
+导出器校验上游源码版本和 checkpoint 哈希，生成 ONNX 及配套的同名 `.json` 元数据。模型输入为两个 `[1,3,640,640]` 张量，预测输出为 `[1,102000,11]`；部署时保留这两个文件。
 
 ## 4. 在目标设备构建 TensorRT
 
@@ -95,16 +95,16 @@ checkpoint 预期 SHA-256：
   --report-dir reports/local/build_rgbt
 ```
 
-构建使用 `--noTF32`，生成 `lcafnet_m3fd_fp32.engine` 及同名 `.json`，记录模型/engine 哈希、TensorRT 和构建参数。脚本拒绝覆盖已有 engine。需要重建时先把旧 engine 和 JSON 移到自己的备份目录，或选择新输出目录并更新配置。
+构建使用 `--noTF32`，生成 `lcafnet_m3fd_fp32.engine` 及同名 `.json`，记录模型/engine 哈希、TensorRT 和构建参数。每次构建使用独立输出目录，并将配置中的 `engine` 路径指向生成文件。
 
-engine 依赖目标硬件和 TensorRT 版本，不应直接跨设备拷贝。发布配置使用 FP32，保持与公开参考结果一致的数值计算路径。
+engine 与目标硬件和 TensorRT 版本绑定，应在目标设备构建。发布配置采用 FP32 计算路径。
 
 ## 5. 运行和检查结果
 
 ```bash
 export PYTHONPATH=src OPENBLAS_NUM_THREADS=1
 .venv-jetson-trt/bin/python scripts/run_tartan_joint.py \
-  --frames 5 --report reports/local/smoke.json
+  --frames 5 --report reports/local/sample.json
 
 .venv-jetson-trt/bin/python scripts/run_tartan_joint.py \
   --video results/demo/balanced.mp4 --report reports/local/balanced.json
@@ -114,7 +114,7 @@ export PYTHONPATH=src OPENBLAS_NUM_THREADS=1
   --video results/demo/responsive.mp4 --report reports/local/responsive.json
 ```
 
-完整序列预期：296 组有效输入、6 组 FFC 无效输入、0 丢弃有效帧、0 保持上一帧的视频帧。输出为报告 `.json`、计时 `.csv`、逐帧预测 `.outputs.json` 和指定的视频。新的 engine 可能因构建策略产生微小数值变化，需要重新比较，不能直接宣称逐位等价。
+完整序列预期：296 组有效输入、6 组 FFC 无效输入、0 丢弃有效帧、0 保持上一帧的视频帧。输出为报告 `.json`、计时 `.csv`、逐帧预测 `.outputs.json` 和指定的视频。TensorRT 构建策略可能产生浮点差异，输出验证使用公开 FP32 参考。
 
 ```bash
 .venv-jetson-trt/bin/python -m pip install -r requirements/test.txt
@@ -132,7 +132,7 @@ CPU 参考运行需要 ONNX Runtime 和 `configs/tartan_joint_fixed.yaml`：
   --frames 5 --report reports/local/cpu_reference.json
 ```
 
-## 6. 功耗、自动风扇和性能复测
+## 6. 运行设置与性能测量
 
 默认使用系统自动风扇服务：
 
@@ -143,13 +143,11 @@ sudo nvpmodel -q
 sudo jetson_clocks --show
 ```
 
-风扇由 `nvfancontrol` 管理。根据散热条件选择功耗模式，并记录实际运行环境。
-
-需要性能对照时，先查本机 `/etc/nvpmodel.conf`，确认 MAXN 对应的模式编号，再选择模式；不要把其他型号的编号直接照搬。公开性能的具体硬件设置见 [性能说明](BENCHMARKS.md)。`sudo jetson_clocks` 可固定时钟，**不要添加 `--fan`** 以保持自动风扇策略。记录实际温度、功耗、时钟和风扇条件，与 [基准条件](BENCHMARKS.md) 分开报告。
+功耗模式编号由设备的 `/etc/nvpmodel.conf` 定义。`sudo jetson_clocks` 固定运行时钟，风扇由 `nvfancontrol` 管理。性能测量记录功耗模式、时钟和散热条件；公开结果的环境见 [性能说明](BENCHMARKS.md)。
 
 ```bash
 # 交错运行两个发布配置各三次，含完整视频编码。
 .venv-jetson-trt/bin/python scripts/benchmark_tartan_latency.py --repeats 3
 ```
 
-这个脚本比较公开 FP32 参考输出并记录性能。新构建 engine 的微小数值差异可能触发一致性检查。先用上面的普通运行命令生成完整报告并检查差异；不要用新结果静默覆盖已发布参考。无需 Jetson 即可复核发布数字：`python3 scripts/check_release.py`。
+基准脚本记录两个配置的完整视频吞吐和逐帧延迟，并校验公开 FP32 参考输出。报告写入 `reports/jetson/tartan_latency/`。`python3 scripts/check_release.py` 可在无需 GPU 的环境中复核已发布的统计与文件校验和。

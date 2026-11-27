@@ -8,9 +8,9 @@ The default FP32 configuration achieves **34.71 FPS**; the response-priority con
 
 [Jetson deployment](docs/JETSON.md) · [Performance and latency](docs/BENCHMARKS.md) · [Architecture](docs/ARCHITECTURE.md) · [Development and releases](docs/DEVELOPMENT.md) · [Third-party notices](THIRD_PARTY.md)
 
-The detailed guides linked above are currently in Chinese; third-party notices are in English. This README is available in both languages, with the same commands and measured results.
+Detailed deployment and architecture guides are in Chinese. Third-party notices are in English.
 
-## Implemented features
+## Features
 
 | Feature | Implementation and outputs |
 | --- | --- |
@@ -23,7 +23,7 @@ The detailed guides linked above are currently in Chinese; third-party notices a
 | Reproducible replay and diagnostics | Produces fused views, detection/position tables, H.264 videos, per-frame predictions, stage timing CSVs, and JSON summaries |
 | Separate KITTI baseline | Retains RGB detection, StereoSGBM depth, and offline LiDAR/tracklet comparisons; see the [KITTI guide](docs/KITTI.md) |
 
-The cameras are fixed relative to each other, while the complete rig moves relative to the scene. Fixed extrinsics and compensation between exposure times therefore coexist. The +70 ms correction was inferred from image alignment in this sequence and must not be applied directly to other cameras or sequences.
+Fixed RGB/thermal extrinsics describe the rig geometry. RGB motion estimates account for rig movement between exposure times. The +70 ms correction was inferred from image alignment in this sequence and must not be applied directly to other cameras or sequences.
 
 ## Jetson deployment optimizations
 
@@ -37,7 +37,7 @@ The cameras are fixed relative to each other, while the complete rig moves relat
 | Response latency reduction | Uses independent input dispatch, a two-group preparation prefetch and a one-frame render queue; response-priority mode uses one inference context and one prefetched group | Default p95 is 146.15 ms; response-priority p95 is 108.91 ms |
 | Separate deployment environments | Uses a CPU PyTorch environment only for ONNX export and system TensorRT/CUDA for runtime | Runtime does not require PyTorch; engines, models, and calibration have metadata checks |
 
-RGB optical flow/PnP, NMS, XYZ statistics, and some rendering remain on CPU. See the [benchmark report](docs/BENCHMARKS.md) and [latency guide](docs/TARTAN_LATENCY.md) for numerical equivalence checks, scheduling parameters, and remaining latency tails.
+RGB optical flow/PnP, NMS, XYZ statistics, and some rendering run on CPU. See the [benchmark report](docs/BENCHMARKS.md) and [latency guide](docs/TARTAN_LATENCY.md) for numerical equivalence checks, scheduling parameters, and latency distributions.
 
 ## Demo videos
 
@@ -87,9 +87,9 @@ Next, follow the [complete deployment guide](docs/JETSON.md) to obtain the speci
 Once the model artifacts and their JSON metadata are ready:
 
 ```bash
-# Five-frame smoke check; FPS without video is not comparable to the full video benchmark.
+# Process a five-frame sample.
 .venv-jetson-trt/bin/python scripts/run_tartan_joint.py \
-  --frames 5 --report reports/local/smoke.json
+  --frames 5 --report reports/local/sample.json
 
 # Default profile: complete processing with H.264 video output.
 .venv-jetson-trt/bin/python scripts/run_tartan_joint.py \
@@ -103,7 +103,7 @@ Once the model artifacts and their JSON metadata are ready:
 
 Each run produces a JSON summary, a per-frame CSV, and an `.outputs.json` file. See the [configuration guide](configs/README.md).
 
-## Validation scope and limitations
+## Result scope
 
 All six runs of the two released profiles match the saved FP32 reference frame by frame, with 21 detections and 8 valid positions per sequence pass. **Numerical equivalence does not establish detection accuracy**: this sequence has neither a measured detection mAP nor complete registration ground truth. Limited manual edge observations cannot certify alignment accuracy across the full video. Motion compensation is accepted for 279 frames; 17 fall back because support is insufficient, with status recorded in the reports.
 

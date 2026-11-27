@@ -1,4 +1,4 @@
-"""Read-only device probe. Run locally on the explicitly authorized Jetson."""
+"""Report Jetson hardware, software versions and runtime dependencies."""
 
 import argparse
 import importlib
@@ -41,7 +41,7 @@ if __name__ == "__main__":
     if report["executables"]["nvcc"]:
         result = subprocess.run([report["executables"]["nvcc"], "--version"], capture_output=True, text=True)
         report["nvcc_version"] = result.stdout
-    report["gate"] = "ENVIRONMENT_INSPECTED" if report["is_jetson"] else "BLOCKED_NOT_ON_JETSON"
+    report["hardware_compatibility"] = "jetson" if report["is_jetson"] else "non_jetson"
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2), encoding="utf-8")

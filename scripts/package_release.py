@@ -1,4 +1,4 @@
-"""Create a verified source archive including the two reviewed demonstration videos."""
+"""Create a verified source archive including the demonstration videos."""
 import hashlib
 import json
 from pathlib import Path

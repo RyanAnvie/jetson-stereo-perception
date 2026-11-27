@@ -8,7 +8,7 @@
 
 [Jetson 部署](docs/JETSON.md) · [性能与延迟](docs/BENCHMARKS.md) · [处理架构](docs/ARCHITECTURE.md) · [开发与发布](docs/DEVELOPMENT.md) · [第三方许可](THIRD_PARTY.md)
 
-## 已实现功能
+## 项目功能
 
 | 功能 | 实现与输出 |
 | --- | --- |
@@ -17,11 +17,11 @@
 | 场景 BA 固定外参校正 | 用多个场景帧的约束优化一套全段共享外参，默认关闭逐帧 ECC，保留标定来源与文件哈希 |
 | 时间与运动补偿 | 本序列采用有效热像时间修正 +70 ms，使用 RGB 光流/PnP 估计相机组的刚体运动；补偿失败时明确记录回退 |
 | 目标表面三维位置 | 对检测框内有效深度点统计 XYZ、支持点数及有效性；深度不足时返回无效状态 |
-| 无效输入管理 | 检查时间戳、缺帧、深度和热像 FFC；全部有效组保持顺序，视频跳过源空隙和无效组，不再用上一帧填充 |
+| 无效输入管理 | 检查时间戳、缺帧、深度和热像 FFC；全部有效组保持顺序，视频跳过源空隙和无效组，不使用上一帧填充 |
 | 可复现回放与诊断 | 生成融合画面、检测/位置表、H.264 视频、逐帧输出、阶段计时 CSV 和 JSON 汇总 |
 | 独立 KITTI 基线 | 保留 RGB 检测、StereoSGBM 双目深度和离线 LiDAR/tracklet 对照，见 [KITTI 说明](docs/KITTI.md) |
 
-两台相机之间固定，但整套相机相对场景运动，因此固定外参和跨时间运动补偿同时存在。+70 ms 是这段序列的图像对齐修正，不能直接套用到其他相机或序列。
+固定 RGB/thermal 外参描述相机组的几何关系，RGB 运动估计用于补偿不同曝光时刻之间的相机组运动。+70 ms 是这段序列的图像对齐修正，不能直接套用到其他相机或序列。
 
 ## Jetson 部署优化
 
@@ -35,9 +35,9 @@
 | 响应延迟优化 | 独立输入调度，默认预取 2 组、渲染队列 1 帧；响应优先模式采用单推理上下文和单组预取 | 默认 p95 为 146.15 ms；响应优先为 108.91 ms |
 | 部署环境分离 | CPU PyTorch 环境只负责 ONNX 导出，运行环境使用系统 TensorRT/CUDA | 运行不依赖 PyTorch；engine、模型、标定均有元数据校验 |
 
-RGB 光流/PnP、NMS、XYZ 统计和部分渲染仍在 CPU。当前优化没有将所有处理迁到 GPU。数值等价检查、调度参数和尚存的延迟长尾见 [性能报告](docs/BENCHMARKS.md) 与 [延迟说明](docs/TARTAN_LATENCY.md)。
+RGB 光流/PnP、NMS、XYZ 统计和部分渲染在 CPU 上执行。数值等价检查、调度参数和延迟分布见 [性能报告](docs/BENCHMARKS.md) 与 [延迟说明](docs/TARTAN_LATENCY.md)。
 
-## 测试视频
+## 演示视频
 
 下面是自动循环的 **GIF 预览**，覆盖完整 29.6 秒演示，预览规格为 **480×300 / 5 FPS**。完整高清 MP4 同时保留，每个约 7 MB。预览播放速度与处理吞吐不同。
 
@@ -85,9 +85,9 @@ export PYTHONPATH=src OPENBLAS_NUM_THREADS=1
 模型及其 JSON 元数据就绪后：
 
 ```bash
-# 5 帧检查；无视频时的 FPS 不能与完整视频基准直接比较。
+# 处理 5 帧样例。
 .venv-jetson-trt/bin/python scripts/run_tartan_joint.py \
-  --frames 5 --report reports/local/smoke.json
+  --frames 5 --report reports/local/sample.json
 
 # 默认配置，完整处理并写入 H.264 视频。
 .venv-jetson-trt/bin/python scripts/run_tartan_joint.py \
@@ -101,7 +101,7 @@ export PYTHONPATH=src OPENBLAS_NUM_THREADS=1
 
 每次产生 JSON 汇总、逐帧 CSV 和 `.outputs.json`。配置详见 [configs/README.md](configs/README.md)。
 
-## 验证范围与限制
+## 结果适用范围
 
 两个发布配置的 6 次运行与保存的 FP32 参考结果逐帧一致，每遍序列共 21 个检测、8 个有效位置。**数值一致不代表识别准确**：没有这段数据的检测 mAP 或完整配准真值。有限人工边缘验证也不能作为全视频精度认证。279 帧接受运动补偿，17 帧因支持不足回退，状态写入报告。
 

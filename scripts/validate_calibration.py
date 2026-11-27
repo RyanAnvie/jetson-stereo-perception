@@ -34,7 +34,7 @@ if __name__ == "__main__":
     colors_bgr = sample["rgb"][cloud_pixels[:, 1], cloud_pixels[:, 0]]
     np.savez_compressed(output / "rgb_cloud_0100.npz", xyz_m=cloud, pixels_uv=cloud_pixels,
                         rgb=colors_bgr[:, ::-1], frame=camera["frame"])
-    report = {"rgb_geometry": "PASS", "thermal_mapping": "BLOCKED", "revision": dataset["manifest"]["revision"],
+    report = {"rgb_geometry": "PASS", "thermal_mapping": "not_evaluated_rgb_geometry_only", "revision": dataset["manifest"]["revision"],
               "rgb_frame": camera["frame"], "rgb_domain": "rectified pinhole, released 960x540 K",
               "rgb_units": "m", "source_frame": 100,
               "backprojection_reprojection_roundtrip_max_px": float(errors.max()),
@@ -42,8 +42,7 @@ if __name__ == "__main__":
               "T_thermal_from_rgb": {"R": transform["R"].tolist(), "t_m": transform["t"].tolist()},
               "transform_evidence": "configs/handheld.yaml explicitly says pose of to_frame in from_frame; invert to map points parent -> child",
               "thermal_domain_evidence": ["Dataset card calls thermal_left_rect_8 rectified", "thermal_left.yaml supplies raw equidistant K/D and a pinhole P", "configs/tartan_rgbt.yaml records thermal_left_rect_8 from /thermal_left/image_processed; camera_info is commented out"],
-              "blocker": "No checked source connects image_processed pixels to the supplied P. Do not apply raw fisheye D or assume P without rectification-node/CameraInfo evidence.",
-              "required_to_unblock": "Official image_processed rectification implementation or matching CameraInfo P, followed by real correspondence overlay review",
+              "thermal_calibration_profile": "configs/tartan_thermal_profile.json defines the processed thermal coordinate domain; this check only evaluates RGB geometry",
               "depth_policy": "finite positive Z only; no physical upper range was documented; huge positive estimates remain numerical outputs, display crops are explicit"}
     Path("reports/geometry_report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     print(json.dumps(report, indent=2))

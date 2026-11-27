@@ -1,0 +1,179 @@
+{
+  "scope": "Measured values retained; JSON host metadata removed; timing CSVs byte-for-byte unchanged; original file hashes recorded.",
+  "files": [
+    {
+      "path": "reports/published/tartan_latency/previous_1.json",
+      "sha256": "d05f717b5450c5614762dc44e2af6bb66acb78c958d5a64d87f99a2cd5186150",
+      "source_relative_path": "jetson/tartan_latency/previous_1.json",
+      "source_sha256": "4eadbad880fbd972b5b42367acb2676f6bca41319d69209d5679d237c58303eb"
+    },
+    {
+      "path": "reports/published/tartan_latency/previous_1.csv",
+      "sha256": "5e90d9e78453cbeaf37020803ad5e38b7137ab519b4e715cc31be3e37bfb9390",
+      "source_relative_path": "jetson/tartan_latency/previous_1.csv",
+      "source_sha256": "5e90d9e78453cbeaf37020803ad5e38b7137ab519b4e715cc31be3e37bfb9390"
+    },
+    {
+      "path": "reports/published/tartan_latency/balanced_1.json",
+      "sha256": "3946dbb592ad638ec16caee27e68cb8610e8e2f55a6b58481dddd79664fab9b6",
+      "source_relative_path": "jetson/tartan_latency/balanced_1.json",
+      "source_sha256": "091cdae2ce9827447dfc193b289fe712ecdcfbdf2a45c7574af032ef7dca3896"
+    },
+    {
+      "path": "reports/published/tartan_latency/balanced_1.csv",
+      "sha256": "78a0c7096ab133c3cee687659b3eb274198662ac3ca914a5d67f3d0080e49d38",
+      "source_relative_path": "jetson/tartan_latency/balanced_1.csv",
+      "source_sha256": "78a0c7096ab133c3cee687659b3eb274198662ac3ca914a5d67f3d0080e49d38"
+    },
+    {
+      "path": "reports/published/tartan_latency/responsive_1.json",
+      "sha256": "41d503bdfbf79c2d2703325403110370cbf04caf05bd4624bf1c3f0f328ab65c",
+      "source_relative_path": "jetson/tartan_latency/responsive_1.json",
+      "source_sha256": "c06658fe6b1708728a5c916d5436bdd889a5ad4194c5a181cf9edf2cea262540"
+    },
+    {
+      "path": "reports/published/tartan_latency/responsive_1.csv",
+      "sha256": "4e665a670e334ad56933a03b2d9708e8d7653664234f6155824231bb4eba2ac0",
+      "source_relative_path": "jetson/tartan_latency/responsive_1.csv",
+      "source_sha256": "4e665a670e334ad56933a03b2d9708e8d7653664234f6155824231bb4eba2ac0"
+    },
+    {
+      "path": "reports/published/tartan_latency/previous_2.json",
+      "sha256": "67bdb32510bb5ed2a0484e2970594613352478374f602732fd4bc30441bfa015",
+      "source_relative_path": "jetson/tartan_latency/previous_2.json",
+      "source_sha256": "58ee7f2fca43b0e22e376dc732180949ce50d0f0e0a2c34c030cc00afa7ab2f7"
+    },
+    {
+      "path": "reports/published/tartan_latency/previous_2.csv",
+      "sha256": "84b4f0211f3c57e0bb9c23012e7813bb019f6da6d68f9c66605071cce15708e4",
+      "source_relative_path": "jetson/tartan_latency/previous_2.csv",
+      "source_sha256": "84b4f0211f3c57e0bb9c23012e7813bb019f6da6d68f9c66605071cce15708e4"
+    },
+    {
+      "path": "reports/published/tartan_latency/balanced_2.json",
+      "sha256": "7bd0aa18939fa0001b72d303f4d7233ae1e5e1efee9ea40dc15d9c0612835916",
+      "source_relative_path": "jetson/tartan_latency/balanced_2.json",
+      "source_sha256": "f1714ee2eec2d562f0a17935eb6088cb4066985354c43ebe141096fd5dabe2cc"
+    },
+    {
+      "path": "reports/published/tartan_latency/balanced_2.csv",
+      "sha256": "78e3b87573049687bcaa3cd8eafdcbbb1a2340fa980b0ca42e179a00d586bebe",
+      "source_relative_path": "jetson/tartan_latency/balanced_2.csv",
+      "source_sha256": "78e3b87573049687bcaa3cd8eafdcbbb1a2340fa980b0ca42e179a00d586bebe"
+    },
+    {
+      "path": "reports/published/tartan_latency/responsive_2.json",
+      "sha256": "5c1cffae445e95b8d7fc9b49ac71910b2206e5573903fb3d6732db89c1444693",
+      "source_relative_path": "jetson/tartan_latency/responsive_2.json",
+      "source_sha256": "ff1a4d1ffe8e1829bcad36eeece14431d94dec5e3ec2fbe7b390eccf2888e5d9"
+    },
+    {
+      "path": "reports/published/tartan_latency/responsive_2.csv",
+      "sha256": "8dbf8b5f45ee10abdb7d54bba2f1e9dabf314b8c3f533c5e16f0317e66ff90b0",
+      "source_relative_path": "jetson/tartan_latency/responsive_2.csv",
+      "source_sha256": "8dbf8b5f45ee10abdb7d54bba2f1e9dabf314b8c3f533c5e16f0317e66ff90b0"
+    },
+    {
+      "path": "reports/published/tartan_latency/previous_3.json",
+      "sha256": "d07bdabd9b2455fac25473e03627d66b9764949e1306159a61ff65dbf6ab75b5",
+      "source_relative_path": "jetson/tartan_latency/previous_3.json",
+      "source_sha256": "cd4213c375d39fd4b455e8a38cd8ee6c1211b2233f7f50181fb407842469dda1"
+    },
+    {
+      "path": "reports/published/tartan_latency/previous_3.csv",
+      "sha256": "de69bd74803ac53ee7643aab18b78107df27363df49de5e237f4aa20b9f62c82",
+      "source_relative_path": "jetson/tartan_latency/previous_3.csv",
+      "source_sha256": "de69bd74803ac53ee7643aab18b78107df27363df49de5e237f4aa20b9f62c82"
+    },
+    {
+      "path": "reports/published/tartan_latency/balanced_3.json",
+      "sha256": "44adbe1cb0915f7cb88130fb9ae9af30897183365eea4b09097af1b548e8f4a9",
+      "source_relative_path": "jetson/tartan_latency/balanced_3.json",
+      "source_sha256": "fc8ec3c2335f9d8f99360ed154f665a1f617a80898ab2afdc985ac57cdf86085"
+    },
+    {
+      "path": "reports/published/tartan_latency/balanced_3.csv",
+      "sha256": "b5ffb0de362ac887e561b27615bae79e2fc00f84f154062f8906b76188e484d3",
+      "source_relative_path": "jetson/tartan_latency/balanced_3.csv",
+      "source_sha256": "b5ffb0de362ac887e561b27615bae79e2fc00f84f154062f8906b76188e484d3"
+    },
+    {
+      "path": "reports/published/tartan_latency/responsive_3.json",
+      "sha256": "cb36149d74c08ba51cb36d55ad1139e767faba5dd39df3e98742e1672eedae48",
+      "source_relative_path": "jetson/tartan_latency/responsive_3.json",
+      "source_sha256": "2935837081d9b579b875fe364b7d6734bc73b9fabd4f4126e95f6cfea8938169"
+    },
+    {
+      "path": "reports/published/tartan_latency/responsive_3.csv",
+      "sha256": "55c3cfa13ba33454f35ee83e506a61db456981ef7b71144f280e09d7338816b2",
+      "source_relative_path": "jetson/tartan_latency/responsive_3.csv",
+      "source_sha256": "55c3cfa13ba33454f35ee83e506a61db456981ef7b71144f280e09d7338816b2"
+    },
+    {
+      "path": "reports/published/tartan_latency/benchmark_summary.json",
+      "sha256": "aa0daef73b3587b0bca92121461cf8c1671b27dc21f20bb5dd00e0bed33d2b74",
+      "source_relative_path": "jetson/tartan_latency/benchmark_summary.json",
+      "source_sha256": "ff6374ed4f0c1569e1159426a1380260c2145e9fbbbe0238288bed854182bfa0"
+    },
+    {
+      "path": "reports/published/tartan_latency/balanced_video.json",
+      "sha256": "376499bd67a176d4120c52084f9174b92955e798f87d4016bddaf2c41e6bbead",
+      "source_relative_path": "jetson/tartan_latency/balanced_3_video.json",
+      "source_sha256": "376499bd67a176d4120c52084f9174b92955e798f87d4016bddaf2c41e6bbead"
+    },
+    {
+      "path": "reports/published/tartan_latency/responsive_video.json",
+      "sha256": "283917f7147e9b2fa62702601b72965268919cb4ccd754181b13cdc530d4c1fa",
+      "source_relative_path": "jetson/tartan_latency/responsive_3_video.json",
+      "source_sha256": "283917f7147e9b2fa62702601b72965268919cb4ccd754181b13cdc530d4c1fa"
+    },
+    {
+      "path": "reports/jetson/tartan_fixed/fixed_corrected.json",
+      "sha256": "5dd00fe702b0f03d5fdd3249a4ba9b884096acfef0030cfe83ee95862d810b0c",
+      "source_relative_path": "jetson/tartan_fixed/fixed_corrected.json",
+      "source_sha256": "5ea3004854fd37ee86e7302445376e52b76f7328865e6d676ef1708f0cb9c928"
+    },
+    {
+      "path": "reports/published/tartan_fixed/fixed_sequence_validation.json",
+      "sha256": "cd6d61d90a1012a25cec7d5b716adf771f777fd585ee404d39a5757a413f9fb9",
+      "source_relative_path": "jetson/tartan_fixed/fixed_sequence_validation.json",
+      "source_sha256": "cd6d61d90a1012a25cec7d5b716adf771f777fd585ee404d39a5757a413f9fb9"
+    },
+    {
+      "path": "reports/published/tartan_fixed/fixed_scene_bundle_adjustment.json",
+      "sha256": "53bff434bfa066f77f9335943c15cc04a4946f158da8014c62980695747466aa",
+      "source_relative_path": "jetson/tartan_fixed/fixed_scene_bundle_adjustment.json",
+      "source_sha256": "53bff434bfa066f77f9335943c15cc04a4946f158da8014c62980695747466aa"
+    },
+    {
+      "path": "reports/published/tartan_fixed/clock_diagnosis.json",
+      "sha256": "78ec942febec226c17ae1fb6bdcf9bb2efb9c57ade2d14f0e90280f8c2adae04",
+      "source_relative_path": "jetson/tartan_fixed/clock_diagnosis.json",
+      "source_sha256": "78ec942febec226c17ae1fb6bdcf9bb2efb9c57ade2d14f0e90280f8c2adae04"
+    },
+    {
+      "path": "reports/published/tartan_fixed/depth_diagnosis.json",
+      "sha256": "5660d7633a1ac5e4752cda9f66df8eff83e2e5c7b91ed3f14e118cb54dff03f1",
+      "source_relative_path": "jetson/tartan_fixed/depth_diagnosis.json",
+      "source_sha256": "5660d7633a1ac5e4752cda9f66df8eff83e2e5c7b91ed3f14e118cb54dff03f1"
+    },
+    {
+      "path": "reports/published/tartan_max/registration_equivalence.json",
+      "sha256": "5f58f29b3e663107c6c44fe855062f5d6c05e03925a0619eabb25305bf13d587",
+      "source_relative_path": "jetson/tartan_max/registration_equivalence.json",
+      "source_sha256": "5f58f29b3e663107c6c44fe855062f5d6c05e03925a0619eabb25305bf13d587"
+    },
+    {
+      "path": "reports/published/tartan_max/fp16_prediction_comparison.json",
+      "sha256": "8fad597655ef47451a1b3b0f0f0a18f6b70b042c757d03a7e4f6e29c6dc3fb95",
+      "source_relative_path": "jetson/tartan_max/fp16_prediction_comparison.json",
+      "source_sha256": "615ff4bc87090ffc662befd1822bcd6a0673c1d04fa778e6833ad37ed8a7afb5"
+    },
+    {
+      "path": "reports/published/tartan_max/sustained_summary.json",
+      "sha256": "232a71f8efc30334b391ae7ba7b04018feca709ca1f20718404d385137cb1e00",
+      "source_relative_path": "jetson/tartan_max/sustained_summary.json",
+      "source_sha256": "821474203ecb21edcfdb1d30c89319b3a963c2d38ea03e6706e8f77ff309b5dc"
+    }
+  ]
+}

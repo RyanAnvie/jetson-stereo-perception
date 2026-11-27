@@ -29,6 +29,27 @@ def depth_colors(depth, max_m):
     return color
 
 
+def draw_cloud_pixels(view, uv, colors, order, inside):
+    """Rasterize the exact five pixels of filled radius-1 LINE_8 circles.
+
+    The latest painter wins, including equal-depth stable-order ties. One
+    scatter replaces thousands of Python -> OpenCV calls without decimation.
+    """
+    ordered = order[inside[order]]
+    if not len(ordered):
+        return
+    offsets = np.array([[0, 0], [-1, 0], [1, 0], [0, -1], [0, 1]])
+    pixels = (uv[ordered, None, :]+offsets).reshape(-1, 2)
+    height, width = view.shape[:2]
+    valid = (pixels[:, 0] >= 0) & (pixels[:, 0] < width) & (pixels[:, 1] >= 0) & (pixels[:, 1] < height)
+    keys = pixels[valid, 1]*width+pixels[valid, 0]
+    ranks = np.repeat(np.arange(len(ordered), dtype=np.int32), 5)[valid]
+    winner = np.full(width*height, -1, dtype=np.int32)
+    np.maximum.at(winner, keys, ranks)
+    occupied = np.flatnonzero(winner >= 0)
+    view.reshape(-1, 3)[occupied] = colors[ordered[winner[occupied]]]
+
+
 def cloud_view(points, colors, detections, width=600, height=286):
     view = np.full((height, width, 3), BACKGROUND, dtype=np.uint8)
     # An orthographic oblique display of the RGB optical frame, not world pose.
@@ -43,9 +64,7 @@ def cloud_view(points, colors, detections, width=600, height=286):
     uv = np.column_stack((u, v)).astype(int)
     inside = (uv[:, 0] >= 0) & (uv[:, 0] < width) & (uv[:, 1] >= 0) & (uv[:, 1] < height)
     order = np.argsort(-selected[:, 2], kind="stable")
-    for index in order:
-        if inside[index]:
-            cv2.circle(view, tuple(uv[index]), 1, tuple(int(c) for c in selected_colors[index]), -1)
+    draw_cloud_pixels(view, uv, selected_colors, order, inside)
     base = tuple(origin.astype(int))
     for endpoint, label, color in [((base[0]+70, base[1]), "X right", (120, 150, 250)),
                                     ((base[0], base[1]+23), "Y down", (120, 230, 130)),

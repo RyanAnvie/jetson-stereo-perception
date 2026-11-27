@@ -1,0 +1,156 @@
+{
+  "method": "One shared rigid RGB/thermal extrinsic from scene BA with fixed clock offset and interpolated RGB rig poses",
+  "accepted_for_sequence": true,
+  "base_profile_sha256": "639645903b9911e03eb27ab74d6ac820b9c8aa761717647a9321d0be7d1827c7",
+  "dataset_revision": "23475c0fa9190154e6f1fd78f6b82b29f9d508a0",
+  "sequence": "day2/undistorted_images_all_cameras_20250824_094534",
+  "annotations_sha256": "adb89024c24ec21eebe85047217a9b78a13131d5a1b754518f60c36878853a2a",
+  "training_frames": [
+    40,
+    80,
+    130,
+    160,
+    280
+  ],
+  "heldout_frames": [
+    0,
+    25,
+    100,
+    150,
+    200,
+    250,
+    290
+  ],
+  "rgb_to_thermal_R": [
+    [
+      0.9995259197049222,
+      -0.014166785555023091,
+      -0.027335654831508214
+    ],
+    [
+      0.014163615523528449,
+      0.9998996430373034,
+      -0.0003095951790470196
+    ],
+    [
+      0.02733729747672643,
+      -7.772329904415228e-05,
+      0.9996262632232897
+    ]
+  ],
+  "rgb_to_thermal_t_m": [
+    -0.003043437269886424,
+    -0.031835381692497076,
+    -0.0016056671861627183
+  ],
+  "rvec_rad": [
+    0.00011595426471781361,
+    -0.02734079692964513,
+    0.014167439476419371
+  ],
+  "thermal_clock_correction_s": 0.07,
+  "clock_convention": "effective thermal exposure = released thermal timestamp + correction; RGB timestamps unchanged",
+  "clock_scope": "Sequence-specific image-motion alignment, not an independently measured hardware clock offset",
+  "heldout_observations": [
+    {
+      "index": 100,
+      "feature": "left steel column left edge",
+      "row_y": 80,
+      "projected_rgb_x": 132,
+      "thermal_x": 128,
+      "source_depth_m": 10.202556610107422,
+      "before_x": 132.1398326203681,
+      "after_x": 111.67291404316578,
+      "before_abs_horizontal_px": 4.139832620368111,
+      "after_abs_horizontal_px": 16.327085956834225,
+      "fixed_clock_x": 119.49308366590625,
+      "fixed_clock_abs_horizontal_px": 8.506916334093745
+    },
+    {
+      "index": 100,
+      "feature": "left steel column right edge",
+      "row_y": 80,
+      "projected_rgb_x": 166,
+      "thermal_x": 162,
+      "source_depth_m": 11.691953659057617,
+      "before_x": 166.25205059903942,
+      "after_x": 147.79206811310277,
+      "before_abs_horizontal_px": 4.252050599039421,
+      "after_abs_horizontal_px": 14.207931886897228,
+      "fixed_clock_x": 154.9766227659327,
+      "fixed_clock_abs_horizontal_px": 7.023377234067311
+    },
+    {
+      "index": 100,
+      "feature": "right steel column left edge",
+      "row_y": 80,
+      "projected_rgb_x": 415,
+      "thermal_x": 410,
+      "source_depth_m": 12.892854690551758,
+      "before_x": 415.4607541654436,
+      "after_x": 403.0354228171277,
+      "before_abs_horizontal_px": 5.460754165443575,
+      "after_abs_horizontal_px": 6.96457718287229,
+      "fixed_clock_x": 406.1969339955517,
+      "fixed_clock_abs_horizontal_px": 3.803066004448283
+    },
+    {
+      "index": 150,
+      "feature": "near steel column left edge",
+      "row_y": 180,
+      "projected_rgb_x": 254,
+      "thermal_x": 227,
+      "source_depth_m": 4.326064109802246,
+      "before_x": 254.37528037727358,
+      "after_x": 239.51090160968857,
+      "before_abs_horizontal_px": 27.375280377273583,
+      "after_abs_horizontal_px": 12.510901609688574,
+      "fixed_clock_x": 223.70509043902976,
+      "fixed_clock_abs_horizontal_px": 3.2949095609702397
+    },
+    {
+      "index": 150,
+      "feature": "near steel column right edge",
+      "row_y": 180,
+      "projected_rgb_x": 360,
+      "thermal_x": 334,
+      "source_depth_m": 2.6055681705474854,
+      "before_x": 360.5021807553621,
+      "after_x": 346.49546714612563,
+      "before_abs_horizontal_px": 26.502180755362076,
+      "after_abs_horizontal_px": 12.495467146125634,
+      "fixed_clock_x": 332.678552412453,
+      "fixed_clock_abs_horizontal_px": 1.321447587547027
+    },
+    {
+      "index": 250,
+      "feature": "near panel vertical seam",
+      "row_y": 200,
+      "projected_rgb_x": 134,
+      "thermal_x": 114,
+      "source_depth_m": 0.3360939621925354,
+      "before_x": 134.98251745192405,
+      "after_x": 108.54354843968304,
+      "before_abs_horizontal_px": 20.982517451924053,
+      "after_abs_horizontal_px": 5.456451560316964,
+      "fixed_clock_x": 109.19743751764383,
+      "fixed_clock_abs_horizontal_px": 4.802562482356166
+    }
+  ],
+  "heldout_horizontal_before_mean_max_px": [
+    11.327069223789152,
+    16.327085956834225
+  ],
+  "heldout_horizontal_after_mean_max_px": [
+    4.792046533913795,
+    8.506916334093745
+  ],
+  "status": "fixed_extrinsics_clock_refined_approximate",
+  "physical_accuracy_certified": false,
+  "validation_scope": "Six original manual horizontal edges, +/-4px annotation uncertainty. Full-sequence motion and image proxy diagnostics are reported separately; no per-frame ECC.",
+  "timestamp_sha256": {
+    "day2/undistorted_images_all_cameras_20250824_094534/target_timestamps.txt": "bb90babf4eccb1f3a82e3bf004735417c65b0862941c755982ac16e2d245f7cb",
+    "day2/undistorted_images_all_cameras_20250824_094534/zed_left_rect/timestamps.txt": "bb90babf4eccb1f3a82e3bf004735417c65b0862941c755982ac16e2d245f7cb",
+    "day2/undistorted_images_all_cameras_20250824_094534/thermal_left_rect_8/timestamps.txt": "8ca38715686dcdaa712981d01d176f0cb7d43d44cb88b07fc5f9c89df73c8dce"
+  }
+}

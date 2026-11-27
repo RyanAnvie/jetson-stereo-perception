@@ -1,0 +1,20 @@
+...........................................................              [100%]
+=============================== warnings summary ===============================
+tests/test_backends.py::test_target_engines_execute_repeatably_and_release_resources
+  <frozen importlib._bootstrap_external>:1184: DeprecationWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+
+tests/test_fast_pipeline.py::test_cuda_visibility_ties_invalid_depth_and_buffer_ownership
+  <frozen importlib._bootstrap_external>:1184: DeprecationWarning: The cuda.cuda module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.driver module instead.
+
+tests/test_fast_pipeline.py::test_cuda_visibility_ties_invalid_depth_and_buffer_ownership
+  <frozen importlib._bootstrap_external>:1184: DeprecationWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+
+tests/test_scene_calibration.py::test_scene_bundle_recovers_known_rotation_and_composed_thermal_poses[0.0]
+tests/test_scene_calibration.py::test_scene_bundle_recovers_known_rotation_and_composed_thermal_poses[0.0]
+tests/test_scene_calibration.py::test_scene_bundle_recovers_known_rotation_and_composed_thermal_poses[0.0]
+  /usr/lib/python3/dist-packages/scipy/sparse/_sputils.py:44: DeprecationWarning: np.find_common_type is deprecated.  Please use `np.result_type` or `np.promote_types`.
+  See https://numpy.org/devdocs/release/1.25.0-notes.html and the docs for more information.  (Deprecated NumPy 1.25)
+    upcast = np.find_common_type(args, [])
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+59 passed, 6 warnings in 3.67s

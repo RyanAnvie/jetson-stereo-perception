@@ -7,7 +7,7 @@ from multimodal_perception.dashboard import BACKGROUND, FOREGROUND, MUTED, ACCEN
 def render_kitti(sample, depth, detections, evaluation, timing, elapsed_s, config):
     canvas = np.full((800, 1280, 3), BACKGROUND, dtype=np.uint8)
     text(canvas, "YOLO + STEREO GEOMETRY / 3D TARGET POSITIONS", 22, 35, 0.77, FOREGROUND, 2)
-    text(canvas, "KITTI raw / 2011_09_26 drive 0005 | Real public data | CPU / FP32", 22, 62, 0.48, MUTED)
+    text(canvas, config.get("runtime_label", "KITTI raw / 2011_09_26 drive 0005 | CPU / FP32"), 22, 62, 0.40, MUTED)
     text(canvas, f"Frame {sample['index']:03d} / {elapsed_s:04.1f}s", 1038, 62, 0.48, ACCENT)
     text(canvas, "Green: numbered YOLO predictions     Orange: reference tracklets     XYZ estimates in the table below", 22, 94, 0.46, ACCENT)
     rgb = sample["left"].copy()
@@ -45,5 +45,5 @@ def render_kitti(sample, depth, detections, evaluation, timing, elapsed_s, confi
     mae = evaluation["frame"]["depth"]["mae_m"]
     coverage = evaluation["frame"]["stereo_coverage_at_lidar"]
     text(canvas, f"Reference depth MAE {mae:.2f} m | coverage {coverage*100:.1f}% | offline check", 658, 764, .40, MUTED)
-    text(canvas, "Data: KITTI (Geiger et al.) / CC BY-NC-SA 3.0 | Surface points are not object centers. No thermal or Jetson claims.", 22, 791, .36, MUTED)
+    text(canvas, "Data: KITTI (Geiger et al.) / CC BY-NC-SA 3.0 | Surface points are not object centers. Offline replay, not live sensors.", 22, 791, .36, MUTED)
     return canvas

@@ -1,0 +1,22 @@
+{
+  "annotation_method": "Manually identified shared building edges in released thermal and nominal depth-projected RGB. Coordinates are native 640x512. These are approximate image observations, not surveyed ground truth.",
+  "annotation_sigma_px": 4.0,
+  "training_frames": [40, 80, 130, 160, 280],
+  "heldout_frames": [0, 25, 100, 150, 200, 250, 290],
+  "lines": [
+    {"frame":40,"name":"central column left","rgb_nominal":[[218,40],[214,298]],"thermal":[[218,40],[208,286]]},
+    {"frame":40,"name":"cross beam lower","rgb_nominal":[[90,174],[345,185]],"thermal":[[90,160],[343,170]]},
+    {"frame":40,"name":"lower narrow beam","rgb_nominal":[[90,261],[208,261]],"thermal":[[90,248],[207,248]]},
+    {"frame":80,"name":"left column left","rgb_nominal":[[180,25],[184,200]],"thermal":[[166,25],[176,197]]},
+    {"frame":80,"name":"left column right","rgb_nominal":[[201,30],[205,201]],"thermal":[[188,30],[195,198]]},
+    {"frame":80,"name":"right column left","rgb_nominal":[[405,25],[397,210]],"thermal":[[389,25],[381,201]]},
+    {"frame":80,"name":"left horizontal beam lower","rgb_nominal":[[20,123],[178,130]],"thermal":[[20,113],[167,119]]},
+    {"frame":130,"name":"column left","rgb_nominal":[[402,20],[403,206]],"thermal":[[390,20],[390,203]]},
+    {"frame":130,"name":"column right","rgb_nominal":[[467,35],[466,202]],"thermal":[[456,35],[456,200]]},
+    {"frame":130,"name":"upper beam lower","rgb_nominal":[[470,27],[530,32]],"thermal":[[460,18],[530,24]]},
+    {"frame":160,"name":"near column right","rgb_nominal":[[123,30],[123,280]],"thermal":[[83,30],[79,282]]},
+    {"frame":280,"name":"near column left","rgb_nominal":[[343,50],[358,327]],"thermal":[[323,50],[337,321]]},
+    {"frame":280,"name":"near column right","rgb_nominal":[[405,40],[435,337]],"thermal":[[389,40],[420,331]]},
+    {"frame":280,"name":"building lower horizontal","rgb_nominal":[[25,272],[245,267]],"thermal":[[25,258],[235,253]]}
+  ]
+}

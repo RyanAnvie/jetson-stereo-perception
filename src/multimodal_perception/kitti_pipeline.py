@@ -11,7 +11,7 @@ import cv2
 import numpy as np
 import yaml
 
-from multimodal_perception.detection import detect, load_detector
+from multimodal_perception.detection import detect, load_detector, close_detector
 from multimodal_perception.geometry import locate_detection
 from multimodal_perception.kitti import open_kitti, load_kitti_frame, read_kitti_timestamps
 from multimodal_perception.stereo import create_stereo_matcher, estimate_stereo_depth
@@ -48,7 +48,8 @@ def replay_position(offsets, position, elapsed_s, drop_late):
     return min(max(position, due), len(offsets)-1)
 
 
-def run_kitti(config_path, report_path, mode="benchmark", paced=False, rate_hz=None, drop_late=False, video=None, limit=0):
+def run_kitti(config_path, report_path, mode="benchmark", paced=False, rate_hz=None, drop_late=False, video=None, limit=0,
+              backend=None, engine=None):
     if mode not in ["benchmark", "evaluate"] or limit < 0:
         raise ValueError("Invalid mode or frame limit")
     if rate_hz is not None and (not np.isfinite(rate_hz) or rate_hz <= 0):
@@ -60,10 +61,27 @@ def run_kitti(config_path, report_path, mode="benchmark", paced=False, rate_hz=N
     if video and mode != "evaluate":
         raise ValueError("Video requires --mode evaluate to display reference diagnostics")
     config = yaml.safe_load(Path(config_path).read_text())
+    config["backend"] = backend or config.get("backend", "onnxruntime")
+    engine = engine or config.get("engine")
+    if engine:
+        config["engine"] = engine
     cv2.setNumThreads(config["opencv_threads"])
     dataset = open_kitti(config)
+    detector = load_detector(config["model"], config["onnx_threads"], config["backend"], engine)
+    try:
+        return run_loaded_kitti(dataset, detector, config, report_path, mode, paced, rate_hz, drop_late, video, limit)
+    finally:
+        close_detector(detector)
+
+
+def run_loaded_kitti(dataset, detector, config, report_path, mode, paced, rate_hz, drop_late, video, limit):
     calibration = dataset["calibration"]
-    detector = load_detector(config["model"], config["onnx_threads"])
+    runtime_environment = environment()
+    if config["backend"] == "tensorrt":
+        runtime_environment["compute_device"] = "CUDA GPU detector; CPU stereo and geometry"
+        runtime_environment.pop("available_gpu_not_used", None)
+    device_name = runtime_environment.get("device_model") or platform.machine()
+    config["runtime_label"] = f"{device_name} | {config['backend']} / {detector['metadata']['precision']}"
     matcher = create_stereo_matcher(config["stereo"])
     indices = np.flatnonzero(dataset["valid"])
     if limit:
@@ -91,7 +109,8 @@ def run_kitti(config_path, report_path, mode="benchmark", paced=False, rate_hz=N
         card = title_card("From detections to 3D positions", ["YOLOX Nano + calibrated RGB stereo. Real KITTI data.",
                            "Positions are estimated visible-surface representatives.",
                            "LiDAR and labels are used only in offline evaluation.",
-                           "No assumed object-center accuracy. No Jetson results yet.",
+                           config["runtime_label"],
+                           "Offline replay; no sensor acquisition or object-center accuracy claim.",
                            "Data: Geiger et al. / KITTI / CC BY-NC-SA 3.0."])
         for _ in range(30):
             writer.write(card)
@@ -185,7 +204,7 @@ def run_kitti(config_path, report_path, mode="benchmark", paced=False, rate_hz=N
         if writer:
             writer.release()
     report = summarize_timings(rows, elapsed)
-    report.update(mode=mode, environment=environment(), config=config, model=detector["metadata"],
+    report.update(mode=mode, environment=runtime_environment, config=config, model=detector["metadata"],
                   dataset_manifest_sha256=hashlib.sha256((dataset["root"]/"sample_manifest.json").read_bytes()).hexdigest(),
                   sequence=config["sequence"], warmup_frames=warmup, warmup_policy="first groups before timing, then rerun in measured sequence",
                   frame_queue_capacity=1, dropped_valid_frames=len(skipped), dropped_indices=skipped,
@@ -198,7 +217,8 @@ def run_kitti(config_path, report_path, mode="benchmark", paced=False, rate_hz=N
                   definitions={"processing": "RGB frame loaded -> YOLO + stereo + surface positions ready; excludes reference evaluation and rendering",
                                "pipeline_fps": "processed frames / measured wall time, including I/O, selected offline work and pacing",
                                "replay_latency": "scheduled replay input -> output ready; not physical sensor latency"},
-                  independent_object_center_accuracy="not measured", jetson="not measured")
+                  independent_object_center_accuracy="not measured",
+                  jetson="measured on target" if runtime_environment.get("l4t") else "not measured")
     if platform.system() == "Windows":
         process = subprocess.run(["powershell", "-NoProfile", "-Command", f"(Get-Process -Id {os.getpid()}).PeakWorkingSet64"], capture_output=True, text=True)
         report["peak_process_memory_bytes"] = int(process.stdout.strip()) if process.returncode == 0 else None

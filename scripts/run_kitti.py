@@ -13,5 +13,8 @@ if __name__ == "__main__":
     parser.add_argument("--rate-hz", type=float)
     parser.add_argument("--drop-late", action="store_true")
     parser.add_argument("--video")
+    parser.add_argument("--backend", choices=["onnxruntime", "tensorrt"])
+    parser.add_argument("--engine", help="Target-built TensorRT engine with matching .json build provenance")
     args = parser.parse_args()
-    run_kitti(args.config, args.report, args.mode, args.paced, args.rate_hz, args.drop_late, args.video, args.frames)
+    run_kitti(args.config, args.report, args.mode, args.paced, args.rate_hz, args.drop_late, args.video, args.frames,
+              args.backend, args.engine)

@@ -1,0 +1,3756 @@
+{
+  "whole_sequence": {
+    "best": {
+      "thermal_clock_correction_s": 0.07,
+      "motion_intervals": 271,
+      "correlation_xy": [
+        0.9038526150691734,
+        0.8595917462378014
+      ],
+      "mean_correlation": 0.8817221806534874
+    },
+    "zero": {
+      "thermal_clock_correction_s": 0.0,
+      "motion_intervals": 271,
+      "correlation_xy": [
+        0.8156337241267235,
+        0.533070102526322
+      ],
+      "mean_correlation": 0.6743519133265228
+    },
+    "curve": [
+      {
+        "thermal_clock_correction_s": -0.25,
+        "motion_intervals": 269,
+        "correlation_xy": [
+          0.29885576066709,
+          -0.20108618584160465
+        ],
+        "mean_correlation": 0.048884787412742686
+      },
+      {
+        "thermal_clock_correction_s": -0.245,
+        "motion_intervals": 269,
+        "correlation_xy": [
+          0.30582763419237685,
+          -0.20194849087665054
+        ],
+        "mean_correlation": 0.05193957165786316
+      },
+      {
+        "thermal_clock_correction_s": -0.24,
+        "motion_intervals": 269,
+        "correlation_xy": [
+          0.31251681577169665,
+          -0.20207556404524787
+        ],
+        "mean_correlation": 0.05522062586322439
+      },
+      {
+        "thermal_clock_correction_s": -0.235,
+        "motion_intervals": 269,
+        "correlation_xy": [
+          0.3190467471640714,
+          -0.20147184229695997
+        ],
+        "mean_correlation": 0.05878745243355571
+      },
+      {
+        "thermal_clock_correction_s": -0.23,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.3283890215896406,
+          -0.20409154462147333
+        ],
+        "mean_correlation": 0.06214873848408364
+      },
+      {
+        "thermal_clock_correction_s": -0.225,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.33846448559922415,
+          -0.20415551946502097
+        ],
+        "mean_correlation": 0.06715448306710159
+      },
+      {
+        "thermal_clock_correction_s": -0.22,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.34832620634380096,
+          -0.20341559921197763
+        ],
+        "mean_correlation": 0.07245530356591166
+      },
+      {
+        "thermal_clock_correction_s": -0.215,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.3594065061621285,
+          -0.20466184774613513
+        ],
+        "mean_correlation": 0.07737232920799668
+      },
+      {
+        "thermal_clock_correction_s": -0.21,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.37103305971068334,
+          -0.2067553321524329
+        ],
+        "mean_correlation": 0.08213886377912522
+      },
+      {
+        "thermal_clock_correction_s": -0.205,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.382457053647701,
+          -0.2080932114293832
+        ],
+        "mean_correlation": 0.0871819211091589
+      },
+      {
+        "thermal_clock_correction_s": -0.2,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.39357458380434807,
+          -0.2088593311423526
+        ],
+        "mean_correlation": 0.09235762633099773
+      },
+      {
+        "thermal_clock_correction_s": -0.195,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.40422868818321567,
+          -0.20939619111165636
+        ],
+        "mean_correlation": 0.09741624853577965
+      },
+      {
+        "thermal_clock_correction_s": -0.19,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.4145504934935205,
+          -0.20895009021165845
+        ],
+        "mean_correlation": 0.10280020164093104
+      },
+      {
+        "thermal_clock_correction_s": -0.185,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.42449119090339343,
+          -0.20745716768917188
+        ],
+        "mean_correlation": 0.10851701160711077
+      },
+      {
+        "thermal_clock_correction_s": -0.18,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.4338560789041226,
+          -0.20501435487392647
+        ],
+        "mean_correlation": 0.11442086201509806
+      },
+      {
+        "thermal_clock_correction_s": -0.175,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.44278001295054326,
+          -0.20152654421200744
+        ],
+        "mean_correlation": 0.12062673436926791
+      },
+      {
+        "thermal_clock_correction_s": -0.17,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.45123389141545256,
+          -0.19705685426143743
+        ],
+        "mean_correlation": 0.12708851857700756
+      },
+      {
+        "thermal_clock_correction_s": -0.165,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.4591996298873054,
+          -0.19134128447966053
+        ],
+        "mean_correlation": 0.13392917270382243
+      },
+      {
+        "thermal_clock_correction_s": -0.16,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.4666571188863003,
+          -0.18474165965063394
+        ],
+        "mean_correlation": 0.14095772961783318
+      },
+      {
+        "thermal_clock_correction_s": -0.155,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.47358788307187377,
+          -0.17757859795333844
+        ],
+        "mean_correlation": 0.14800464255926765
+      },
+      {
+        "thermal_clock_correction_s": -0.15,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.48001531594528074,
+          -0.1700195943383593
+        ],
+        "mean_correlation": 0.15499786080346073
+      },
+      {
+        "thermal_clock_correction_s": -0.145,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.48594761148045085,
+          -0.16261245278225428
+        ],
+        "mean_correlation": 0.16166757934909828
+      },
+      {
+        "thermal_clock_correction_s": -0.14,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.491333572232988,
+          -0.15507968739941605
+        ],
+        "mean_correlation": 0.168126942416786
+      },
+      {
+        "thermal_clock_correction_s": -0.135,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.4962705731431621,
+          -0.14746797890183772
+        ],
+        "mean_correlation": 0.17440129712066219
+      },
+      {
+        "thermal_clock_correction_s": -0.13,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.5054861194485178,
+          -0.13650481574377707
+        ],
+        "mean_correlation": 0.1844906518523704
+      },
+      {
+        "thermal_clock_correction_s": -0.125,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.5142115221034717,
+          -0.12535509196223676
+        ],
+        "mean_correlation": 0.19442821507061744
+      },
+      {
+        "thermal_clock_correction_s": -0.12,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.5223926368080334,
+          -0.11425185021082913
+        ],
+        "mean_correlation": 0.20407039329860213
+      },
+      {
+        "thermal_clock_correction_s": -0.115,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.5340488300738331,
+          -0.09420417774580278
+        ],
+        "mean_correlation": 0.21992232616401514
+      },
+      {
+        "thermal_clock_correction_s": -0.11,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.5504289775320665,
+          -0.06970106894515232
+        ],
+        "mean_correlation": 0.2403639542934571
+      },
+      {
+        "thermal_clock_correction_s": -0.105,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.5664971776104754,
+          -0.04380087587514889
+        ],
+        "mean_correlation": 0.2613481508676632
+      },
+      {
+        "thermal_clock_correction_s": -0.1,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.583236518646646,
+          -0.015641340164123524
+        ],
+        "mean_correlation": 0.28379758924126125
+      },
+      {
+        "thermal_clock_correction_s": -0.095,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.6015464858887368,
+          0.015145903645740758
+        ],
+        "mean_correlation": 0.3083461947672388
+      },
+      {
+        "thermal_clock_correction_s": -0.09,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.6194946245998365,
+          0.047745595845307326
+        ],
+        "mean_correlation": 0.33362011022257193
+      },
+      {
+        "thermal_clock_correction_s": -0.085,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.6370020417428307,
+          0.08195908842628553
+        ],
+        "mean_correlation": 0.3594805650845581
+      },
+      {
+        "thermal_clock_correction_s": -0.08,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.6539910573250558,
+          0.11748889970013049
+        ],
+        "mean_correlation": 0.3857399785125931
+      },
+      {
+        "thermal_clock_correction_s": -0.075,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.6703866540068941,
+          0.1539367554871334
+        ],
+        "mean_correlation": 0.41216170474701375
+      },
+      {
+        "thermal_clock_correction_s": -0.07,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.6861179327160799,
+          0.19081325845936273
+        ],
+        "mean_correlation": 0.4384655955877213
+      },
+      {
+        "thermal_clock_correction_s": -0.065,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.7011195145623152,
+          0.22756100266519294
+        ],
+        "mean_correlation": 0.4643402586137541
+      },
+      {
+        "thermal_clock_correction_s": -0.06,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.7153328286624164,
+          0.26359018751101104
+        ],
+        "mean_correlation": 0.48946150808671374
+      },
+      {
+        "thermal_clock_correction_s": -0.055,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.7287072292112847,
+          0.298322450541964
+        ],
+        "mean_correlation": 0.5135148398766244
+      },
+      {
+        "thermal_clock_correction_s": -0.05,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.7412008931767333,
+          0.331235921524708
+        ],
+        "mean_correlation": 0.5362184073507207
+      },
+      {
+        "thermal_clock_correction_s": -0.045,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.7527814617656127,
+          0.3619036164260204
+        ],
+        "mean_correlation": 0.5573425390958165
+      },
+      {
+        "thermal_clock_correction_s": -0.04,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.7634264032751478,
+          0.3900187762787703
+        ],
+        "mean_correlation": 0.576722589776959
+      },
+      {
+        "thermal_clock_correction_s": -0.035,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.7731230907707188,
+          0.41540408714606747
+        ],
+        "mean_correlation": 0.5942635889583932
+      },
+      {
+        "thermal_clock_correction_s": -0.03,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.7818686037585897,
+          0.43800556919674877
+        ],
+        "mean_correlation": 0.6099370864776692
+      },
+      {
+        "thermal_clock_correction_s": -0.025,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.7896692772621052,
+          0.45787491050667983
+        ],
+        "mean_correlation": 0.6237720938843925
+      },
+      {
+        "thermal_clock_correction_s": -0.02,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.7965400333243352,
+          0.4751453738892768
+        ],
+        "mean_correlation": 0.635842703606806
+      },
+      {
+        "thermal_clock_correction_s": -0.015,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8025993268066619,
+          0.49001322199230024
+        ],
+        "mean_correlation": 0.6463062743994811
+      },
+      {
+        "thermal_clock_correction_s": -0.01,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8079893359714228,
+          0.5026997852707947
+        ],
+        "mean_correlation": 0.6553445606211088
+      },
+      {
+        "thermal_clock_correction_s": -0.005,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8125269679946101,
+          0.5134355166425185
+        ],
+        "mean_correlation": 0.6629812423185644
+      },
+      {
+        "thermal_clock_correction_s": 0.0,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8156337241267235,
+          0.533070102526322
+        ],
+        "mean_correlation": 0.6743519133265228
+      },
+      {
+        "thermal_clock_correction_s": 0.005,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8271571204665473,
+          0.5624897258255256
+        ],
+        "mean_correlation": 0.6948234231460364
+      },
+      {
+        "thermal_clock_correction_s": 0.01,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8381168055284367,
+          0.5928995766638889
+        ],
+        "mean_correlation": 0.7155081910961628
+      },
+      {
+        "thermal_clock_correction_s": 0.015,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.848440788431804,
+          0.6240419359263744
+        ],
+        "mean_correlation": 0.7362413621790892
+      },
+      {
+        "thermal_clock_correction_s": 0.02,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8580587682358304,
+          0.6555619629385979
+        ],
+        "mean_correlation": 0.7568103655872142
+      },
+      {
+        "thermal_clock_correction_s": 0.025,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8669035198457201,
+          0.6869978762759734
+        ],
+        "mean_correlation": 0.7769506980608467
+      },
+      {
+        "thermal_clock_correction_s": 0.03,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8749123205116982,
+          0.7177793438600613
+        ],
+        "mean_correlation": 0.7963458321858797
+      },
+      {
+        "thermal_clock_correction_s": 0.035,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8820283625443486,
+          0.7472386202040525
+        ],
+        "mean_correlation": 0.8146334913742006
+      },
+      {
+        "thermal_clock_correction_s": 0.04,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8882020926187671,
+          0.7746383938535105
+        ],
+        "mean_correlation": 0.8314202432361388
+      },
+      {
+        "thermal_clock_correction_s": 0.045,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8933924165833498,
+          0.7992180021016462
+        ],
+        "mean_correlation": 0.846305209342498
+      },
+      {
+        "thermal_clock_correction_s": 0.05,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.897567711618503,
+          0.8202554756573066
+        ],
+        "mean_correlation": 0.8589115936379048
+      },
+      {
+        "thermal_clock_correction_s": 0.055,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.9007065950600589,
+          0.8371375793221725
+        ],
+        "mean_correlation": 0.8689220871911156
+      },
+      {
+        "thermal_clock_correction_s": 0.06,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.9027984108554958,
+          0.8494254872944867
+        ],
+        "mean_correlation": 0.8761119490749913
+      },
+      {
+        "thermal_clock_correction_s": 0.065,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.903843409594967,
+          0.8569023021362175
+        ],
+        "mean_correlation": 0.8803728558655923
+      },
+      {
+        "thermal_clock_correction_s": 0.07,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.9038526150691734,
+          0.8595917462378014
+        ],
+        "mean_correlation": 0.8817221806534874
+      },
+      {
+        "thermal_clock_correction_s": 0.075,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.9028473878084017,
+          0.8577443935190519
+        ],
+        "mean_correlation": 0.8802958906637268
+      },
+      {
+        "thermal_clock_correction_s": 0.08,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.9008587124538152,
+          0.8517960645247576
+        ],
+        "mean_correlation": 0.8763273884892864
+      },
+      {
+        "thermal_clock_correction_s": 0.085,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8979262496674744,
+          0.842309169326849
+        ],
+        "mean_correlation": 0.8701177094971617
+      },
+      {
+        "thermal_clock_correction_s": 0.09,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8940972035105176,
+          0.8299098093463155
+        ],
+        "mean_correlation": 0.8620035064284166
+      },
+      {
+        "thermal_clock_correction_s": 0.095,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.889425061183627,
+          0.8152314623949398
+        ],
+        "mean_correlation": 0.8523282617892833
+      },
+      {
+        "thermal_clock_correction_s": 0.1,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8840734682064935,
+          0.7987926908626248
+        ],
+        "mean_correlation": 0.8414330795345591
+      },
+      {
+        "thermal_clock_correction_s": 0.105,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8782377141574589,
+          0.7806761576211357
+        ],
+        "mean_correlation": 0.8294569358892974
+      },
+      {
+        "thermal_clock_correction_s": 0.11,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.871678220803545,
+          0.760669746790027
+        ],
+        "mean_correlation": 0.816173983796786
+      },
+      {
+        "thermal_clock_correction_s": 0.115,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8645117624033303,
+          0.7395025942673439
+        ],
+        "mean_correlation": 0.8020071783353371
+      },
+      {
+        "thermal_clock_correction_s": 0.12,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8583315320997842,
+          0.7237710964250463
+        ],
+        "mean_correlation": 0.7910513142624153
+      },
+      {
+        "thermal_clock_correction_s": 0.125,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8513113159740283,
+          0.7052312433032822
+        ],
+        "mean_correlation": 0.7782712796386553
+      },
+      {
+        "thermal_clock_correction_s": 0.13,
+        "motion_intervals": 271,
+        "correlation_xy": [
+          0.8434550641039359,
+          0.6836413106583525
+        ],
+        "mean_correlation": 0.7635481873811443
+      },
+      {
+        "thermal_clock_correction_s": 0.135,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.8326762699577159,
+          0.662562361364947
+        ],
+        "mean_correlation": 0.7476193156613314
+      },
+      {
+        "thermal_clock_correction_s": 0.14,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.8245742133088096,
+          0.6382386356533865
+        ],
+        "mean_correlation": 0.731406424481098
+      },
+      {
+        "thermal_clock_correction_s": 0.145,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.8155826016761799,
+          0.6102530195618675
+        ],
+        "mean_correlation": 0.7129178106190237
+      },
+      {
+        "thermal_clock_correction_s": 0.15,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.8057128926856322,
+          0.5784456421153972
+        ],
+        "mean_correlation": 0.6920792674005147
+      },
+      {
+        "thermal_clock_correction_s": 0.155,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.794981860359632,
+          0.5427826169171075
+        ],
+        "mean_correlation": 0.6688822386383697
+      },
+      {
+        "thermal_clock_correction_s": 0.16,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.7833857253289526,
+          0.5033985958243645
+        ],
+        "mean_correlation": 0.6433921605766586
+      },
+      {
+        "thermal_clock_correction_s": 0.165,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.7709455387602473,
+          0.460597220822544
+        ],
+        "mean_correlation": 0.6157713797913956
+      },
+      {
+        "thermal_clock_correction_s": 0.17,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.7576913912433053,
+          0.41520810530480584
+        ],
+        "mean_correlation": 0.5864497482740556
+      },
+      {
+        "thermal_clock_correction_s": 0.175,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.743656019760895,
+          0.3674221024978521
+        ],
+        "mean_correlation": 0.5555390611293736
+      },
+      {
+        "thermal_clock_correction_s": 0.18,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.7288835532970319,
+          0.3179591693517689
+        ],
+        "mean_correlation": 0.5234213613244004
+      },
+      {
+        "thermal_clock_correction_s": 0.185,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.7135100724093568,
+          0.2670292361370615
+        ],
+        "mean_correlation": 0.4902696542732091
+      },
+      {
+        "thermal_clock_correction_s": 0.19,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.6975174534031502,
+          0.21548854615983254
+        ],
+        "mean_correlation": 0.45650299978149134
+      },
+      {
+        "thermal_clock_correction_s": 0.195,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.6809264618254837,
+          0.16443028322319092
+        ],
+        "mean_correlation": 0.42267837252433726
+      },
+      {
+        "thermal_clock_correction_s": 0.2,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.6640243699187706,
+          0.11569038483842262
+        ],
+        "mean_correlation": 0.3898573773785966
+      },
+      {
+        "thermal_clock_correction_s": 0.205,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.6470348053586886,
+          0.07033391913722292
+        ],
+        "mean_correlation": 0.35868436224795575
+      },
+      {
+        "thermal_clock_correction_s": 0.21,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.6296020612519305,
+          0.02641567606823509
+        ],
+        "mean_correlation": 0.32800886866008283
+      },
+      {
+        "thermal_clock_correction_s": 0.215,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.6119034225558736,
+          -0.015344355800876678
+        ],
+        "mean_correlation": 0.29827953337749846
+      },
+      {
+        "thermal_clock_correction_s": 0.22,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.5976703599546156,
+          -0.045796742186685606
+        ],
+        "mean_correlation": 0.275936808883965
+      },
+      {
+        "thermal_clock_correction_s": 0.225,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.5830527962225605,
+          -0.07547587415573061
+        ],
+        "mean_correlation": 0.2537884610334149
+      },
+      {
+        "thermal_clock_correction_s": 0.23,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.5680786249642423,
+          -0.1041604760728346
+        ],
+        "mean_correlation": 0.23195907444570385
+      },
+      {
+        "thermal_clock_correction_s": 0.235,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.5567237881346571,
+          -0.1258801967276967
+        ],
+        "mean_correlation": 0.2154217957034802
+      },
+      {
+        "thermal_clock_correction_s": 0.24,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.5468393002459505,
+          -0.1444794590354805
+        ],
+        "mean_correlation": 0.20117992060523499
+      },
+      {
+        "thermal_clock_correction_s": 0.245,
+        "motion_intervals": 270,
+        "correlation_xy": [
+          0.5364831116091053,
+          -0.16273093664292687
+        ],
+        "mean_correlation": 0.18687608748308923
+      },
+      {
+        "thermal_clock_correction_s": 0.25,
+        "motion_intervals": 269,
+        "correlation_xy": [
+          0.5222225956350791,
+          -0.18049215567907378
+        ],
+        "mean_correlation": 0.17086521997800266
+      }
+    ]
+  },
+  "temporal_blocks": [
+    {
+      "interval_s": [
+        0,
+        12
+      ],
+      "best": {
+        "thermal_clock_correction_s": 0.065,
+        "motion_intervals": 93,
+        "correlation_xy": [
+          0.9235555680217011,
+          0.8796353297616124
+        ],
+        "mean_correlation": 0.9015954488916568
+      },
+      "zero": {
+        "thermal_clock_correction_s": 0.0,
+        "motion_intervals": 93,
+        "correlation_xy": [
+          0.7054534092271261,
+          0.497264539954092
+        ],
+        "mean_correlation": 0.601358974590609
+      },
+      "curve": [
+        {
+          "thermal_clock_correction_s": -0.25,
+          "motion_intervals": 92,
+          "correlation_xy": [
+            -0.15198702223745253,
+            -0.12505687456228223
+          ],
+          "mean_correlation": -0.13852194839986737
+        },
+        {
+          "thermal_clock_correction_s": -0.245,
+          "motion_intervals": 92,
+          "correlation_xy": [
+            -0.14592570138746325,
+            -0.13131808293051742
+          ],
+          "mean_correlation": -0.13862189215899035
+        },
+        {
+          "thermal_clock_correction_s": -0.24,
+          "motion_intervals": 92,
+          "correlation_xy": [
+            -0.13965699513547666,
+            -0.13690875024945529
+          ],
+          "mean_correlation": -0.13828287269246597
+        },
+        {
+          "thermal_clock_correction_s": -0.235,
+          "motion_intervals": 92,
+          "correlation_xy": [
+            -0.13321358658333982,
+            -0.1418353872249397
+          ],
+          "mean_correlation": -0.13752448690413976
+        },
+        {
+          "thermal_clock_correction_s": -0.23,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            -0.12614534545204442,
+            -0.15406419991288692
+          ],
+          "mean_correlation": -0.14010477268246568
+        },
+        {
+          "thermal_clock_correction_s": -0.225,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            -0.11455536741381303,
+            -0.16118211347666242
+          ],
+          "mean_correlation": -0.13786874044523773
+        },
+        {
+          "thermal_clock_correction_s": -0.22,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            -0.10233884332366669,
+            -0.1677386180800789
+          ],
+          "mean_correlation": -0.13503873070187278
+        },
+        {
+          "thermal_clock_correction_s": -0.215,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            -0.09226928379947234,
+            -0.17707741279216174
+          ],
+          "mean_correlation": -0.13467334829581704
+        },
+        {
+          "thermal_clock_correction_s": -0.21,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            -0.08310252785460848,
+            -0.1883165727446814
+          ],
+          "mean_correlation": -0.13570955029964493
+        },
+        {
+          "thermal_clock_correction_s": -0.205,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            -0.07339469386048146,
+            -0.19923255749402705
+          ],
+          "mean_correlation": -0.13631362567725425
+        },
+        {
+          "thermal_clock_correction_s": -0.2,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            -0.06282845413324949,
+            -0.21124489775601782
+          ],
+          "mean_correlation": -0.13703667594463365
+        },
+        {
+          "thermal_clock_correction_s": -0.195,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            -0.05137075128522806,
+            -0.22575883099598015
+          ],
+          "mean_correlation": -0.1385647911406041
+        },
+        {
+          "thermal_clock_correction_s": -0.19,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            -0.03955695036031227,
+            -0.239446865574581
+          ],
+          "mean_correlation": -0.13950190796744663
+        },
+        {
+          "thermal_clock_correction_s": -0.185,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            -0.027559373171553568,
+            -0.25189696182832905
+          ],
+          "mean_correlation": -0.1397281674999413
+        },
+        {
+          "thermal_clock_correction_s": -0.18,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            -0.01647843495083875,
+            -0.26272872147664905
+          ],
+          "mean_correlation": -0.1396035782137439
+        },
+        {
+          "thermal_clock_correction_s": -0.175,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            -0.005375862757633604,
+            -0.27165135341006175
+          ],
+          "mean_correlation": -0.13851360808384766
+        },
+        {
+          "thermal_clock_correction_s": -0.17,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.005635220922783046,
+            -0.2784920578120676
+          ],
+          "mean_correlation": -0.13642841844464226
+        },
+        {
+          "thermal_clock_correction_s": -0.165,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.016440934983897357,
+            -0.2830176195622084
+          ],
+          "mean_correlation": -0.1332883422891555
+        },
+        {
+          "thermal_clock_correction_s": -0.16,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.02694864769986474,
+            -0.2854286777704227
+          ],
+          "mean_correlation": -0.129240015035279
+        },
+        {
+          "thermal_clock_correction_s": -0.155,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.037080262966486276,
+            -0.28602934233555377
+          ],
+          "mean_correlation": -0.12447453968453374
+        },
+        {
+          "thermal_clock_correction_s": -0.15,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.04677088832160339,
+            -0.28508507836609015
+          ],
+          "mean_correlation": -0.11915709502224338
+        },
+        {
+          "thermal_clock_correction_s": -0.145,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.05567434474927254,
+            -0.2838797851524191
+          ],
+          "mean_correlation": -0.11410272020157326
+        },
+        {
+          "thermal_clock_correction_s": -0.14,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.06407599776038683,
+            -0.28162479897338916
+          ],
+          "mean_correlation": -0.10877440060650116
+        },
+        {
+          "thermal_clock_correction_s": -0.135,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.07206881934494977,
+            -0.2784309140531758
+          ],
+          "mean_correlation": -0.10318104735411303
+        },
+        {
+          "thermal_clock_correction_s": -0.13,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.08578149443098089,
+            -0.2709498827768866
+          ],
+          "mean_correlation": -0.09258419417295286
+        },
+        {
+          "thermal_clock_correction_s": -0.125,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.09910616641744893,
+            -0.2623386423819068
+          ],
+          "mean_correlation": -0.08161623798222893
+        },
+        {
+          "thermal_clock_correction_s": -0.12,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.11196900738912731,
+            -0.2529523141073541
+          ],
+          "mean_correlation": -0.0704916533591134
+        },
+        {
+          "thermal_clock_correction_s": -0.115,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.13386707984825447,
+            -0.2341651726438137
+          ],
+          "mean_correlation": -0.05014904639777962
+        },
+        {
+          "thermal_clock_correction_s": -0.11,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.16160691587337095,
+            -0.209348418970685
+          ],
+          "mean_correlation": -0.023870751548657032
+        },
+        {
+          "thermal_clock_correction_s": -0.105,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.190212213343804,
+            -0.18207339930103406
+          ],
+          "mean_correlation": 0.004069407021384974
+        },
+        {
+          "thermal_clock_correction_s": -0.1,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.22081276358658522,
+            -0.1517836217975012
+          ],
+          "mean_correlation": 0.034514570894542004
+        },
+        {
+          "thermal_clock_correction_s": -0.095,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.2547177572083147,
+            -0.11923975623177986
+          ],
+          "mean_correlation": 0.06773900048826742
+        },
+        {
+          "thermal_clock_correction_s": -0.09,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.28931159780154503,
+            -0.08345434829617417
+          ],
+          "mean_correlation": 0.10292862475268544
+        },
+        {
+          "thermal_clock_correction_s": -0.085,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.3242911842606484,
+            -0.044500991057890855
+          ],
+          "mean_correlation": 0.13989509660137878
+        },
+        {
+          "thermal_clock_correction_s": -0.08,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.3593068944340949,
+            -0.0026534122278454135
+          ],
+          "mean_correlation": 0.17832674110312474
+        },
+        {
+          "thermal_clock_correction_s": -0.075,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.3939742245585647,
+            0.041575215383428295
+          ],
+          "mean_correlation": 0.21777471997099648
+        },
+        {
+          "thermal_clock_correction_s": -0.07,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.42789034606232434,
+            0.08742183018810767
+          ],
+          "mean_correlation": 0.257656088125216
+        },
+        {
+          "thermal_clock_correction_s": -0.065,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.4606543800584858,
+            0.13390756874369433
+          ],
+          "mean_correlation": 0.2972809744010901
+        },
+        {
+          "thermal_clock_correction_s": -0.06,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.49188933415466424,
+            0.1799219329701523
+          ],
+          "mean_correlation": 0.33590563356240827
+        },
+        {
+          "thermal_clock_correction_s": -0.055,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.521263101261073,
+            0.22434517683271527
+          ],
+          "mean_correlation": 0.37280413904689413
+        },
+        {
+          "thermal_clock_correction_s": -0.05,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.548505888828537,
+            0.2661802289544774
+          ],
+          "mean_correlation": 0.40734305889150724
+        },
+        {
+          "thermal_clock_correction_s": -0.045,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.5734219856881642,
+            0.30465952016299014
+          ],
+          "mean_correlation": 0.43904075292557715
+        },
+        {
+          "thermal_clock_correction_s": -0.04,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.5958947531569663,
+            0.3393015772108656
+          ],
+          "mean_correlation": 0.46759816518391595
+        },
+        {
+          "thermal_clock_correction_s": -0.035,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.6158848767784936,
+            0.36991163476213157
+          ],
+          "mean_correlation": 0.49289825577031254
+        },
+        {
+          "thermal_clock_correction_s": -0.03,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.6334229304242486,
+            0.39653863413910695
+          ],
+          "mean_correlation": 0.5149807822816778
+        },
+        {
+          "thermal_clock_correction_s": -0.025,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.6485979603948978,
+            0.41940970306071373
+          ],
+          "mean_correlation": 0.5340038317278057
+        },
+        {
+          "thermal_clock_correction_s": -0.02,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.6615440122568331,
+            0.4388618666617272
+          ],
+          "mean_correlation": 0.5502029394592802
+        },
+        {
+          "thermal_clock_correction_s": -0.015,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.6729479383590419,
+            0.45530369151245753
+          ],
+          "mean_correlation": 0.5641258149357498
+        },
+        {
+          "thermal_clock_correction_s": -0.01,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.6835698984815137,
+            0.4691357192212034
+          ],
+          "mean_correlation": 0.5763528088513585
+        },
+        {
+          "thermal_clock_correction_s": -0.005,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.6923848014981784,
+            0.48071354233534497
+          ],
+          "mean_correlation": 0.5865491719167617
+        },
+        {
+          "thermal_clock_correction_s": 0.0,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.7054534092271261,
+            0.497264539954092
+          ],
+          "mean_correlation": 0.601358974590609
+        },
+        {
+          "thermal_clock_correction_s": 0.005,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.7294888378463051,
+            0.5290355066387726
+          ],
+          "mean_correlation": 0.6292621722425389
+        },
+        {
+          "thermal_clock_correction_s": 0.01,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.7534909668420092,
+            0.562615756447977
+          ],
+          "mean_correlation": 0.6580533616449931
+        },
+        {
+          "thermal_clock_correction_s": 0.015,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.7772003401465857,
+            0.5978242563754544
+          ],
+          "mean_correlation": 0.68751229826102
+        },
+        {
+          "thermal_clock_correction_s": 0.02,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.8003155362090972,
+            0.6343385794320272
+          ],
+          "mean_correlation": 0.7173270578205622
+        },
+        {
+          "thermal_clock_correction_s": 0.025,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.8224973406810475,
+            0.6716567722136484
+          ],
+          "mean_correlation": 0.7470770564473479
+        },
+        {
+          "thermal_clock_correction_s": 0.03,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.8433770957810233,
+            0.7090643601109855
+          ],
+          "mean_correlation": 0.7762207279460044
+        },
+        {
+          "thermal_clock_correction_s": 0.035,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.8625696747699757,
+            0.7456182252026947
+          ],
+          "mean_correlation": 0.8040939499863352
+        },
+        {
+          "thermal_clock_correction_s": 0.04,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.8796909460814264,
+            0.7801629458752374
+          ],
+          "mean_correlation": 0.8299269459783318
+        },
+        {
+          "thermal_clock_correction_s": 0.045,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.8943787975389766,
+            0.8113950699526755
+          ],
+          "mean_correlation": 0.852886933745826
+        },
+        {
+          "thermal_clock_correction_s": 0.05,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.906315918064284,
+            0.8379827718126864
+          ],
+          "mean_correlation": 0.8721493449384852
+        },
+        {
+          "thermal_clock_correction_s": 0.055,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.9152517999079559,
+            0.8587307093129379
+          ],
+          "mean_correlation": 0.8869912546104469
+        },
+        {
+          "thermal_clock_correction_s": 0.06,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.9210210793318777,
+            0.8727572318273481
+          ],
+          "mean_correlation": 0.8968891555796129
+        },
+        {
+          "thermal_clock_correction_s": 0.065,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.9235555680217011,
+            0.8796353297616124
+          ],
+          "mean_correlation": 0.9015954488916568
+        },
+        {
+          "thermal_clock_correction_s": 0.07,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.9228881745798686,
+            0.8794527489349887
+          ],
+          "mean_correlation": 0.9011704617574287
+        },
+        {
+          "thermal_clock_correction_s": 0.075,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.9191482061806954,
+            0.8727730083407544
+          ],
+          "mean_correlation": 0.8959606072607249
+        },
+        {
+          "thermal_clock_correction_s": 0.08,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.9125489463398523,
+            0.8605145747286077
+          ],
+          "mean_correlation": 0.88653176053423
+        },
+        {
+          "thermal_clock_correction_s": 0.085,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.9033695579980298,
+            0.8437903999916065
+          ],
+          "mean_correlation": 0.8735799789948182
+        },
+        {
+          "thermal_clock_correction_s": 0.09,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.8919339934346631,
+            0.823753265709693
+          ],
+          "mean_correlation": 0.8578436295721781
+        },
+        {
+          "thermal_clock_correction_s": 0.095,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.878589622061881,
+            0.8014777788937852
+          ],
+          "mean_correlation": 0.8400337004778331
+        },
+        {
+          "thermal_clock_correction_s": 0.1,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.8641333811608323,
+            0.7785897653693754
+          ],
+          "mean_correlation": 0.8213615732651038
+        },
+        {
+          "thermal_clock_correction_s": 0.105,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.8491340879279303,
+            0.7560895727078698
+          ],
+          "mean_correlation": 0.8026118303179001
+        },
+        {
+          "thermal_clock_correction_s": 0.11,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.8329654241623804,
+            0.7323185753891903
+          ],
+          "mean_correlation": 0.7826419997757854
+        },
+        {
+          "thermal_clock_correction_s": 0.115,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.8159610847402011,
+            0.7081284160151885
+          ],
+          "mean_correlation": 0.7620447503776948
+        },
+        {
+          "thermal_clock_correction_s": 0.12,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.8028962369507642,
+            0.6906728892218883
+          ],
+          "mean_correlation": 0.7467845630863262
+        },
+        {
+          "thermal_clock_correction_s": 0.125,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.7876925281674166,
+            0.6699846658041617
+          ],
+          "mean_correlation": 0.7288385969857891
+        },
+        {
+          "thermal_clock_correction_s": 0.13,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.7703024395723368,
+            0.645844176841893
+          ],
+          "mean_correlation": 0.7080733082071149
+        },
+        {
+          "thermal_clock_correction_s": 0.135,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.7536010460404781,
+            0.6219465036378354
+          ],
+          "mean_correlation": 0.6877737748391568
+        },
+        {
+          "thermal_clock_correction_s": 0.14,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.7359038210129706,
+            0.5963645603625095
+          ],
+          "mean_correlation": 0.66613419068774
+        },
+        {
+          "thermal_clock_correction_s": 0.145,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.7157473074175209,
+            0.5664298583221883
+          ],
+          "mean_correlation": 0.6410885828698546
+        },
+        {
+          "thermal_clock_correction_s": 0.15,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.6930306672931255,
+            0.5317734538642057
+          ],
+          "mean_correlation": 0.6124020605786655
+        },
+        {
+          "thermal_clock_correction_s": 0.155,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.6677032179985828,
+            0.49216798609280665
+          ],
+          "mean_correlation": 0.5799356020456947
+        },
+        {
+          "thermal_clock_correction_s": 0.16,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.639775586355377,
+            0.44759894468457095
+          ],
+          "mean_correlation": 0.543687265519974
+        },
+        {
+          "thermal_clock_correction_s": 0.165,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.6093260124072659,
+            0.39834623926088775
+          ],
+          "mean_correlation": 0.5038361258340769
+        },
+        {
+          "thermal_clock_correction_s": 0.17,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.5764067024341876,
+            0.3455935489062471
+          ],
+          "mean_correlation": 0.4610001256702173
+        },
+        {
+          "thermal_clock_correction_s": 0.175,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.5413150192740064,
+            0.2894661172347488
+          ],
+          "mean_correlation": 0.4153905682543776
+        },
+        {
+          "thermal_clock_correction_s": 0.18,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.5043419110398617,
+            0.23106186662016384
+          ],
+          "mean_correlation": 0.36770188883001276
+        },
+        {
+          "thermal_clock_correction_s": 0.185,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.4661203715846358,
+            0.1711327430391512
+          ],
+          "mean_correlation": 0.3186265573118935
+        },
+        {
+          "thermal_clock_correction_s": 0.19,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.42670554563244045,
+            0.11088977742798238
+          ],
+          "mean_correlation": 0.2687976615302114
+        },
+        {
+          "thermal_clock_correction_s": 0.195,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.3863722889464298,
+            0.05174051892786921
+          ],
+          "mean_correlation": 0.21905640393714948
+        },
+        {
+          "thermal_clock_correction_s": 0.2,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.3457779060054866,
+            -0.0055790683393407686
+          ],
+          "mean_correlation": 0.17009941883307292
+        },
+        {
+          "thermal_clock_correction_s": 0.205,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.3056241467446229,
+            -0.06054127061613832
+          ],
+          "mean_correlation": 0.1225414380642423
+        },
+        {
+          "thermal_clock_correction_s": 0.21,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.26572737835205335,
+            -0.11231407575088447
+          ],
+          "mean_correlation": 0.07670665130058443
+        },
+        {
+          "thermal_clock_correction_s": 0.215,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.22647595214011665,
+            -0.1601225405306468
+          ],
+          "mean_correlation": 0.03317670580473492
+        },
+        {
+          "thermal_clock_correction_s": 0.22,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.1942351814651044,
+            -0.1996918485919116
+          ],
+          "mean_correlation": -0.002728333563403601
+        },
+        {
+          "thermal_clock_correction_s": 0.225,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.16227890914103726,
+            -0.2376488803417104
+          ],
+          "mean_correlation": -0.03768498560033656
+        },
+        {
+          "thermal_clock_correction_s": 0.23,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.13083859264256234,
+            -0.2734847418258335
+          ],
+          "mean_correlation": -0.07132307459163557
+        },
+        {
+          "thermal_clock_correction_s": 0.235,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.10607433954325744,
+            -0.3021317943032597
+          ],
+          "mean_correlation": -0.09802872738000112
+        },
+        {
+          "thermal_clock_correction_s": 0.24,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.08384128080626081,
+            -0.32749474651429133
+          ],
+          "mean_correlation": -0.12182673285401527
+        },
+        {
+          "thermal_clock_correction_s": 0.245,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.06143949334082035,
+            -0.35149139637812343
+          ],
+          "mean_correlation": -0.14502595151865155
+        },
+        {
+          "thermal_clock_correction_s": 0.25,
+          "motion_intervals": 93,
+          "correlation_xy": [
+            0.04215333014204374,
+            -0.3711409791715931
+          ],
+          "mean_correlation": -0.16449382451477468
+        }
+      ]
+    },
+    {
+      "interval_s": [
+        12,
+        24
+      ],
+      "best": {
+        "thermal_clock_correction_s": 0.07,
+        "motion_intervals": 88,
+        "correlation_xy": [
+          0.9682933356593536,
+          0.8935172652519442
+        ],
+        "mean_correlation": 0.9309053004556489
+      },
+      "zero": {
+        "thermal_clock_correction_s": 0.0,
+        "motion_intervals": 88,
+        "correlation_xy": [
+          0.8871836352526532,
+          0.5980299143594948
+        ],
+        "mean_correlation": 0.7426067748060741
+      },
+      "curve": [
+        {
+          "thermal_clock_correction_s": -0.25,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.3140264429793231,
+            -0.35149503788418557
+          ],
+          "mean_correlation": -0.018734297452431242
+        },
+        {
+          "thermal_clock_correction_s": -0.245,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.3246090375755177,
+            -0.3499555123684199
+          ],
+          "mean_correlation": -0.012673237396451098
+        },
+        {
+          "thermal_clock_correction_s": -0.24,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.3349446313024649,
+            -0.347349641749963
+          ],
+          "mean_correlation": -0.006202505223749072
+        },
+        {
+          "thermal_clock_correction_s": -0.235,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.3452062048497005,
+            -0.34368376150793556
+          ],
+          "mean_correlation": 0.0007612216708824671
+        },
+        {
+          "thermal_clock_correction_s": -0.23,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.35626722984097264,
+            -0.3432465858090291
+          ],
+          "mean_correlation": 0.0065103220159717645
+        },
+        {
+          "thermal_clock_correction_s": -0.225,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.36710977398587746,
+            -0.3417717130438003
+          ],
+          "mean_correlation": 0.012669030471038595
+        },
+        {
+          "thermal_clock_correction_s": -0.22,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.3778124423767687,
+            -0.3390856686751697
+          ],
+          "mean_correlation": 0.019363386850799497
+        },
+        {
+          "thermal_clock_correction_s": -0.215,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.3905205408473686,
+            -0.3362408092601269
+          ],
+          "mean_correlation": 0.02713986579362085
+        },
+        {
+          "thermal_clock_correction_s": -0.21,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.40432702115268027,
+            -0.33299505009338903
+          ],
+          "mean_correlation": 0.035665985529645616
+        },
+        {
+          "thermal_clock_correction_s": -0.205,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.41800807388105476,
+            -0.32853922407558067
+          ],
+          "mean_correlation": 0.04473442490273705
+        },
+        {
+          "thermal_clock_correction_s": -0.2,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.43153271986190167,
+            -0.3216167680084635
+          ],
+          "mean_correlation": 0.05495797592671908
+        },
+        {
+          "thermal_clock_correction_s": -0.195,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.44487315434977337,
+            -0.31149981801617455
+          ],
+          "mean_correlation": 0.06668666816679941
+        },
+        {
+          "thermal_clock_correction_s": -0.19,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.45794531734368044,
+            -0.2999564580697751
+          ],
+          "mean_correlation": 0.07899442963695266
+        },
+        {
+          "thermal_clock_correction_s": -0.185,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.47070121261769343,
+            -0.28704414136992557
+          ],
+          "mean_correlation": 0.09182853562388393
+        },
+        {
+          "thermal_clock_correction_s": -0.18,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.48291187175770106,
+            -0.2732307020717905
+          ],
+          "mean_correlation": 0.10484058484295528
+        },
+        {
+          "thermal_clock_correction_s": -0.175,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.4947242636423922,
+            -0.2582937596091495
+          ],
+          "mean_correlation": 0.11821525201662134
+        },
+        {
+          "thermal_clock_correction_s": -0.17,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.5061014117109908,
+            -0.24240182218080528
+          ],
+          "mean_correlation": 0.13184979476509273
+        },
+        {
+          "thermal_clock_correction_s": -0.165,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.5170991455399205,
+            -0.22501967562845052
+          ],
+          "mean_correlation": 0.14603973495573502
+        },
+        {
+          "thermal_clock_correction_s": -0.16,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.5276529205051269,
+            -0.20681518347021882
+          ],
+          "mean_correlation": 0.16041886851745404
+        },
+        {
+          "thermal_clock_correction_s": -0.155,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.537693159114766,
+            -0.18831122296270977
+          ],
+          "mean_correlation": 0.17469096807602813
+        },
+        {
+          "thermal_clock_correction_s": -0.15,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.5472582771191733,
+            -0.16969761136914518
+          ],
+          "mean_correlation": 0.18878033287501406
+        },
+        {
+          "thermal_clock_correction_s": -0.145,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.5563827767056546,
+            -0.15115074102728074
+          ],
+          "mean_correlation": 0.20261601783918692
+        },
+        {
+          "thermal_clock_correction_s": -0.14,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.5649318831285532,
+            -0.1329515247731034
+          ],
+          "mean_correlation": 0.21599017917772492
+        },
+        {
+          "thermal_clock_correction_s": -0.135,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.573024316225016,
+            -0.11517712036464206
+          ],
+          "mean_correlation": 0.228923597930187
+        },
+        {
+          "thermal_clock_correction_s": -0.13,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.583778708610281,
+            -0.09502763865029938
+          ],
+          "mean_correlation": 0.24437553497999082
+        },
+        {
+          "thermal_clock_correction_s": -0.125,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.5939518136287785,
+            -0.07524437612227418
+          ],
+          "mean_correlation": 0.25935371875325214
+        },
+        {
+          "thermal_clock_correction_s": -0.12,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.6035377450883067,
+            -0.05596193959598537
+          ],
+          "mean_correlation": 0.27378790274616066
+        },
+        {
+          "thermal_clock_correction_s": -0.115,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.6172953013981172,
+            -0.02928566219228427
+          ],
+          "mean_correlation": 0.29400481960291647
+        },
+        {
+          "thermal_clock_correction_s": -0.11,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.6332116936803986,
+            0.0023210735749933137
+          ],
+          "mean_correlation": 0.317766383627696
+        },
+        {
+          "thermal_clock_correction_s": -0.105,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.6487941963777589,
+            0.03525869105626225
+          ],
+          "mean_correlation": 0.3420264437170106
+        },
+        {
+          "thermal_clock_correction_s": -0.1,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.6648901700571349,
+            0.06809491715087654
+          ],
+          "mean_correlation": 0.36649254360400574
+        },
+        {
+          "thermal_clock_correction_s": -0.095,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.682304886236666,
+            0.09994792412739295
+          ],
+          "mean_correlation": 0.39112640518202946
+        },
+        {
+          "thermal_clock_correction_s": -0.09,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.6993806707029174,
+            0.13297864760193162
+          ],
+          "mean_correlation": 0.4161796591524245
+        },
+        {
+          "thermal_clock_correction_s": -0.085,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.7160450465803317,
+            0.166956714448187
+          ],
+          "mean_correlation": 0.4415008805142594
+        },
+        {
+          "thermal_clock_correction_s": -0.08,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.7322256989396012,
+            0.20159314501154788
+          ],
+          "mean_correlation": 0.46690942197557456
+        },
+        {
+          "thermal_clock_correction_s": -0.075,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.7478516679790919,
+            0.2365460752026269
+          ],
+          "mean_correlation": 0.4921988715908594
+        },
+        {
+          "thermal_clock_correction_s": -0.07,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.7628545928873439,
+            0.2714323119535002
+          ],
+          "mean_correlation": 0.517143452420422
+        },
+        {
+          "thermal_clock_correction_s": -0.065,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.7771699633338722,
+            0.3058444524923308
+          ],
+          "mean_correlation": 0.5415072079131015
+        },
+        {
+          "thermal_clock_correction_s": -0.06,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.7907383314601876,
+            0.33937223081905515
+          ],
+          "mean_correlation": 0.5650552811396213
+        },
+        {
+          "thermal_clock_correction_s": -0.055,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8035064360147836,
+            0.3716257696869613
+          ],
+          "mean_correlation": 0.5875661028508724
+        },
+        {
+          "thermal_clock_correction_s": -0.05,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8154281922560801,
+            0.4022578241303843
+          ],
+          "mean_correlation": 0.6088430081932322
+        },
+        {
+          "thermal_clock_correction_s": -0.045,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.826465506485675,
+            0.4309821304668543
+          ],
+          "mean_correlation": 0.6287238184762647
+        },
+        {
+          "thermal_clock_correction_s": -0.04,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8365888822799545,
+            0.4575856554388151
+          ],
+          "mean_correlation": 0.6470872688593848
+        },
+        {
+          "thermal_clock_correction_s": -0.035,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8457777960435627,
+            0.48193368294412203
+          ],
+          "mean_correlation": 0.6638557394938424
+        },
+        {
+          "thermal_clock_correction_s": -0.03,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8540208315382428,
+            0.5039679433859247
+          ],
+          "mean_correlation": 0.6789943874620837
+        },
+        {
+          "thermal_clock_correction_s": -0.025,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8613155755193544,
+            0.5236990406061562
+          ],
+          "mean_correlation": 0.6925073080627553
+        },
+        {
+          "thermal_clock_correction_s": -0.02,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8676682884906712,
+            0.5411950431848239
+          ],
+          "mean_correlation": 0.7044316658377476
+        },
+        {
+          "thermal_clock_correction_s": -0.015,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8730933749251975,
+            0.556568234918408
+          ],
+          "mean_correlation": 0.7148308049218027
+        },
+        {
+          "thermal_clock_correction_s": -0.01,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8776126853675231,
+            0.5699617631785646
+          ],
+          "mean_correlation": 0.7237872242730439
+        },
+        {
+          "thermal_clock_correction_s": -0.005,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8812546881877122,
+            0.5815374531340374
+          ],
+          "mean_correlation": 0.7313960706608749
+        },
+        {
+          "thermal_clock_correction_s": 0.0,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8871836352526532,
+            0.5980299143594948
+          ],
+          "mean_correlation": 0.7426067748060741
+        },
+        {
+          "thermal_clock_correction_s": 0.005,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8983983756493106,
+            0.6259984786741908
+          ],
+          "mean_correlation": 0.7621984271617507
+        },
+        {
+          "thermal_clock_correction_s": 0.01,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9090132641309976,
+            0.654482667048633
+          ],
+          "mean_correlation": 0.7817479655898153
+        },
+        {
+          "thermal_clock_correction_s": 0.015,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9189576710499062,
+            0.6832178688655343
+          ],
+          "mean_correlation": 0.8010877699577202
+        },
+        {
+          "thermal_clock_correction_s": 0.02,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9281628046895023,
+            0.7118728726222376
+          ],
+          "mean_correlation": 0.82001783865587
+        },
+        {
+          "thermal_clock_correction_s": 0.025,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9365630244257346,
+            0.7400493986659619
+          ],
+          "mean_correlation": 0.8383062115458482
+        },
+        {
+          "thermal_clock_correction_s": 0.03,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9440971892601855,
+            0.7672877508361584
+          ],
+          "mean_correlation": 0.855692470048172
+        },
+        {
+          "thermal_clock_correction_s": 0.035,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9507099925910419,
+            0.79308030328608
+          ],
+          "mean_correlation": 0.871895147938561
+        },
+        {
+          "thermal_clock_correction_s": 0.04,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.95635322937748,
+            0.8168937718041626
+          ],
+          "mean_correlation": 0.8866235005908213
+        },
+        {
+          "thermal_clock_correction_s": 0.045,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9609869403863377,
+            0.8381998133869509
+          ],
+          "mean_correlation": 0.8995933768866443
+        },
+        {
+          "thermal_clock_correction_s": 0.05,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9645803805107168,
+            0.856511598713235
+          ],
+          "mean_correlation": 0.9105459896119759
+        },
+        {
+          "thermal_clock_correction_s": 0.055,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9671127643888141,
+            0.8714220470263054
+          ],
+          "mean_correlation": 0.9192674057075598
+        },
+        {
+          "thermal_clock_correction_s": 0.06,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9685737524801172,
+            0.8826380650156429
+          ],
+          "mean_correlation": 0.9256059087478801
+        },
+        {
+          "thermal_clock_correction_s": 0.065,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.968963653702556,
+            0.8900050369883438
+          ],
+          "mean_correlation": 0.9294843453454499
+        },
+        {
+          "thermal_clock_correction_s": 0.07,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9682933356593536,
+            0.8935172652519442
+          ],
+          "mean_correlation": 0.9309053004556489
+        },
+        {
+          "thermal_clock_correction_s": 0.075,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9665838491047081,
+            0.8933127618440428
+          ],
+          "mean_correlation": 0.9299483054743755
+        },
+        {
+          "thermal_clock_correction_s": 0.08,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9638657882468582,
+            0.8896539202378853
+          ],
+          "mean_correlation": 0.9267598542423717
+        },
+        {
+          "thermal_clock_correction_s": 0.085,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9601784214933061,
+            0.8828981527186652
+          ],
+          "mean_correlation": 0.9215382871059856
+        },
+        {
+          "thermal_clock_correction_s": 0.09,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9555686372863839,
+            0.873463853199239
+          ],
+          "mean_correlation": 0.9145162452428115
+        },
+        {
+          "thermal_clock_correction_s": 0.095,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9500897561055102,
+            0.8617968795703893
+          ],
+          "mean_correlation": 0.9059433178379497
+        },
+        {
+          "thermal_clock_correction_s": 0.1,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.943714589288355,
+            0.8483669279752972
+          ],
+          "mean_correlation": 0.8960407586318262
+        },
+        {
+          "thermal_clock_correction_s": 0.105,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.936407731009713,
+            0.8331783207931254
+          ],
+          "mean_correlation": 0.8847930259014192
+        },
+        {
+          "thermal_clock_correction_s": 0.11,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9283776384092145,
+            0.815946804830444
+          ],
+          "mean_correlation": 0.8721622216198293
+        },
+        {
+          "thermal_clock_correction_s": 0.115,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9197737039087125,
+            0.797268451093648
+          ],
+          "mean_correlation": 0.8585210775011802
+        },
+        {
+          "thermal_clock_correction_s": 0.12,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9140711985909662,
+            0.7845874021233509
+          ],
+          "mean_correlation": 0.8493293003571585
+        },
+        {
+          "thermal_clock_correction_s": 0.125,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9075352483081448,
+            0.7693661191049285
+          ],
+          "mean_correlation": 0.8384506837065366
+        },
+        {
+          "thermal_clock_correction_s": 0.13,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.9000876961265643,
+            0.7513218830633079
+          ],
+          "mean_correlation": 0.8257047895949361
+        },
+        {
+          "thermal_clock_correction_s": 0.135,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8933729741107707,
+            0.7323475764887454
+          ],
+          "mean_correlation": 0.812860275299758
+        },
+        {
+          "thermal_clock_correction_s": 0.14,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8865575181410815,
+            0.7110776524994332
+          ],
+          "mean_correlation": 0.7988175853202574
+        },
+        {
+          "thermal_clock_correction_s": 0.145,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8788439127786726,
+            0.6865977093177248
+          ],
+          "mean_correlation": 0.7827208110481987
+        },
+        {
+          "thermal_clock_correction_s": 0.15,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.870332774336787,
+            0.6587893073732063
+          ],
+          "mean_correlation": 0.7645610408549967
+        },
+        {
+          "thermal_clock_correction_s": 0.155,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.861116940602745,
+            0.6276372608236299
+          ],
+          "mean_correlation": 0.7443771007131874
+        },
+        {
+          "thermal_clock_correction_s": 0.16,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8510557602149955,
+            0.5933009741236257
+          ],
+          "mean_correlation": 0.7221783671693106
+        },
+        {
+          "thermal_clock_correction_s": 0.165,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8401730273680654,
+            0.5560122364136897
+          ],
+          "mean_correlation": 0.6980926318908776
+        },
+        {
+          "thermal_clock_correction_s": 0.17,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.828541377932047,
+            0.51660678473446
+          ],
+          "mean_correlation": 0.6725740813332535
+        },
+        {
+          "thermal_clock_correction_s": 0.175,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8161534904342875,
+            0.4750173851772725
+          ],
+          "mean_correlation": 0.64558543780578
+        },
+        {
+          "thermal_clock_correction_s": 0.18,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.8030536147046806,
+            0.43173035459036957
+          ],
+          "mean_correlation": 0.6173919846475251
+        },
+        {
+          "thermal_clock_correction_s": 0.185,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.7893704467806468,
+            0.3861270641190117
+          ],
+          "mean_correlation": 0.5877487554498293
+        },
+        {
+          "thermal_clock_correction_s": 0.19,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.7751026741142496,
+            0.3390328926885979
+          ],
+          "mean_correlation": 0.5570677834014237
+        },
+        {
+          "thermal_clock_correction_s": 0.195,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.7602717583053747,
+            0.29175860474207377
+          ],
+          "mean_correlation": 0.5260151815237243
+        },
+        {
+          "thermal_clock_correction_s": 0.2,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.7452839648798335,
+            0.24578887350931622
+          ],
+          "mean_correlation": 0.49553641919457486
+        },
+        {
+          "thermal_clock_correction_s": 0.205,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.7303531786959178,
+            0.2020864818580003
+          ],
+          "mean_correlation": 0.466219830276959
+        },
+        {
+          "thermal_clock_correction_s": 0.21,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.7149702740995748,
+            0.1592069361775823
+          ],
+          "mean_correlation": 0.43708860513857856
+        },
+        {
+          "thermal_clock_correction_s": 0.215,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.6992609361923025,
+            0.11766742445297587
+          ],
+          "mean_correlation": 0.40846418032263915
+        },
+        {
+          "thermal_clock_correction_s": 0.22,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.6846893172120423,
+            0.08518159684908842
+          ],
+          "mean_correlation": 0.38493545703056536
+        },
+        {
+          "thermal_clock_correction_s": 0.225,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.6697811423070796,
+            0.053271096243427546
+          ],
+          "mean_correlation": 0.3615261192752536
+        },
+        {
+          "thermal_clock_correction_s": 0.23,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.6545649483971,
+            0.022072186960784543
+          ],
+          "mean_correlation": 0.33831856767894225
+        },
+        {
+          "thermal_clock_correction_s": 0.235,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.6436944722485347,
+            -0.004596167724386229
+          ],
+          "mean_correlation": 0.31954915226207425
+        },
+        {
+          "thermal_clock_correction_s": 0.24,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.6345904359353203,
+            -0.02998321265011534
+          ],
+          "mean_correlation": 0.30230361164260244
+        },
+        {
+          "thermal_clock_correction_s": 0.245,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.6249968142345765,
+            -0.05548607802048603
+          ],
+          "mean_correlation": 0.28475536810704527
+        },
+        {
+          "thermal_clock_correction_s": 0.25,
+          "motion_intervals": 88,
+          "correlation_xy": [
+            0.6153796540963156,
+            -0.07841025110274957
+          ],
+          "mean_correlation": 0.268484701496783
+        }
+      ]
+    },
+    {
+      "interval_s": [
+        24,
+        36
+      ],
+      "best": {
+        "thermal_clock_correction_s": 0.075,
+        "motion_intervals": 81,
+        "correlation_xy": [
+          0.8738828386064725,
+          0.7711974231796763
+        ],
+        "mean_correlation": 0.8225401308930744
+      },
+      "zero": {
+        "thermal_clock_correction_s": 0.0,
+        "motion_intervals": 81,
+        "correlation_xy": [
+          0.8164159422580769,
+          0.48182495045340257
+        ],
+        "mean_correlation": 0.6491204463557397
+      },
+      "curve": [
+        {
+          "thermal_clock_correction_s": -0.25,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.44967262508703093,
+            -0.10673225510189847
+          ],
+          "mean_correlation": 0.17147018499256622
+        },
+        {
+          "thermal_clock_correction_s": -0.245,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.4537137698954814,
+            -0.10031422754854177
+          ],
+          "mean_correlation": 0.1766997711734698
+        },
+        {
+          "thermal_clock_correction_s": -0.24,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.45754701382577073,
+            -0.09377720549727997
+          ],
+          "mean_correlation": 0.18188490416424538
+        },
+        {
+          "thermal_clock_correction_s": -0.235,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.4612671050128645,
+            -0.08704498046507263
+          ],
+          "mean_correlation": 0.18711106227389593
+        },
+        {
+          "thermal_clock_correction_s": -0.23,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.46899337855117984,
+            -0.07303456268780899
+          ],
+          "mean_correlation": 0.19797940793168542
+        },
+        {
+          "thermal_clock_correction_s": -0.225,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.4765363683063007,
+            -0.05815702387547025
+          ],
+          "mean_correlation": 0.20918967221541523
+        },
+        {
+          "thermal_clock_correction_s": -0.22,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.4838202131860012,
+            -0.04275302636372017
+          ],
+          "mean_correlation": 0.2205335934111405
+        },
+        {
+          "thermal_clock_correction_s": -0.215,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.4930773683683361,
+            -0.033597081288144426
+          ],
+          "mean_correlation": 0.22974014354009584
+        },
+        {
+          "thermal_clock_correction_s": -0.21,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.5032130826224077,
+            -0.026883933347084218
+          ],
+          "mean_correlation": 0.23816457463766175
+        },
+        {
+          "thermal_clock_correction_s": -0.205,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.5131156469730874,
+            -0.01991272549089647
+          ],
+          "mean_correlation": 0.24660146074109549
+        },
+        {
+          "thermal_clock_correction_s": -0.2,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.5223381220122069,
+            -0.012519110538605686
+          ],
+          "mean_correlation": 0.2549095057368006
+        },
+        {
+          "thermal_clock_correction_s": -0.195,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.5304526068048081,
+            -0.004504485318513597
+          ],
+          "mean_correlation": 0.2629740607431473
+        },
+        {
+          "thermal_clock_correction_s": -0.19,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.5382720390871685,
+            0.003641370633915388
+          ],
+          "mean_correlation": 0.2709567048605419
+        },
+        {
+          "thermal_clock_correction_s": -0.185,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.5457775484427323,
+            0.011825416077263177
+          ],
+          "mean_correlation": 0.27880148225999773
+        },
+        {
+          "thermal_clock_correction_s": -0.18,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.5529518587532818,
+            0.019951474561446334
+          ],
+          "mean_correlation": 0.28645166665736405
+        },
+        {
+          "thermal_clock_correction_s": -0.175,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.559779478573109,
+            0.027925797037419577
+          ],
+          "mean_correlation": 0.29385263780526427
+        },
+        {
+          "thermal_clock_correction_s": -0.17,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.5662468652189886,
+            0.03566235547491007
+          ],
+          "mean_correlation": 0.3009546103469493
+        },
+        {
+          "thermal_clock_correction_s": -0.165,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.572342558589992,
+            0.0430871896091926
+          ],
+          "mean_correlation": 0.30771487409959225
+        },
+        {
+          "thermal_clock_correction_s": -0.16,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.5780572816466863,
+            0.0501413355033025
+          ],
+          "mean_correlation": 0.3140993085749944
+        },
+        {
+          "thermal_clock_correction_s": -0.155,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.5833840055210723,
+            0.05678215326142598
+          ],
+          "mean_correlation": 0.32008307939124914
+        },
+        {
+          "thermal_clock_correction_s": -0.15,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.5883367084499049,
+            0.06295857061756809
+          ],
+          "mean_correlation": 0.3256476395337365
+        },
+        {
+          "thermal_clock_correction_s": -0.145,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.5929225350495712,
+            0.06864855559943235
+          ],
+          "mean_correlation": 0.3307855453245018
+        },
+        {
+          "thermal_clock_correction_s": -0.14,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.597110431436103,
+            0.07389306239320047
+          ],
+          "mean_correlation": 0.33550174691465173
+        },
+        {
+          "thermal_clock_correction_s": -0.135,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.6009374664737274,
+            0.0786023685381436
+          ],
+          "mean_correlation": 0.3397699175059355
+        },
+        {
+          "thermal_clock_correction_s": -0.13,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.6079691493031716,
+            0.08054319337306415
+          ],
+          "mean_correlation": 0.34425617133811787
+        },
+        {
+          "thermal_clock_correction_s": -0.125,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.6146628971828475,
+            0.08224671889846168
+          ],
+          "mean_correlation": 0.3484548080406546
+        },
+        {
+          "thermal_clock_correction_s": -0.12,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.6209720717258149,
+            0.08372530331345343
+          ],
+          "mean_correlation": 0.35234868751963416
+        },
+        {
+          "thermal_clock_correction_s": -0.115,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.6301571998850547,
+            0.0900122763172071
+          ],
+          "mean_correlation": 0.3600847381011309
+        },
+        {
+          "thermal_clock_correction_s": -0.11,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.6405112635592999,
+            0.09867210355714835
+          ],
+          "mean_correlation": 0.36959168355822414
+        },
+        {
+          "thermal_clock_correction_s": -0.105,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.6504841282757925,
+            0.10741719642154605
+          ],
+          "mean_correlation": 0.37895066234866925
+        },
+        {
+          "thermal_clock_correction_s": -0.1,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.6612934356618615,
+            0.12101972894396709
+          ],
+          "mean_correlation": 0.3911565823029143
+        },
+        {
+          "thermal_clock_correction_s": -0.095,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.6739061933550267,
+            0.14308847249236026
+          ],
+          "mean_correlation": 0.40849733292369345
+        },
+        {
+          "thermal_clock_correction_s": -0.09,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.6861230936066738,
+            0.16596615692677696
+          ],
+          "mean_correlation": 0.4260446252667254
+        },
+        {
+          "thermal_clock_correction_s": -0.085,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.6979099207663244,
+            0.1895100420549865
+          ],
+          "mean_correlation": 0.44370998141065543
+        },
+        {
+          "thermal_clock_correction_s": -0.08,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.7092347126122701,
+            0.213535363793418
+          ],
+          "mean_correlation": 0.46138503820284404
+        },
+        {
+          "thermal_clock_correction_s": -0.075,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.7200681656734739,
+            0.2378162932421667
+          ],
+          "mean_correlation": 0.4789422294578203
+        },
+        {
+          "thermal_clock_correction_s": -0.07,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.7303839999523335,
+            0.2620907395223402
+          ],
+          "mean_correlation": 0.49623736973733684
+        },
+        {
+          "thermal_clock_correction_s": -0.065,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.7401592727862175,
+            0.2860694568688558
+          ],
+          "mean_correlation": 0.5131143648275367
+        },
+        {
+          "thermal_clock_correction_s": -0.06,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.7493746332308767,
+            0.30944927380199166
+          ],
+          "mean_correlation": 0.5294119535164342
+        },
+        {
+          "thermal_clock_correction_s": -0.055,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.7580145104130707,
+            0.33192945831760184
+          ],
+          "mean_correlation": 0.5449719843653362
+        },
+        {
+          "thermal_clock_correction_s": -0.05,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.7660672316663608,
+            0.35322946219877394
+          ],
+          "mean_correlation": 0.5596483469325674
+        },
+        {
+          "thermal_clock_correction_s": -0.045,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.773525068793359,
+            0.3731057927926936
+          ],
+          "mean_correlation": 0.5733154307930264
+        },
+        {
+          "thermal_clock_correction_s": -0.04,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.7803842133409913,
+            0.3913657388548294
+          ],
+          "mean_correlation": 0.5858749760979103
+        },
+        {
+          "thermal_clock_correction_s": -0.035,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.7866446841870534,
+            0.4078761826937807
+          ],
+          "mean_correlation": 0.597260433440417
+        },
+        {
+          "thermal_clock_correction_s": -0.03,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.7923101728865497,
+            0.42256663505983766
+          ],
+          "mean_correlation": 0.6074384039731937
+        },
+        {
+          "thermal_clock_correction_s": -0.025,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.7973878340103102,
+            0.43542666670957797
+          ],
+          "mean_correlation": 0.616407250359944
+        },
+        {
+          "thermal_clock_correction_s": -0.02,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8018880290539596,
+            0.44649879110247925
+          ],
+          "mean_correlation": 0.6241934100782194
+        },
+        {
+          "thermal_clock_correction_s": -0.015,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8058240333659515,
+            0.4558683749557004
+          ],
+          "mean_correlation": 0.6308462041608259
+        },
+        {
+          "thermal_clock_correction_s": -0.01,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8092117159364586,
+            0.4636522629214031
+          ],
+          "mean_correlation": 0.6364319894289309
+        },
+        {
+          "thermal_clock_correction_s": -0.005,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8120692018347392,
+            0.4699875764874287
+          ],
+          "mean_correlation": 0.641028389161084
+        },
+        {
+          "thermal_clock_correction_s": 0.0,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8164159422580769,
+            0.48182495045340257
+          ],
+          "mean_correlation": 0.6491204463557397
+        },
+        {
+          "thermal_clock_correction_s": 0.005,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.824023843297249,
+            0.5075081203166826
+          ],
+          "mean_correlation": 0.6657659818069658
+        },
+        {
+          "thermal_clock_correction_s": 0.01,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8311748465402888,
+            0.5336766319528744
+          ],
+          "mean_correlation": 0.6824257392465816
+        },
+        {
+          "thermal_clock_correction_s": 0.015,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.837841503799943,
+            0.5601038502500427
+          ],
+          "mean_correlation": 0.6989726770249929
+        },
+        {
+          "thermal_clock_correction_s": 0.02,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8439985382380618,
+            0.5865099478511425
+          ],
+          "mean_correlation": 0.7152542430446022
+        },
+        {
+          "thermal_clock_correction_s": 0.025,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8496231929388737,
+            0.6125629947645312
+          ],
+          "mean_correlation": 0.7310930938517024
+        },
+        {
+          "thermal_clock_correction_s": 0.03,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8546955498854115,
+            0.6378849984644769
+          ],
+          "mean_correlation": 0.7462902741749442
+        },
+        {
+          "thermal_clock_correction_s": 0.035,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.859198810232116,
+            0.6620639143940444
+          ],
+          "mean_correlation": 0.7606313623130803
+        },
+        {
+          "thermal_clock_correction_s": 0.04,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8631195276761591,
+            0.68467195361288
+          ],
+          "mean_correlation": 0.7738957406445195
+        },
+        {
+          "thermal_clock_correction_s": 0.045,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.866447788039106,
+            0.7052894329831997
+          ],
+          "mean_correlation": 0.7858686105111529
+        },
+        {
+          "thermal_clock_correction_s": 0.05,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8691773298238048,
+            0.7235321093550867
+          ],
+          "mean_correlation": 0.7963547195894458
+        },
+        {
+          "thermal_clock_correction_s": 0.055,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8713056024266964,
+            0.739078745951304
+          ],
+          "mean_correlation": 0.8051921741890002
+        },
+        {
+          "thermal_clock_correction_s": 0.06,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8728337607614705,
+            0.7516949967045035
+          ],
+          "mean_correlation": 0.812264378732987
+        },
+        {
+          "thermal_clock_correction_s": 0.065,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8737665971728903,
+            0.7612499019638963
+          ],
+          "mean_correlation": 0.8175082495683933
+        },
+        {
+          "thermal_clock_correction_s": 0.07,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8741124135729936,
+            0.7677224423659691
+          ],
+          "mean_correlation": 0.8209174279694813
+        },
+        {
+          "thermal_clock_correction_s": 0.075,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8738828386064725,
+            0.7711974231796763
+          ],
+          "mean_correlation": 0.8225401308930744
+        },
+        {
+          "thermal_clock_correction_s": 0.08,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8730925962534034,
+            0.7718519228114733
+          ],
+          "mean_correlation": 0.8224722595324383
+        },
+        {
+          "thermal_clock_correction_s": 0.085,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8717592335336609,
+            0.7699350638301764
+          ],
+          "mean_correlation": 0.8208471486819187
+        },
+        {
+          "thermal_clock_correction_s": 0.09,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8699028158426032,
+            0.7657445825732091
+          ],
+          "mean_correlation": 0.8178236992079062
+        },
+        {
+          "thermal_clock_correction_s": 0.095,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8675455989047022,
+            0.759603534810917
+          ],
+          "mean_correlation": 0.8135745668578096
+        },
+        {
+          "thermal_clock_correction_s": 0.1,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8648503861707938,
+            0.7494735450451429
+          ],
+          "mean_correlation": 0.8071619656079683
+        },
+        {
+          "thermal_clock_correction_s": 0.105,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8621440454773839,
+            0.7332829032544455
+          ],
+          "mean_correlation": 0.7977134743659147
+        },
+        {
+          "thermal_clock_correction_s": 0.11,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8589611391427308,
+            0.7149800895261174
+          ],
+          "mean_correlation": 0.7869706143344241
+        },
+        {
+          "thermal_clock_correction_s": 0.115,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8553985637417557,
+            0.6952858266600065
+          ],
+          "mean_correlation": 0.7753421952008811
+        },
+        {
+          "thermal_clock_correction_s": 0.12,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8518983825493133,
+            0.6788832014833396
+          ],
+          "mean_correlation": 0.7653907920163264
+        },
+        {
+          "thermal_clock_correction_s": 0.125,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.847973265417888,
+            0.6601197361716274
+          ],
+          "mean_correlation": 0.7540465007947577
+        },
+        {
+          "thermal_clock_correction_s": 0.13,
+          "motion_intervals": 81,
+          "correlation_xy": [
+            0.8436443773881724,
+            0.638941832639528
+          ],
+          "mean_correlation": 0.7412931050138503
+        },
+        {
+          "thermal_clock_correction_s": 0.135,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.8299508528083708,
+            0.6212123146674995
+          ],
+          "mean_correlation": 0.7255815837379351
+        },
+        {
+          "thermal_clock_correction_s": 0.14,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.8250473818323196,
+            0.5949663839370448
+          ],
+          "mean_correlation": 0.7100068828846822
+        },
+        {
+          "thermal_clock_correction_s": 0.145,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.819673857969827,
+            0.5658645167788411
+          ],
+          "mean_correlation": 0.692769187374334
+        },
+        {
+          "thermal_clock_correction_s": 0.15,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.8138310304773836,
+            0.5339725061990168
+          ],
+          "mean_correlation": 0.6739017683382003
+        },
+        {
+          "thermal_clock_correction_s": 0.155,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.8075219433032512,
+            0.4994515287141725
+          ],
+          "mean_correlation": 0.6534867360087119
+        },
+        {
+          "thermal_clock_correction_s": 0.16,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.8007519638513232,
+            0.46256068887943746
+          ],
+          "mean_correlation": 0.6316563263653803
+        },
+        {
+          "thermal_clock_correction_s": 0.165,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.7935287806602148,
+            0.42365075123502516
+          ],
+          "mean_correlation": 0.60858976594762
+        },
+        {
+          "thermal_clock_correction_s": 0.17,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.7858623692533779,
+            0.3831488032926207
+          ],
+          "mean_correlation": 0.5845055862729993
+        },
+        {
+          "thermal_clock_correction_s": 0.175,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.7777649262538819,
+            0.34153522131423947
+          ],
+          "mean_correlation": 0.5596500737840607
+        },
+        {
+          "thermal_clock_correction_s": 0.18,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.7692507727111088,
+            0.2993157676150405
+          ],
+          "mean_correlation": 0.5342832701630746
+        },
+        {
+          "thermal_clock_correction_s": 0.185,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.7603362284190434,
+            0.2569924988760672
+          ],
+          "mean_correlation": 0.5086643636475553
+        },
+        {
+          "thermal_clock_correction_s": 0.19,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.7510394597789326,
+            0.2150371711646382
+          ],
+          "mean_correlation": 0.4830383154717854
+        },
+        {
+          "thermal_clock_correction_s": 0.195,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.7413803044403117,
+            0.17387004363818265
+          ],
+          "mean_correlation": 0.4576251740392472
+        },
+        {
+          "thermal_clock_correction_s": 0.2,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.7315424491946547,
+            0.13792560804574763
+          ],
+          "mean_correlation": 0.43473402862020116
+        },
+        {
+          "thermal_clock_correction_s": 0.205,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.7216576839812485,
+            0.10981962026517016
+          ],
+          "mean_correlation": 0.4157386521232093
+        },
+        {
+          "thermal_clock_correction_s": 0.21,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.7114485871649552,
+            0.08197618640166666
+          ],
+          "mean_correlation": 0.39671238678331094
+        },
+        {
+          "thermal_clock_correction_s": 0.215,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.7010992362676431,
+            0.05504626429884632
+          ],
+          "mean_correlation": 0.3780727502832447
+        },
+        {
+          "thermal_clock_correction_s": 0.22,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.6946524469019983,
+            0.04302379652077647
+          ],
+          "mean_correlation": 0.3688381217113874
+        },
+        {
+          "thermal_clock_correction_s": 0.225,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.6878975665684124,
+            0.031163342358222105
+          ],
+          "mean_correlation": 0.3595304544633173
+        },
+        {
+          "thermal_clock_correction_s": 0.23,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.6808311930187877,
+            0.01947412292309782
+          ],
+          "mean_correlation": 0.35015265797094275
+        },
+        {
+          "thermal_clock_correction_s": 0.235,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.6739231637673482,
+            0.018483114973250846
+          ],
+          "mean_correlation": 0.3462031393702995
+        },
+        {
+          "thermal_clock_correction_s": 0.24,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.6669416187152803,
+            0.022466538284995497
+          ],
+          "mean_correlation": 0.3447040785001379
+        },
+        {
+          "thermal_clock_correction_s": 0.245,
+          "motion_intervals": 80,
+          "correlation_xy": [
+            0.6596409408904728,
+            0.026421923186769315
+          ],
+          "mean_correlation": 0.343031432038621
+        },
+        {
+          "thermal_clock_correction_s": 0.25,
+          "motion_intervals": 79,
+          "correlation_xy": [
+            0.6417823796734945,
+            0.021360786001385565
+          ],
+          "mean_correlation": 0.33157158283744004
+        }
+      ]
+    }
+  ],
+  "interpretation": "Independent within-modality image velocity phase; constant effective relative delay, not hardware clock ground truth. Positive correction means thermal appearance is later than its released timestamp relative to RGB. The phase estimates do not fit any cross-modal per-frame image shift.",
+  "reported_timestamp_skew_ms_p50_p95_max": [
+    1.734018325805664,
+    2.119123935699463,
+    31.567096710205078
+  ],
+  "rgb_reported_skew_motion_bound_px_p50_p95_max": [
+    0.5239530074038175,
+    1.1214159760906577,
+    8.157918578137144
+  ],
+  "thermal_reported_skew_motion_bound_px_p50_p95_max": [
+    0.37479730955761364,
+    0.9235329620189466,
+    6.538605191560457
+  ]
+}

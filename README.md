@@ -1,140 +1,125 @@
-# AXG Multimodal Perception
+# Jetson Stereo Perception
 
-项目目标是把几何视觉能力扩展到深度学习感知、连续输入处理、Jetson/TensorRT 部署，以及可复现的误差和性能验证。当前主线使用公开 KITTI 数据完成 **YOLO 检测 → 双目深度 → 三维表面代表位置 → 独立参考检查**。
+**English** | [简体中文](README.zh-CN.md)
 
-![KITTI YOLO plus stereo 3D positions](docs/media/kitti-preview.jpg)
+**RGB + thermal joint detection, geometric registration, and 3D position estimation** for TartanRGBT on **NVIDIA Jetson AGX Orin**. Geometrically aligned thermal images enter the LCAFNet dual-modality network alongside RGB and contribute to recognition. Outputs include bounding boxes, classes, confidence scores, valid surface XYZ estimates, and diagnostic videos.
 
-当前 KITTI 演示：`results/kitti/axg_kitti_3d_demo.mp4`。完整说明与复现命令见 [KITTI 基线](docs/KITTI.md)，结果见 [本轮验收报告](reports/kitti_status.md)。
+The default FP32 configuration achieves **34.71 FPS**; the response-priority configuration achieves **24.11 FPS with p95 latency of 108.91 ms**. These measurements cover the complete replay pipeline, including rendering and H.264 encoding, using existing files and the dataset's published offline FoundationStereo depth estimates. Live camera acquisition and online depth inference are not implemented.
 
-换电脑继续开发或部署 Jetson AGX，请从 [跨电脑接手与 Jetson 部署文档](JETSON_AGX_HANDOFF.md) 开始，包含迁移命令、设备环境分支、CPU 基线、TensorRT 待实现部分和可复制的 Codex 接手提示词。
+[Jetson deployment](docs/JETSON.md) · [Performance and latency](docs/BENCHMARKS.md) · [Architecture](docs/ARCHITECTURE.md) · [Development and releases](docs/DEVELOPMENT.md) · [Third-party notices](THIRD_PARTY.md)
 
-- 154 帧真实连续数据；992 次检测输出，其中 976 次有三维位置。这些是跨帧输出次数，不是不同物体数。
-- 初始 CPU 无界面基线：14.14 FPS，处理延迟 p95 59.34 ms。
-- 受控 10 Hz 回放：154 帧全部完成，零丢帧；调度输入到输出的延迟 p95 74.18 ms。
-- 双目深度相对原始 LiDAR：全部共同像素 MAE 1.857 m；匹配目标表面像素 MAE 0.955 m。参考像素覆盖率 76.98%。这些不是物体中心定位精度。
-- 21 项测试在工作环境与干净环境通过。无界面、10 Hz、离线评估三种运行的逐帧输出摘要一致。
+The detailed guides linked above are currently in Chinese; third-party notices are in English. This README is available in both languages, with the same commands and measured results.
 
-**Jetson/TensorRT 尚未实机验证；热像关联保留为单独扩展。完整项目尚未全部验收。**
+## Implemented features
 
-先按下方 Setup 安装环境，再运行：
+| Feature | Implementation and outputs |
+| --- | --- |
+| RGB + thermal joint recognition | LCAFNet M3FD receives aligned RGB and thermal inputs and predicts six classes: People, Car, Bus, Lamp, Motorcycle, Truck. Thermal data enters the network |
+| Depth-assisted geometric registration | Backprojects RGB pixels using estimated depth, then projects them into the thermal image using fixed RGB/thermal extrinsics; handles occlusion and valid support |
+| Fixed extrinsic refinement with scene BA | Uses constraints from multiple scene frames to optimize one shared set of extrinsics for the sequence; per-frame ECC is disabled by default, with calibration provenance and hashes retained |
+| Time and motion compensation | Applies a +70 ms effective thermal timestamp correction for this sequence and estimates rigid rig motion with RGB optical flow/PnP; records fallback when compensation is unsupported |
+| 3D surface position estimates | Computes XYZ statistics, depth support counts, and validity within detection boxes; returns an invalid status when depth support is insufficient |
+| Invalid input handling | Checks timestamps, missing frames, depth, and thermal FFC; preserves all valid groups in source order and skips gaps/invalid groups in the video without holding the previous frame |
+| Reproducible replay and diagnostics | Produces fused views, detection/position tables, H.264 videos, per-frame predictions, stage timing CSVs, and JSON summaries |
+| Separate KITTI baseline | Retains RGB detection, StereoSGBM depth, and offline LiDAR/tracklet comparisons; see the [KITTI guide](docs/KITTI.md) |
 
-```powershell
-.venv/Scripts/python.exe scripts/download_kitti.py
-.venv/Scripts/python.exe scripts/download_model.py
-.venv/Scripts/python.exe scripts/run_kitti.py
-.venv/Scripts/python.exe scripts/run_kitti.py --paced --rate-hz 10 --drop-late --report reports/kitti_paced_10hz.json
+The cameras are fixed relative to each other, while the complete rig moves relative to the scene. Fixed extrinsics and compensation between exposure times therefore coexist. The +70 ms correction was inferred from image alignment in this sequence and must not be applied directly to other cameras or sequences.
+
+## Jetson deployment optimizations
+
+| Optimization | Implementation | Numerical and resource constraints |
+| --- | --- | --- |
+| TensorRT FP32 | Builds the engine on the target Jetson, disables TF32, reuses inference contexts, and uses CUDA Graph | FP32 remains the default; FP16 is an experimental comparison |
+| Dense registration on GPU | CUDA handles dense projection, valid-point compaction, sampling, hole filling, and preprocessing for both inputs | Core geometry retains an FP64/no-FMA path, checked against the CPU reference |
+| Memory reuse | Reuses GPU buffers, mapped page-locked host memory, and fixed input/output buffers | Reduces allocations and bulk copies while using Orin's shared physical memory |
+| Candidate output compaction | Filters candidates above the threshold on GPU, then runs NMS and XYZ calculations on CPU | Does not change the candidate set through arbitrary top-K truncation |
+| Parallel processing | Uses bounded CPU preparation queues, two GPU inference contexts, asynchronous rendering, and Jetson H.264 hardware encoding | Preserves valid frames in source order; throughput does not rely on frame dropping |
+| Response latency reduction | Uses independent input dispatch, reduces preparation prefetch from 4 to 2 groups and the render queue from 2 to 1; response-priority mode reduces concurrency further | Default p95 drops from 231.91 to 146.15 ms; response-priority p95 is 108.91 ms |
+| Separate deployment environments | Uses a CPU PyTorch environment only for ONNX export and system TensorRT/CUDA for runtime | Runtime does not require PyTorch; engines, models, and calibration have metadata checks |
+
+RGB optical flow/PnP, NMS, XYZ statistics, and some rendering remain on CPU. See the [benchmark report](docs/BENCHMARKS.md) and [latency guide](docs/TARTAN_LATENCY.md) for numerical equivalence checks, scheduling parameters, and remaining latency tails.
+
+## Demo videos
+
+Two complete demonstrations are included in the repository, approximately 7 MB each. Click a preview to open the MP4 file page and download it for playback. Inline playback depends on GitHub's page support.
+
+| Default: balanced throughput and latency | Response priority |
+| --- | --- |
+| [![Balanced demo](docs/media/tartan-rgbt-balanced.jpg)](docs/media/tartan-rgbt-balanced.mp4) | [![Response-priority demo](docs/media/tartan-rgbt-responsive.jpg)](docs/media/tartan-rgbt-responsive.mp4) |
+| [Download balanced.mp4](docs/media/tartan-rgbt-balanced.mp4) | [Download responsive.mp4](docs/media/tartan-rgbt-responsive.mp4) |
+
+Both videos are **1280×800, H.264, 296 frames, 10 FPS, and 29.6 seconds long**. Playback FPS is independent of processing throughput. Of the 302 source groups, 6 invalid thermal FFC groups are explicitly excluded. All 296 valid groups are retained, without repeating the previous frame to fill time gaps. The videos therefore do not preserve the original acquisition duration. See [video provenance, checksums, and reproduction instructions](docs/VIDEO.md).
+
+## Measured throughput and response latency
+
+Tests ran on AGX Orin 64GB with L4T 36.4.7, CUDA 12.6, TensorRT 10.3, and Python 3.10.12. Each of three profiles was run three times in an interleaved order, processing 296 valid groups per run and 2,664 groups overall. Percentiles pool 888 per-frame samples for each profile.
+
+| Profile | Complete pipeline FPS | Per-run FPS range | Latency p50 | Latency p95 | Latency p99 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Previous throughput profile | 33.31 | 32.96–34.04 | 201.32 ms | 231.91 ms | 299.21 ms |
+| **Default balanced** | **34.71** | **34.42–35.04** | **133.40 ms** | **146.15 ms** | **258.75 ms** |
+| **Response-priority responsive** | **24.11** | **23.69–24.52** | **95.13 ms** | **108.91 ms** | **141.58 ms** |
+
+FPS includes reading, decoding, motion estimation, GPU registration, joint inference, NMS/XYZ, rendering, encoding, and final encoder drain. Initialization and model warmup are excluded. Latency in the table is `input_to_output_ms`: from the start of preparation/disk reading for a group to completion of frame submission and associated output work, including snapshot saving on a few frames. The more precise p95 ending at encoder submission is **144.36 ms / 108.91 ms** for balanced / responsive. Camera-exposure-to-display latency has not been measured. Parallel execution means throughput and individual frame response time are different quantities.
+
+Measurements used MAXN, fixed CPU/GPU/EMC clocks, and maximum fan speed. The device was subsequently restored to **automatic fan control**; these figures have not been remeasured under that setting. Deployment instructions keep automatic fan control enabled by default. See the [benchmark report](docs/BENCHMARKS.md) for timing definitions, per-frame CSVs, validation limits, and reproduction instructions.
+
+## Deploy on Jetson AGX Orin
+
+Run all commands from the repository root on the Jetson. The verified software environment is Ubuntu 22.04 / Python 3.10 / TensorRT 10.3. Other JetPack versions, AGX Xavier, and devices with different memory capacities require separate validation.
+
+```bash
+git clone https://github.com/RyanAnvie/jetson-stereo-perception.git
+cd jetson-stereo-perception
+python3 -m venv --system-site-packages .venv-jetson-trt
+.venv-jetson-trt/bin/python -m pip install --upgrade pip setuptools wheel
+.venv-jetson-trt/bin/python -m pip install -r requirements/jetson-runtime.txt
+.venv-jetson-trt/bin/python -m pip install --no-deps -e .
+export PYTHONPATH=src OPENBLAS_NUM_THREADS=1
+
+# Download only the validated sequence and calibration, about 0.9 GB compressed.
+.venv-jetson-trt/bin/python scripts/download_sample.py \
+  --revision 23475c0fa9190154e6f1fd78f6b82b29f9d508a0 \
+  --sequence day2/undistorted_images_all_cameras_20250824_094534
 ```
 
-## Earlier TartanRGBT baseline
+Next, follow the [complete deployment guide](docs/JETSON.md) to obtain the specified upstream LCAFNet weights, export ONNX in a separate CPU environment, and build an FP32 TensorRT engine on the target Jetson. Weights, ONNX files, engines, and raw data are not included in this repository. Model licensing is separate from the project's MIT license.
 
-此前的 RGB、热像、估计深度回放项目及其 296 组有效帧结果保留在下面，作为多模态时间配对和可视化基线。它与新 KITTI 流程使用不同的数据、深度来源和性能报告。
+Once the model artifacts and their JSON metadata are ready:
 
-![Real dataset replay: RGB, thermal, estimated depth and RGB-colored 3D](docs/media/demo-preview.jpg)
+```bash
+# Five-frame smoke check; FPS without video is not comparable to the full video benchmark.
+.venv-jetson-trt/bin/python scripts/run_tartan_joint.py \
+  --frames 5 --report reports/local/smoke.json
 
-本地视频：`results/demo/axg_multimodal_demo.mp4`。上传方法见 [视频交付说明](docs/VIDEO.md)。数据、权重和视频不进入 Git 历史；预览图、代码与报告可进入仓库。
+# Default profile: complete processing with H.264 video output.
+.venv-jetson-trt/bin/python scripts/run_tartan_joint.py \
+  --video results/demo/balanced.mp4 --report reports/local/balanced.json
 
-## What is implemented
-
-- Selective, resumable download from a pinned Hugging Face revision, with file sizes and SHA-256 records.
-- Sidecar-verified frame pairing, timestamp diagnostics, FFC exclusion, explicit shape/dtype validation.
-- Rectified RGB backprojection, rigid transforms, frame/unit checks, box-depth medians and valid-point counts.
-- YOLOX Nano ONNX CPU inference with documented BGR preprocessing and COCO class mapping.
-- Synthetic-tested thermal z-buffer correspondence; disabled for this real release until its image domain is verified.
-- Timestamp-paced or unpaced replay, bounded memory, JSON/CSV timings, four-view video, read-only Jetson probe.
-
-```mermaid
-flowchart LR
-  A[Fixed dataset revision] --> B[Timestamp / FFC / shape checks]
-  B --> C[RGB + estimated depth]
-  B --> D[Thermal separate view]
-  C --> E[YOLOX Nano CPU]
-  C --> F[RGB optical-frame point cloud]
-  E --> G[Median box-depth XYZ + validity]
-  F --> H[Dashboard + JSON/CSV]
-  G --> H
-  D --> H
-  I[Thermal image-domain evidence missing] -. blocked .-> J[Thermal 3D association]
+# Prioritize lower response latency.
+.venv-jetson-trt/bin/python scripts/run_tartan_joint.py \
+  --config configs/tartan_joint_responsive.yaml \
+  --video results/demo/responsive.mp4 --report reports/local/responsive.json
 ```
 
-## Setup
+Each run produces a JSON summary, a per-frame CSV, and an `.outputs.json` file. See the [configuration guide](configs/README.md).
 
-Use a normal Python 3.10+ installation, preferably Python 3.12. Do not use a Python bundled inside a graphics application. This machine's default `python` pointed to Inkscape; its `python3.12.exe` was used to create the isolated environment.
+## Validation scope and limitations
 
-Windows PowerShell:
+All nine optimized runs match the saved FP32 reference frame by frame, with 21 detections and 8 valid positions per sequence pass. **Numerical equivalence does not establish detection accuracy**: this sequence has neither a measured detection mAP nor complete registration ground truth. Limited manual edge observations cannot certify alignment accuracy across the full video. Motion compensation is accepted for 279 frames; 17 fall back because support is insufficient, with status recorded in the reports.
 
-```powershell
-python3.12.exe -m venv .venv
-.venv/Scripts/python.exe -m pip install -e ".[test,download,detector]"
-.venv/Scripts/python.exe -m pytest -q
-.venv/Scripts/python.exe scripts/run_demo.py --smoke
-```
+Depth is estimated. XYZ describes a representative visible surface position from valid points within a detection box, not an object center. Thermal images contain 8-bit grayscale intensity, not temperatures in degrees Celsius. The sequence-specific calibration correction has limited validation; new sequences require further checks.
 
-Linux/macOS: create the environment with `python3 -m venv .venv` and replace `.venv/Scripts/python.exe` with `.venv/bin/python`. Those platforms have not been run here. On Jetson, inspect system compatibility first; do not install the PC lock file over JetPack packages.
+## Repository layout and licensing
 
-`requirements-lock-pc.txt` records the actual PC package versions. The runtime needs NumPy, OpenCV and PyYAML; ONNX Runtime and Hugging Face Hub are optional dependency groups. FFmpeg/FFprobe are required only for MP4 encoding/validation. No CUDA is required for the current baseline.
+| Directory | Contents |
+| --- | --- |
+| `src/multimodal_perception/` | Registration, joint detection, scheduling, visualization, and the KITTI baseline |
+| `configs/` | Default, response-priority, and comparison configurations; fixed calibration |
+| `scripts/` | Download, export, build, run, validation, and packaging tools |
+| `tests/` | CPU unit tests and optional Jetson/GPU integration tests |
+| `docs/` | Deployment, architecture, development guides, and final demo videos |
+| `reports/published/` | Published benchmarks, per-frame timings, and provenance checksums |
+| `data/`, `models/weights/`, `results/` | Locally generated directories, ignored by Git |
 
-## Reproduce the real sample
-
-The selected sequence is `day2/undistorted_images_all_cameras_20250824_094534`, revision `23475c0fa9190154e6f1fd78f6b82b29f9d508a0`. Three modality ZIPs plus timestamps total 889,043,374 bytes; calibration and source documentation add only a small amount. Allow several GB for extracted data and temporary video.
-
-```powershell
-.venv/Scripts/python.exe scripts/download_sample.py --revision 23475c0fa9190154e6f1fd78f6b82b29f9d508a0 --sequence day2/undistorted_images_all_cameras_20250824_094534 --inspect-only
-.venv/Scripts/python.exe scripts/download_sample.py --revision 23475c0fa9190154e6f1fd78f6b82b29f9d508a0 --sequence day2/undistorted_images_all_cameras_20250824_094534
-.venv/Scripts/python.exe scripts/download_model.py
-.venv/Scripts/python.exe scripts/inspect_dataset.py
-.venv/Scripts/python.exe scripts/validate_calibration.py
-```
-
-One-command headless demo after setup/download:
-
-```powershell
-.venv/Scripts/python.exe scripts/run_demo.py
-```
-
-Use `--paced --show` for an interactive OpenCV dashboard at the source timestamps; Escape stops playback. The headless path and video renderer were executed. Manual GUI interaction has not been tested.
-
-Create the video:
-
-```powershell
-.venv/Scripts/python.exe scripts/run_demo.py --video results/demo/demo_raw.avi --report reports/benchmark_render.json
-.venv/Scripts/python.exe scripts/encode_video.py results/demo/demo_raw.avi results/demo/axg_multimodal_demo.mp4
-```
-
-## Measured PC baseline
-
-Initial measured run: Windows 11, Python 3.12.10, 32 logical CPUs, ONNX Runtime CPU provider, 4 inference threads, batch 1, FP32, RGB 960×540, detector 416×416. An RTX 4080 SUPER was present but **not used**. Five warmup frames ran before timing; all 296 valid frames then ran again in the measured sequence.
-
-| Quantity | Measurement |
-| --- | ---: |
-| Decoded source groups | 302 |
-| Valid matched groups | 296 |
-| FFC groups excluded | 6 |
-| RGB–thermal timestamp offset p50 / p95 | 1.739 / 2.124 ms |
-| Unpaced headless pipeline throughput | 64.32 frames/s |
-| Processing latency p50 / p95 | 6.07 / 27.86 ms |
-| Inference latency p50 / p95 | 4.38 / 5.55 ms |
-| Total frame time including read/decode p95 | 34.82 ms |
-| Raw detector predictions / person predictions | 20 / 3 |
-| Detection mAP / independent 3D accuracy | Not measured |
-| Jetson / TensorRT speedup | Not measured |
-
-These are single-run observations, not guaranteed performance or optimized-vs-baseline speedups. Raw samples are in [benchmark_pc.csv](reports/benchmark_pc.csv), with [hardware, model hash and method](reports/benchmark_pc.json). The render and timestamp-paced runs have separate reports. Source timestamps have variable spacing despite the nominal 10 Hz release; see [dataset audit](reports/dataset_audit.json). The MP4 uses 10 fps presentation with held images for timestamp gaps.
-
-Processing latency starts after frame loading and ends when detection and RGB-depth geometry are ready. Throughput includes read/decode and the selected rendering mode. None of these is physical camera-to-display latency. The reduced RGB-depth pipeline meets the 10 fps / 100 ms p95 processing design target in the unpaced run; this is **not** a claim that calibrated thermal fusion or Jetson passes that target.
-
-## Scientific limits and failure behavior
-
-- The detector visibly misclassifies metal gates as trains and emits unverified person predictions. Boxes and XYZ values are **model outputs**, not verified people/objects. A separate upstream sample sanity check detects a dog, bicycle and car, but it is not an accuracy evaluation.
-- FoundationStereo depth is an estimate in meters, not independent ground truth. The audited range includes extreme values from about −3.89e9 to +2.71e9 m. Geometry rejects only nonfinite/nonpositive Z; it does not silently invent a physical range cutoff. Huge positive estimates remain in numerical cloud output. The video depth color range is 0–30 m; the 3D display crop is explicitly shown. Neither modifies raw depth.
-- Object position is the componentwise median of finite positive points in the full RGB box. Background contamination is possible. Reports include valid point count, valid fraction and depth MAD; none is a calibrated confidence interval or body-center ground truth.
-- Coordinates are `zed_left_camera_optical_frame`: X right, Y down, Z forward, meters. The released RGB K is used exactly as published. Generic image resizing uses the OpenCV half-pixel center convention.
-- `configs/handheld.yaml` defines each TF as a child's pose in its parent. That pose is inverted to map RGB optical points into thermal optical coordinates. The CAD-based extrinsic is not an empirical registration accuracy measurement.
-- The release calls 8-bit thermal images rectified, but its extraction config selects `/thermal_left/image_processed`; matching rectification code or CameraInfo P is absent from the checked source. Real thermal association is blocked. No raw equidistant distortion is applied to these pixels and no fitted homography conceals the uncertainty.
-- Thermal 8-bit intensity is not Celsius. FFC groups and invalid synchronization groups are excluded. The 32 ms matching tolerance is an explicit selection policy derived from the release extraction tolerance.
-- MID 3K evaluation and optional tracking were not enabled. No TartanRGBT mAP is reported without trusted labels.
-
-## Evidence and deployment
-
-See [phase status](reports/status.md), [decisions](reports/decision_log.md), [calibration evidence](reports/geometry_report.json), [results comparison](reports/comparison.md), and [Jetson access gate](docs/JETSON.md). The attachment kit is preserved in `docs/execution-kit/` as reference material; its phase-by-phase paste prompts are not treated as new user commands.
-
-The implementation adds ingestion, geometry, model integration, audit, timing and rendering. It does not claim authorship of the dataset, FoundationStereo depth estimator, or YOLOX weights. Attribution, upstream licenses and citation are in [THIRD_PARTY.md](THIRD_PARTY.md). No repository has been created remotely, committed, or pushed.
+Original project code is licensed under the [MIT License](LICENSE). TartanRGBT-derived videos and images retain their BSD-3-Clause-Clear attribution and notices. LCAFNet, YOLOX, KITTI, and dependencies retain their respective upstream terms; see [THIRD_PARTY.md](THIRD_PARTY.md).

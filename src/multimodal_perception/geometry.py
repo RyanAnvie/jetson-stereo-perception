@@ -54,10 +54,17 @@ def thermal_correspondence(points, transform, camera, source_frame, verified=Fal
     indices = np.flatnonzero(valid)
     integer_pixels = np.floor(pixels[indices]).astype(int)
     keys = integer_pixels[:, 1] * camera["width"] + integer_pixels[:, 0]
-    order = np.argsort(transformed[indices, 2], kind="stable")
-    _, nearest = np.unique(keys[order], return_index=True)
-    keep = order[nearest]
-    return indices[keep], integer_pixels[keep]
+    # Linear scatter reduction avoids sorting a full frame by depth and pixel.
+    # Equal-Z ties use the first source index, matching the stable sort rule.
+    z = transformed[indices, 2]
+    nearest_z = np.full(camera["width"] * camera["height"], np.inf)
+    np.minimum.at(nearest_z, keys, z)
+    nearest = z == nearest_z[keys]
+    sentinel = len(points)
+    source_indices = np.full(len(nearest_z), sentinel, dtype=np.int64)
+    np.minimum.at(source_indices, keys[nearest], indices[nearest])
+    occupied = np.flatnonzero(source_indices != sentinel)
+    return source_indices[occupied], np.column_stack((occupied % camera["width"], occupied // camera["width"]))
 
 
 def clip_box(box, width, height):
@@ -84,10 +91,14 @@ def locate_detection(box, depth, camera, min_points=20):
     if count < min_points:
         return result
     v, u = np.nonzero(valid)
-    pixels = np.column_stack((u + x1, v + y1))
-    points, _ = backproject(pixels, crop[valid], camera)
     # Componentwise median over the full box; background contamination is possible.
-    point = np.median(points, axis=0)
-    result.update(point_m=point.tolist(), status="ok",
-                  depth_mad_m=float(np.median(np.abs(points[:, 2] - np.median(points[:, 2])))))
+    # Work on contiguous coordinate vectors to avoid an Nx3 copy/partition for
+    # large boxes. These are exactly the same backprojected XYZ values.
+    z = crop[valid].astype(float)
+    K = camera["K"]
+    x = (u + x1 - K[0, 2]) * z / K[0, 0]
+    y = (v + y1 - K[1, 2]) * z / K[1, 1]
+    point = [float(np.median(x)), float(np.median(y)), float(np.median(z))]
+    result.update(point_m=point, status="ok",
+                  depth_mad_m=float(np.median(np.abs(z - point[2]))))
     return result

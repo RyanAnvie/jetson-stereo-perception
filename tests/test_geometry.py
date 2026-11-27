@@ -69,3 +69,18 @@ def test_bbox_clipping_and_insufficient_depth():
     assert result["status"] == "ok" and result["valid_depth_points"] == 80
     assert result["point_m"][2] == 2
     assert locate_detection([2, 2, 2, 2], depth, camera)["status"] == "insufficient_depth"
+
+
+def test_box_medians_preserve_full_cloud_result_for_even_odd_and_invalid_depth():
+    rng = np.random.default_rng(123)
+    camera = pinhole_camera([[30, 0, 24], [0, 29, 20], [0, 0, 1]], 50, 40, "rgb")
+    depth = rng.uniform(0.1, 30, (40, 50)).astype(np.float32)
+    depth[::3, ::5] = np.nan
+    for box in [[-4, -3, 60, 50], [3.2, 5.1, 32.8, 27.3], [10, 8, 15, 19]]:
+        x1, y1, x2, y2 = clip_box(box, 50, 40)
+        v, u = np.mgrid[y1:y2, x1:x2]
+        points, valid = backproject(np.column_stack((u.ravel(), v.ravel())), depth[v, u].ravel(), camera)
+        expected = np.median(points[valid], axis=0)
+        result = locate_detection(box, depth, camera)
+        np.testing.assert_array_equal(result["point_m"], expected)
+        assert result["depth_mad_m"] == np.median(np.abs(points[valid, 2] - expected[2]))

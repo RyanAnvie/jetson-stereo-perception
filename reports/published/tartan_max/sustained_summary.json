@@ -1,0 +1,590 @@
+{
+  "runs": [
+    {
+      "mode": "headless",
+      "repeat": 1,
+      "fps": 34.33775148833273,
+      "frames": 296,
+      "elapsed_wall_s": 8.620249933970626,
+      "peak_rss_kib": 1432812,
+      "current_rss_kib": 1372016,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        171.50255248998292,
+        178.445415222086
+      ],
+      "original_report_name": "sustained_headless_01.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 1,
+      "fps": 32.76994080561179,
+      "frames": 296,
+      "elapsed_wall_s": 9.032668131927494,
+      "peak_rss_kib": 1461716,
+      "current_rss_kib": 1396004,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        206.98009201441891,
+        228.63152973877732
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_01.json"
+    },
+    {
+      "mode": "headless",
+      "repeat": 2,
+      "fps": 33.9979016964249,
+      "frames": 296,
+      "elapsed_wall_s": 8.706419667985756,
+      "peak_rss_kib": 1461716,
+      "current_rss_kib": 1409756,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        173.6076750094071,
+        180.399349774234
+      ],
+      "original_report_name": "sustained_headless_02.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 2,
+      "fps": 34.035078536190156,
+      "frames": 296,
+      "elapsed_wall_s": 8.696909563033842,
+      "peak_rss_kib": 1462232,
+      "current_rss_kib": 1417568,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        193.00018099602312,
+        233.93327051599044
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_02.json"
+    },
+    {
+      "mode": "headless",
+      "repeat": 3,
+      "fps": 33.93644717569454,
+      "frames": 296,
+      "elapsed_wall_s": 8.722185869002715,
+      "peak_rss_kib": 1468036,
+      "current_rss_kib": 1393732,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        172.6118354999926,
+        182.5970877398504
+      ],
+      "original_report_name": "sustained_headless_03.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 3,
+      "fps": 33.548523061833166,
+      "frames": 296,
+      "elapsed_wall_s": 8.823041165014729,
+      "peak_rss_kib": 1475408,
+      "current_rss_kib": 1405232,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        199.92140898830257,
+        229.1795087076025
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_03.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 4,
+      "fps": 33.74552761899439,
+      "frames": 296,
+      "elapsed_wall_s": 8.771532729966566,
+      "peak_rss_kib": 1477284,
+      "current_rss_kib": 1390284,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        197.17495547956787,
+        242.13379400316626
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_04.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 5,
+      "fps": 33.40921943330171,
+      "frames": 296,
+      "elapsed_wall_s": 8.85982986196177,
+      "peak_rss_kib": 1477284,
+      "current_rss_kib": 1401912,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        202.39607800613157,
+        231.4209269825369
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_05.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 6,
+      "fps": 32.9456070173927,
+      "frames": 296,
+      "elapsed_wall_s": 8.984505880973302,
+      "peak_rss_kib": 1477284,
+      "current_rss_kib": 1391628,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        203.42429401353002,
+        234.3309345014859
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_06.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 7,
+      "fps": 33.71051234077827,
+      "frames": 296,
+      "elapsed_wall_s": 8.780643764999695,
+      "peak_rss_kib": 1478436,
+      "current_rss_kib": 1413104,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        197.27063149912283,
+        239.9122464848915
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_07.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 8,
+      "fps": 32.9422432880536,
+      "frames": 296,
+      "elapsed_wall_s": 8.985423288017046,
+      "peak_rss_kib": 1478436,
+      "current_rss_kib": 1389040,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        202.42799998959526,
+        232.91892524866853
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_08.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 9,
+      "fps": 32.95676750791143,
+      "frames": 296,
+      "elapsed_wall_s": 8.981463364965748,
+      "peak_rss_kib": 1478436,
+      "current_rss_kib": 1405312,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        204.02845498756506,
+        236.65468099352438
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_09.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 10,
+      "fps": 34.070762991773115,
+      "frames": 296,
+      "elapsed_wall_s": 8.687800741987303,
+      "peak_rss_kib": 1478436,
+      "current_rss_kib": 1389584,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        193.2361895160284,
+        229.92492621415295
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_10.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 11,
+      "fps": 33.006186137427996,
+      "frames": 296,
+      "elapsed_wall_s": 8.968015837017447,
+      "peak_rss_kib": 1479172,
+      "current_rss_kib": 1410432,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        202.57934252731502,
+        230.04723475605715
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_11.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 12,
+      "fps": 32.639767071018525,
+      "frames": 296,
+      "elapsed_wall_s": 9.06869216792984,
+      "peak_rss_kib": 1481628,
+      "current_rss_kib": 1384616,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        207.9901615215931,
+        239.21218828763813
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_12.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 13,
+      "fps": 33.13106137232864,
+      "frames": 296,
+      "elapsed_wall_s": 8.934214230976067,
+      "peak_rss_kib": 1481628,
+      "current_rss_kib": 1413556,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        203.31964147044346,
+        230.64272699411958
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_13.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 14,
+      "fps": 33.07226051395754,
+      "frames": 296,
+      "elapsed_wall_s": 8.950098826026078,
+      "peak_rss_kib": 1481628,
+      "current_rss_kib": 1401572,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        203.55407198076136,
+        232.5912087399047
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_14.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 15,
+      "fps": 33.847721599331805,
+      "frames": 296,
+      "elapsed_wall_s": 8.745049474935513,
+      "peak_rss_kib": 1481628,
+      "current_rss_kib": 1395244,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        196.6300734784454,
+        242.86205849784892
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_15.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 16,
+      "fps": 32.8804482185572,
+      "frames": 296,
+      "elapsed_wall_s": 9.002310370968189,
+      "peak_rss_kib": 1481628,
+      "current_rss_kib": 1404004,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        204.07990651438013,
+        235.0558147445554
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_16.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 17,
+      "fps": 33.13198677581295,
+      "frames": 296,
+      "elapsed_wall_s": 8.933964691066649,
+      "peak_rss_kib": 1481628,
+      "current_rss_kib": 1414568,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        201.98401948437095,
+        233.28720650169998
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_17.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 18,
+      "fps": 33.54851717585244,
+      "frames": 296,
+      "elapsed_wall_s": 8.823042712989263,
+      "peak_rss_kib": 1484180,
+      "current_rss_kib": 1451592,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        199.1765304992441,
+        227.6611937704729
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_18.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 19,
+      "fps": 33.15979681308533,
+      "frames": 296,
+      "elapsed_wall_s": 8.92647206701804,
+      "peak_rss_kib": 1491216,
+      "current_rss_kib": 1416648,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        202.0664160081651,
+        233.06410225632135
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_19.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 20,
+      "fps": 33.417007280276856,
+      "frames": 296,
+      "elapsed_wall_s": 8.857765075052157,
+      "peak_rss_kib": 1501460,
+      "current_rss_kib": 1439468,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        199.82033400447108,
+        235.7487507397309
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_20.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 21,
+      "fps": 33.474905604114554,
+      "frames": 296,
+      "elapsed_wall_s": 8.842444650945254,
+      "peak_rss_kib": 1516636,
+      "current_rss_kib": 1434000,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        201.64164650486782,
+        230.00633501214907
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_21.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 22,
+      "fps": 33.05975406224645,
+      "frames": 296,
+      "elapsed_wall_s": 8.953484633995686,
+      "peak_rss_kib": 1516636,
+      "current_rss_kib": 1438696,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        203.60722299665213,
+        230.89978624193463
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_22.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 23,
+      "fps": 32.862034414352806,
+      "frames": 296,
+      "elapsed_wall_s": 9.007354695932008,
+      "peak_rss_kib": 1528112,
+      "current_rss_kib": 1452892,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        202.70947148674168,
+        236.58220873039681
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_23.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 24,
+      "fps": 33.56757037211655,
+      "frames": 296,
+      "elapsed_wall_s": 8.818034689989872,
+      "peak_rss_kib": 1528112,
+      "current_rss_kib": 1450828,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        199.6151155035477,
+        236.35920825472567
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_24.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 25,
+      "fps": 33.020184612788825,
+      "frames": 296,
+      "elapsed_wall_s": 8.964213964005467,
+      "peak_rss_kib": 1528112,
+      "current_rss_kib": 1450720,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        202.8321559773758,
+        241.6289467655588
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_25.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 26,
+      "fps": 32.69935403017925,
+      "frames": 296,
+      "elapsed_wall_s": 9.052166587964166,
+      "peak_rss_kib": 1528112,
+      "current_rss_kib": 1443720,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        206.36876503704116,
+        233.28719126584474
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_26.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 27,
+      "fps": 34.35095567232191,
+      "frames": 296,
+      "elapsed_wall_s": 8.616936391044874,
+      "peak_rss_kib": 1528112,
+      "current_rss_kib": 1438176,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        191.02825349546038,
+        226.043573973584
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_27.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 28,
+      "fps": 34.46193604383793,
+      "frames": 296,
+      "elapsed_wall_s": 8.589186620956752,
+      "peak_rss_kib": 1528112,
+      "current_rss_kib": 1439168,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        191.51924003381282,
+        225.49062476900872
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_28.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 29,
+      "fps": 33.655577073667764,
+      "frames": 296,
+      "elapsed_wall_s": 8.794976219011005,
+      "peak_rss_kib": 1528112,
+      "current_rss_kib": 1447208,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        196.39087351970375,
+        233.38831176806707
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_29.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 30,
+      "fps": 33.085143974537246,
+      "frames": 296,
+      "elapsed_wall_s": 8.94661362899933,
+      "peak_rss_kib": 1528112,
+      "current_rss_kib": 1461320,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        203.18413502536714,
+        228.31616127223242
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_30.json"
+    },
+    {
+      "mode": "h264",
+      "repeat": 31,
+      "fps": 33.05817820679781,
+      "frames": 296,
+      "elapsed_wall_s": 8.953911439049989,
+      "peak_rss_kib": 1528112,
+      "current_rss_kib": 1448852,
+      "baseline_output_changed_frames": [],
+      "input_to_output_p50_p95_ms": [
+        203.65974350715987,
+        233.75537896936294
+      ],
+      "video_frames": 296,
+      "original_report_name": "sustained_h264_31.json"
+    }
+  ],
+  "total_valid_groups": 10064,
+  "timed_processing_seconds": 301.40162293968024,
+  "minimum_requested_seconds": 300.0,
+  "session_wall_s": 330.0012795490329,
+  "persistent_contexts_reused": 2,
+  "fps": {
+    "headless": {
+      "min": 33.93644717569454,
+      "median": 33.9979016964249,
+      "max": 34.33775148833273
+    },
+    "h264": {
+      "min": 32.639767071018525,
+      "median": 33.13198677581295,
+      "max": 34.46193604383793
+    }
+  },
+  "peak_temperatures_c": {
+    "cpu": 56.718,
+    "soc2": 51.875,
+    "soc0": 51.718,
+    "gpu": 54.906,
+    "tj": 56.656,
+    "soc1": 50.0
+  },
+  "individual_power_rails_w": {
+    "VDD_GPU_SOC": {
+      "p50": 32.412,
+      "max": 34.827
+    },
+    "VDD_CPU_CV": {
+      "p50": 7.208,
+      "max": 8.41
+    },
+    "VIN_SYS_5V0": {
+      "p50": 8.999,
+      "max": 9.419
+    }
+  },
+  "observed_gpu_clocks_hz": [
+    1300500000
+  ],
+  "sampled_peak_process_rss_kib": 1528112,
+  "all_outputs_exactly_match_original_fp32": true,
+  "scope": "Same two FP32 engine contexts reused for all rounds; warmup/setup excluded from timed_processing_seconds. All source valid frames decoded with bounded cache; no frame drops. H264 includes dashboard render, hardware encoding, queue drain and MP4 finalization. Offline supplied depth; no online depth generation or acquisition timing."
+}

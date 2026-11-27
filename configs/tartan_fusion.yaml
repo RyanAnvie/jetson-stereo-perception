@@ -1,0 +1,18 @@
+dataset_root: data/tartan
+model: models/weights/yolox_nano.onnx
+backend: tensorrt
+engine: models/weights/jetson/yolox_nano_fp32.engine
+score_threshold: 0.30
+nms_iou: 0.45
+onnx_threads: 4
+opencv_threads: 4
+max_time_error_s: 0.032
+min_depth_points: 20
+min_thermal_points: 20
+# Nearest-Z among this full-frame sampled grid; not dense surface visibility.
+fusion_stride: 2
+warmup_frames: 5
+display_depth_max_m: 30.0
+thermal_profile: configs/tartan_thermal_profile.json
+# Present each valid sample once. Source timestamps stay visible; no held gap frames.
+video_timeline: compact_valid

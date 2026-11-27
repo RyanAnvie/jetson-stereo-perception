@@ -1,17 +1,23 @@
-# GitHub 视频交付
+# 测试视频
 
-新增 KITTI 三维目标演示：`results/kitti/axg_kitti_3d_demo.mp4`，约 24 秒、H.264、1280×800、10 fps，低于 10 MB。精确参数在 `reports/kitti_video_metadata.json`，预览图为 `docs/media/kitti-preview.jpg`。它展示真实检测框、双目深度、XYZ 位置表和离线参考误差。KITTI 派生视频与预览遵循 **CC BY-NC-SA 3.0**，上传时保留 `THIRD_PARTY.md` 中的作者、来源、修改说明和许可链接。
+两段最终视频直接保存在仓库，均为 TartanRGBT 的 RGB + thermal 联合检测结果。
 
-以下保留此前 TartanRGBT 演示的交付信息。
+| 文件 | 大小（字节） | 内容 |
+| --- | ---: | --- |
+| [balanced](media/tartan-rgbt-balanced.mp4) | 6,950,637 | 默认双上下文、独立调度、FP32 |
+| [responsive](media/tartan-rgbt-responsive.mp4) | 6,969,239 | 单上下文、最小预取、FP32 |
 
-文件：`results/demo/axg_multimodal_demo.mp4`。H.264、1280×800、10 fps、无音频，约 44 秒，低于 10 MB；实际编码参数和大小见 `reports/video_metadata.json`。
+两者都是 H.264、1280×800、无音频、296 帧、10 FPS、29.6 秒。预览图来自第 148 帧。视频播放时间经过压缩有效组的时间轴处理，与原始序列采集时长和处理 FPS 不同。不存在保持上一帧填充源空隙的画面；全部有效帧保留，6 组 FFC 无效输入单独计数。画面中的单帧计算计时不能直接换算成并行完整流程 FPS。
 
-视频展示真实 TartanRGBT 数据：RGB 原始检测预测、同步热像、FoundationStereo 估计深度、RGB 着色三维点云。片头片尾说明了热像标定阻塞、检测误检及 Jetson 未测状态。源数据间隔按时间戳保留，10 fps 时间格中停留上一幅图像，不生成中间测量。
+| 文件 | SHA-256 |
+| --- | --- |
+| balanced | `d04d6930a7f2802201e26bd5ff8c98479d72d43adc69b301b17bab01eb43cc8d` |
+| responsive | `91f661a3611fb8e50b897efac69fb83eaf0714cbc20b083c8f34ced4ca1ef472` |
 
-1. 在目标 GitHub 仓库的 Issue、PR 或评论输入框拖入 MP4，等待上传完成。
-2. 将 GitHub 返回的视频附件地址放到 README 的演示位置。视频仍可作为 Release 附件提供。
-3. 随视频保留 `THIRD_PARTY.md` 的来源及许可说明；预览图在 `docs/media/demo-preview.jpg`。
+逐帧解码验证、无重复 RGB 面板检查和原文件哈希记录在 [deployment_validation.json](../reports/published/tartan_latency/deployment_validation.json)。编码参数见 [balanced](../reports/published/tartan_latency/balanced_video.json) / [responsive](../reports/published/tartan_latency/responsive_video.json)。这些历史记录里的 `results/` 路径为当时生成位置，发布时只复制文件，没有重新编码。
 
-GitHub 官方文档当前给出的免费方案视频附件上限为 10 MB，并推荐 H.264：[Attaching files](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/attaching-files)。本项目自动检查最终 MP4 小于 10,000,000 字节。
+来源：CMU AirLab [TartanRGBT 固定版本](https://huggingface.co/datasets/theairlabcmu/TartanRGBT/tree/23475c0fa9190154e6f1fd78f6b82b29f9d508a0)。作者归属与 BSD-3-Clause-Clear 声明见 [THIRD_PARTY.md](../THIRD_PARTY.md) 及 [完整许可](licenses/AnyThermal-LICENSE.txt)。修改包括几何配准、检测框、估计深度/位置、拼接面板和文字叠加。视频和缩略图不被项目 MIT 许可证重新授权。
 
-没有进行远端上传、提交或推送。`.gitignore` 有意排除所有 MP4、原始视频、数据和权重。将视频作为网页附件上传即可，不需要强行加入 Git 历史。
+README 采用图片链接到 MP4，仓库上传时会一起包含这两个文件，不依赖外部附件。需要 README 内嵌 GitHub 播放器时，可在发布后自行将 MP4 拖入 Issue/PR 评论框并复制生成的附件 URL；当前没有虚构附件地址。GitHub 推荐 H.264，详见 [附件文档](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/attaching-files)。这两个文件也小于 GitHub 普通仓库单文件限制，无需 Git LFS，见 [大文件文档](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github)。
+
+重新生成请按 [Jetson 指南](JETSON.md) 运行，输出到 `results/demo/`，不覆盖已经发布且有固定哈希的演示。

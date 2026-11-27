@@ -1,0 +1,83 @@
+{
+  "name": "tartan_released_thermal_left_v1",
+  "dataset_revision": "23475c0fa9190154e6f1fd78f6b82b29f9d508a0",
+  "validated_sequence": "day2/undistorted_images_all_cameras_20250824_094534",
+  "asset_sha256": {
+    "calibration/thermal_left.yaml": "be1d1ba327831d40d5fd8b1bc1888e6bc522a2d1650aab1a05c1e63e0efd1bab",
+    "calibration/released_zed_rectified_960x540.yaml": "3cde2051a8c61bd4cac4e5b335ecf90928c65ac72c4211b95a1e751da13fcaba",
+    "calibration/tf_static.json": "9496ba5db8e8b428cc2cb3adf5a9e6716c75f3210a83ec7e25d8c6a4a0b9dc48",
+    "configs/handheld.yaml": "4d3a30014e1f99032fc4857e0021fd63325eb5cc48a43b7cc4a5b3567daca34d",
+    "configs/tartan_rgbt.yaml": "9f5f3d34c52f423923efc539e4e69e251beeada849a015d134879b13cfe00508"
+  },
+  "producer_workspace_commit": "b2bf894d4bdb1da17fb25292a94704da812154e7",
+  "producer_driver_commit": "3e1b1b89586c61c4a50e5e0c8c52c0d762b68f86",
+  "producer_sources": [
+    {
+      "url": "https://github.com/AnyThermal/flir_thermal_driver/blob/3e1b1b89586c61c4a50e5e0c8c52c0d762b68f86/src/flir_ros_sync/src/flir_ros_sync.cpp",
+      "sha256": "be975b011eb8285814ac552b12dcc5b29b76fabac270dffe53ae0509b6c66df5"
+    },
+    {
+      "url": "https://github.com/AnyThermal/flir_thermal_driver/blob/3e1b1b89586c61c4a50e5e0c8c52c0d762b68f86/src/flir_ros_sync/config/tartan_rgbt_camera_params.yaml",
+      "sha256": "0891fd38fcfc8b08caa1198065347a0b517cccfa448b25e2655761d173962d99"
+    },
+    {
+      "url": "https://github.com/AnyThermal/flir_thermal_driver/blob/3e1b1b89586c61c4a50e5e0c8c52c0d762b68f86/src/flir_ros_sync/script/thermal_process.py",
+      "sha256": "481aa8f513e5948372889dfa962a77fe32d1dd66f66fb8851dedab59fadfa6fd"
+    },
+    {
+      "url": "https://github.com/AnyThermal/flir_thermal_driver/blob/3e1b1b89586c61c4a50e5e0c8c52c0d762b68f86/src/flir_ros_sync/data/camera_info/tartan_rgbt/thermal_left.yaml",
+      "sha256": "be1d1ba327831d40d5fd8b1bc1888e6bc522a2d1650aab1a05c1e63e0efd1bab"
+    },
+    {
+      "url": "https://github.com/AnyThermal/flir_thermal_driver/blob/3e1b1b89586c61c4a50e5e0c8c52c0d762b68f86/src/flir_ros_sync/launch/tartan_rgbt/with_prerocess_both_cam.launch.py",
+      "sha256": "b200a6de201c4d050e3b8220769454d8ac6ceb01c64d8d9c902c3b0ef01ca565"
+    }
+  ],
+  "rectification": {
+    "model": "equidistant",
+    "balance": 0.0,
+    "fov_scale": 1.0,
+    "size": [
+      640,
+      512
+    ],
+    "R": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "K_expected": [
+      [
+        350.0586333355143,
+        0,
+        316.2060443676416
+      ],
+      [
+        0,
+        349.7065643071332,
+        255.40731015684818
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "producer_chain": "image_raw -> fisheye rectify (balance=0) -> image_rect -> minmax/CLAHE/bilateral (rectify=false) -> image_processed -> thermal_left_rect_8",
+  "extrinsics": "CAD nominal; inverse of child pose in parent; not experimentally refined",
+  "thermal_units": "per-frame processed uint8 intensity; not temperature or radiance",
+  "status": "source_reconstructed_projection; physical registration accuracy not certified"
+}

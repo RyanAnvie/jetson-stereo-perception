@@ -29,6 +29,10 @@ def environment():
     result = {"os": platform.platform(), "python": platform.python_version(), "machine": platform.machine(),
               "cpu": platform.processor(), "logical_cpus": os.cpu_count(), "packages": versions,
               "free_disk_bytes": shutil.disk_usage(".").free, "compute_device": "CPU"}
+    for key, filename in [("device_model", "/proc/device-tree/model"), ("l4t", "/etc/nv_tegra_release")]:
+        if Path(filename).exists():
+            result[key] = Path(filename).read_text().strip("\x00\n")
+    result["imported_versions"] = {"numpy": np.__version__, "opencv": cv2.__version__, "yaml": yaml.__version__}
     if shutil.which("nvidia-smi"):
         process = subprocess.run(["nvidia-smi", "--query-gpu=name,driver_version,memory.total", "--format=csv,noheader"], capture_output=True, text=True)
         result["available_gpu_not_used"] = process.stdout.strip()

@@ -1,4 +1,4 @@
-.venv/
+.venv*/
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -12,9 +12,29 @@ models/weights/
 results/
 *.engine
 *.onnx
+*.pt
+*.pth
 *.zip
+*.tar.gz
 *.npy
+*.npz
 *.mp4
 *.avi
 *.mov
 .DS_Store
+
+# Only the two reviewed public demonstrations belong in source control.
+!/docs/media/tartan-rgbt-balanced.mp4
+!/docs/media/tartan-rgbt-responsive.mp4
+
+# Runtime reports can contain host details. Publish curated evidence only.
+/reports/*
+!/reports/README.md
+!/reports/model_provenance.json
+!/reports/published/
+!/reports/jetson/
+/reports/jetson/*
+!/reports/jetson/tartan_fixed/
+/reports/jetson/tartan_fixed/*
+!/reports/jetson/tartan_fixed/fixed_corrected.json
+!/reports/jetson/tartan_fixed/fixed_corrected.outputs.json

@@ -16,19 +16,38 @@ COCO_CLASSES = ("person,bicycle,car,motorcycle,airplane,bus,train,truck,boat,tra
                 "toaster,sink,refrigerator,book,clock,vase,scissors,teddy bear,hair drier,toothbrush").split(",")
 
 
-def load_detector(path, threads=4):
-    import onnxruntime as ort
-
+def load_detector(path, threads=4, backend="onnxruntime", engine=None):
     path = Path(path)
     if not path.is_file():
         raise FileNotFoundError("Download YOLOX Nano first: python scripts/download_model.py")
-    options = ort.SessionOptions()
-    options.intra_op_num_threads = threads
-    options.inter_op_num_threads = 1
-    session = ort.InferenceSession(str(path), sess_options=options, providers=["CPUExecutionProvider"])
-    input_info = session.get_inputs()[0]
-    if input_info.shape != [1, 3, 416, 416]:
-        raise ValueError(f"Expected YOLOX Nano 416x416, received {input_info.shape}")
+    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    if backend == "onnxruntime":
+        if engine is not None:
+            raise ValueError("An engine requires the tensorrt backend")
+        import onnxruntime as ort
+
+        options = ort.SessionOptions()
+        options.intra_op_num_threads = threads
+        options.inter_op_num_threads = 1
+        session = ort.InferenceSession(str(path), sess_options=options, providers=["CPUExecutionProvider"])
+        input_info = session.get_inputs()[0]
+        if input_info.shape != [1, 3, 416, 416]:
+            raise ValueError(f"Expected YOLOX Nano 416x416, received {input_info.shape}")
+        state = {"session": session, "input_name": input_info.name}
+        runtime_metadata = {"backend": backend, "runtime": ort.__version__, "precision": "float32",
+                            "provider": "CPUExecutionProvider", "threads": threads,
+                            "io": [{"name": info.name, "shape": info.shape, "dtype": info.type, "mode": mode}
+                                   for mode, infos in [("input", session.get_inputs()), ("output", session.get_outputs())]
+                                   for info in infos]}
+    elif backend == "tensorrt":
+        if engine is None:
+            raise ValueError("The tensorrt backend requires --engine or an engine configuration")
+        from multimodal_perception.tensorrt_inference import load_engine
+
+        state = {"trt": load_engine(engine, digest)}
+        runtime_metadata = state["trt"]["metadata"]
+    else:
+        raise ValueError(f"Unknown detector backend: {backend}")
     grids = []
     strides = []
     for stride in [8, 16, 32]:
@@ -36,11 +55,10 @@ def load_detector(path, threads=4):
         grid = np.column_stack((u.ravel(), v.ravel()))
         grids.append(grid)
         strides.append(np.full((len(grid), 1), stride))
-    return {"session": session, "input_name": input_info.name,
+    return {**state, "backend": backend,
             "grid": np.concatenate(grids), "strides": np.concatenate(strides),
             "metadata": {"name": "YOLOX Nano", "release": "0.1.1rc0", "input_shape": [1, 3, 416, 416],
-                         "sha256": hashlib.sha256(path.read_bytes()).hexdigest(), "precision": "float32",
-                         "runtime": ort.__version__, "provider": "CPUExecutionProvider", "threads": threads,
+                         "sha256": digest, **runtime_metadata,
                          "source": "https://github.com/Megvii-BaseDetection/YOLOX/releases/tag/0.1.1rc0",
                          "license": "Apache-2.0 (upstream project)", "classes": "COCO 80; person=0",
                          "preprocessing": "BGR 0..255 float32 NCHW; aspect-preserving resize; top-left pad=114"}}
@@ -75,12 +93,24 @@ def nonmaximum_suppression(boxes, scores, threshold):
     return kept
 
 
-def detect(image, detector, score_threshold=0.30, nms_iou=0.45):
-    start = time.perf_counter()
-    tensor, ratio = preprocess(image)
-    prepared = time.perf_counter()
+def infer_tensor(tensor, detector):
+    if detector["backend"] == "tensorrt":
+        from multimodal_perception.tensorrt_inference import infer_engine
+
+        return infer_engine(detector["trt"], tensor)
+    started = time.perf_counter()
     output = detector["session"].run(None, {detector["input_name"]: tensor})[0]
-    inferred = time.perf_counter()
+    return output, {"model_compute_ms": (time.perf_counter() - started) * 1000}
+
+
+def close_detector(detector):
+    if detector["backend"] == "tensorrt":
+        from multimodal_perception.tensorrt_inference import close_engine
+
+        close_engine(detector["trt"])
+
+
+def decode_output(output, ratio, image_shape, detector, score_threshold=0.30, nms_iou=0.45):
     if output.shape != (1, 3549, 85) or not np.isfinite(output).all():
         raise ValueError(f"Invalid YOLOX output: {output.shape}")
     prediction = output[0].copy()
@@ -99,13 +129,23 @@ def detect(image, detector, score_threshold=0.30, nms_iou=0.45):
         for local_index in keep:
             index = indices[local_index]
             box = boxes[index].copy()
-            box[[0, 2]] = np.clip(box[[0, 2]], 0, image.shape[1])
-            box[[1, 3]] = np.clip(box[[1, 3]], 0, image.shape[0])
+            box[[0, 2]] = np.clip(box[[0, 2]], 0, image_shape[1])
+            box[[1, 3]] = np.clip(box[[1, 3]], 0, image_shape[0])
             if box[2] <= box[0] or box[3] <= box[1]:
                 continue
             detections.append({"class_id": int(class_id), "class": COCO_CLASSES[class_id],
                                "score": float(best_scores[index]), "bbox_xyxy": box.tolist()})
+    return detections
+
+
+def detect(image, detector, score_threshold=0.30, nms_iou=0.45):
+    start = time.perf_counter()
+    tensor, ratio = preprocess(image)
+    prepared = time.perf_counter()
+    output, backend_timing = infer_tensor(tensor, detector)
+    inferred = time.perf_counter()
+    detections = decode_output(output, ratio, image.shape, detector, score_threshold, nms_iou)
     finished = time.perf_counter()
     timing = {"preprocess_ms": (prepared-start)*1000, "inference_ms": (inferred-prepared)*1000,
-              "postprocess_ms": (finished-inferred)*1000}
+              "postprocess_ms": (finished-inferred)*1000, **backend_timing}
     return detections, timing

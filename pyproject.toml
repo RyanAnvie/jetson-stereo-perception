@@ -1,18 +1,26 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "multimodal-perception"
 version = "0.1.0"
 description = "Auditable RGB, thermal and estimated-depth replay"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.10"
-dependencies = ["numpy>=1.24", "opencv-python>=4.8", "PyYAML>=6"]
+dependencies = ["numpy>=1.24,<2", "opencv-python>=4.8,<4.12", "PyYAML>=6"]
+
+[project.urls]
+Repository = "https://github.com/RyanAnvie/jetson-stereo-perception"
+Documentation = "https://github.com/RyanAnvie/jetson-stereo-perception/blob/master/docs/JETSON.md"
 
 [project.optional-dependencies]
 test = ["pytest>=8"]
 download = ["huggingface_hub>=0.27"]
 detector = ["onnxruntime>=1.17"]
+calibration = ["scipy>=1.10,<1.16"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

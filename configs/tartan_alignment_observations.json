@@ -1,0 +1,13 @@
+{
+  "method": "Manual horizontal edge positions in 640x512 released thermal and source-derived RGB projection, at fixed image rows. No parameters were fitted.",
+  "annotation_uncertainty_px_approx": 4,
+  "limitations": "Six sparse, manually selected structural edges in three frames; thermal blur and spectral differences limit precision. Horizontal diagnostic only, not 2D reprojection accuracy or a statistical calibration certificate.",
+  "observations": [
+    {"index": 100, "feature": "left steel column left edge", "row_y": 80, "projected_rgb_x": 132, "thermal_x": 128},
+    {"index": 100, "feature": "left steel column right edge", "row_y": 80, "projected_rgb_x": 166, "thermal_x": 162},
+    {"index": 100, "feature": "right steel column left edge", "row_y": 80, "projected_rgb_x": 415, "thermal_x": 410},
+    {"index": 150, "feature": "near steel column left edge", "row_y": 180, "projected_rgb_x": 254, "thermal_x": 227},
+    {"index": 150, "feature": "near steel column right edge", "row_y": 180, "projected_rgb_x": 360, "thermal_x": 334},
+    {"index": 250, "feature": "near panel vertical seam", "row_y": 200, "projected_rgb_x": 134, "thermal_x": 114}
+  ]
+}

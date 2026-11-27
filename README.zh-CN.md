@@ -39,14 +39,12 @@ RGB 光流/PnP、NMS、XYZ 统计和部分渲染仍在 CPU。当前优化没有�
 
 ## 测试视频
 
-下面是自动循环的 **GIF 预览**，覆盖完整 29.6 秒演示，预览规格为 **480×300 / 5 FPS**；GitHub 允许动图播放时会直接播放。完整高清 MP4 同时保留，每个约 7 MB。预览播放速度与处理吞吐不同。
+下面是自动循环的 **GIF 预览**，覆盖完整 29.6 秒演示，预览规格为 **480×300 / 5 FPS**。完整高清 MP4 同时保留，每个约 7 MB。预览播放速度与处理吞吐不同。
 
 | 默认：均衡吞吐与延迟 | 响应优先 |
 | --- | --- |
 | ![默认配置动态预览](docs/media/tartan-rgbt-balanced.gif) | ![响应优先动态预览](docs/media/tartan-rgbt-responsive.gif) |
 | [下载 balanced.mp4](docs/media/tartan-rgbt-balanced.mp4) | [下载 responsive.mp4](docs/media/tartan-rgbt-responsive.mp4) |
-
-如果预览仍然静止，请检查 GitHub 的 **Settings → Accessibility → Motion → Autoplay animated images**。播放行为遵循账号和系统的动画偏好，见 [GitHub 辅助功能说明](https://docs.github.com/en/account-and-profile/how-tos/account-settings/managing-accessibility-settings)。
 
 完整 MP4 视频为 **1280×800、H.264、296 帧、10 FPS、29.6 秒**。播放帧率用于展示，与处理吞吐不同。302 组源数据中，6 组热像 FFC 无效输入被明确排除；全部 296 组有效输入均保留，没有用上一帧填充时间空隙。因此这不是保持原始采集时长的视频。[视频来源、校验和与复现方法](docs/VIDEO.md)。
 

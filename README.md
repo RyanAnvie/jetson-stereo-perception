@@ -41,14 +41,12 @@ RGB optical flow/PnP, NMS, XYZ statistics, and some rendering remain on CPU. See
 
 ## Demo videos
 
-The previews below are looping GIFs covering the full 29.6-second demonstration at **480×300 / 5 FPS**. They animate inline when GitHub allows animated images. Full-resolution MP4s are included separately, approximately 7 MB each. Preview playback speed is independent of processing throughput.
+The previews below are looping GIFs covering the full 29.6-second demonstration at **480×300 / 5 FPS**. Full-resolution MP4s are included separately, approximately 7 MB each. Preview playback speed is independent of processing throughput.
 
 | Default: balanced throughput and latency | Response priority |
 | --- | --- |
 | ![Balanced animated preview](docs/media/tartan-rgbt-balanced.gif) | ![Response-priority animated preview](docs/media/tartan-rgbt-responsive.gif) |
 | [Download balanced.mp4](docs/media/tartan-rgbt-balanced.mp4) | [Download responsive.mp4](docs/media/tartan-rgbt-responsive.mp4) |
-
-If the previews remain still, check **Settings → Accessibility → Motion → Autoplay animated images** on GitHub. Animation follows your account/system motion preferences; see [GitHub accessibility settings](https://docs.github.com/en/account-and-profile/how-tos/account-settings/managing-accessibility-settings).
 
 Both full MP4 videos are **1280×800, H.264, 296 frames, 10 FPS, and 29.6 seconds long**. Playback FPS is independent of processing throughput. Of the 302 source groups, 6 invalid thermal FFC groups are explicitly excluded. All 296 valid groups are retained, without repeating the previous frame to fill time gaps. The videos therefore do not preserve the original acquisition duration. See [video provenance, checksums, and reproduction instructions](docs/VIDEO.md).
 

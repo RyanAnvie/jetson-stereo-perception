@@ -20,14 +20,10 @@
 
 README 直接嵌入循环 GIF，完整 MP4 在下方单独链接。GIF 为 480×300、5 FPS、148 帧、29.6 秒，保持整段播放时长，降低分辨率和采样帧率以控制体积。原 MP4 未重新编码。GIF 是展示预览，不用于精度或性能评价；元数据与来源哈希见 [readme_previews.json](../reports/published/readme_previews.json)。
 
-GitHub 可以根据用户的系统/账号设置暂停动图。如果预览静止，检查 **Settings → Accessibility → Motion → Autoplay animated images**，按个人偏好选择 Enabled；见 [GitHub 官方说明](https://docs.github.com/en/account-and-profile/how-tos/account-settings/managing-accessibility-settings)。README 无法替读者更改此偏好。
-
 生成 GIF 需要安装系统 FFmpeg/ffprobe，然后在仓库根目录运行：
 
 ```bash
 python3 scripts/render_readme_previews.py
 ```
-
-如另需带控件的 GitHub MP4 播放器，可将 MP4 上传为附件后引用实际生成的附件 URL；本项目无需外部附件即可显示 GIF 预览。GitHub 的媒体格式和附件大小要求见 [附件文档](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/attaching-files)。
 
 重新生成请按 [Jetson 指南](JETSON.md) 运行，输出到 `results/demo/`，不覆盖已经发布且有固定哈希的演示。
